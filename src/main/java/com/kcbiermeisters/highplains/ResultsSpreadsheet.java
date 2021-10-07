@@ -7,6 +7,7 @@ import java.io.Closeable;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.util.List;
+import java.util.Optional;
 
 import org.apache.poi.hssf.util.HSSFColor;
 import org.apache.poi.ss.usermodel.Cell;
@@ -18,9 +19,11 @@ import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
+import com.kcbiermeisters.highplains.bjcp.BjcpCategory;
 import com.kcbiermeisters.highplains.circuit.BrewerResults;
 import com.kcbiermeisters.highplains.circuit.ClubResults;
 import com.kcbiermeisters.highplains.circuit.Eligibility;
+import com.kcbiermeisters.highplains.comp.Place;
 
 import lombok.SneakyThrows;
 
@@ -113,6 +116,69 @@ public class ResultsSpreadsheet implements Closeable
         	createCell(row, colNum++, style, result.getFirstCount());
         	createCell(row, colNum++, style, result.getSecondCount());
         	createCell(row, colNum++, style, result.getThirdCount());
+        }
+                
+        autoSizeColumns(sheet, colNum);
+	}
+	
+	/**
+	 * createBrewerDetailsSheet
+	 */
+	public void createBrewerDetailsSheet(final List<BrewerResults> results, final List<BjcpCategory> categories)
+	{
+		Sheet sheet = workbook.createSheet("Brewer Details");
+        
+		// header
+		
+        Font boldFont = workbook.createFont();
+        boldFont.setBold(true);
+        
+        CellStyle headerStyle = workbook.createCellStyle();
+        headerStyle.setFont(boldFont);
+        headerStyle.setFillForegroundColor(HSSFColor.HSSFColorPredefined.GREY_25_PERCENT.getIndex());
+        headerStyle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+        
+        CellStyle headerRotatedStyle = workbook.createCellStyle();
+        headerRotatedStyle.setFont(boldFont);
+        headerRotatedStyle.setFillForegroundColor(HSSFColor.HSSFColorPredefined.GREY_25_PERCENT.getIndex());
+        headerRotatedStyle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+        headerRotatedStyle.setRotation((short) 90);
+        
+    	Row header = sheet.createRow(0);
+    	
+    	int colNum = 0;
+
+		Cell nameCell = header.createCell(colNum++);
+		nameCell.setCellValue("Name");
+		nameCell.setCellStyle(headerStyle);
+		
+		for (BjcpCategory category : categories)
+		{
+    		Cell catCell = header.createCell(colNum++);
+    		catCell.setCellValue(category.getName());
+    		catCell.setCellStyle(headerRotatedStyle);
+    	}
+        
+        // data
+        
+        CellStyle style = workbook.createCellStyle();
+        
+        int rowNum = 0;
+
+        for (BrewerResults result : results)
+        {
+        	Row row = sheet.createRow(++rowNum);
+        	        	        	
+        	colNum = 0;
+        	
+        	createCell(row, colNum++, style, result.getBrewer().getName());
+        	
+        	for (BjcpCategory category : categories)
+    		{
+        		Optional<Place> optPlace = result.getPlace(category);
+        		
+        		createCell(row, colNum++, style, optPlace.isPresent() ? optPlace.get().getMedal() : "");
+    		}
         }
                 
         autoSizeColumns(sheet, colNum);

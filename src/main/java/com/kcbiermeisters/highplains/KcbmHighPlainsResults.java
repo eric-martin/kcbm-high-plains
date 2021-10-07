@@ -14,7 +14,7 @@ import java.util.Map;
 
 import org.apache.commons.io.FileUtils;
 
-import com.kcbiermeisters.highplains.bjcp.BjcpStyleMap;
+import com.kcbiermeisters.highplains.bjcp.BjcpStyles;
 import com.kcbiermeisters.highplains.circuit.AliasProperties;
 import com.kcbiermeisters.highplains.circuit.CircuitResults;
 import com.kcbiermeisters.highplains.circuit.Eligibility;
@@ -47,10 +47,10 @@ public class KcbmHighPlainsResults
 
         // read the style guide
         
-        Map<String, String> styleMap = BjcpStyleMap.getInstance(new File(inputDir, "bjcp/2015_styleguide.xml"));
+        BjcpStyles styleMap = new BjcpStyles(new File(inputDir, "bjcp/2015_styleguide.xml"));
         
         Map<String, String> styleAliases = AliasProperties.readFile(new File(inputDir, "circuit/style-alias.properties"));
-        styleMap.putAll(styleAliases);
+        styleMap.addStyleAliases(styleAliases);
         
         // tally up results
 
@@ -98,6 +98,7 @@ public class KcbmHighPlainsResults
         ResultsSpreadsheet resultsSpreadsheet = new ResultsSpreadsheet(directory, "high-plains-results-" + directory + ".xlsx");
         resultsSpreadsheet.createBrewerSheet(circuitResults.getBrewerResults(), eligibility);
         resultsSpreadsheet.createClubSheet(circuitResults.getClubResults(), eligibility);
+        resultsSpreadsheet.createBrewerDetailsSheet(circuitResults.getBrewerResults(), styleMap.getCategories());
         resultsSpreadsheet.write();
         resultsSpreadsheet.close();
         

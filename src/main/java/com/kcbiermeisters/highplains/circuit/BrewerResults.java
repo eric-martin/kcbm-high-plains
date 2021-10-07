@@ -5,7 +5,9 @@ package com.kcbiermeisters.highplains.circuit;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
+import com.kcbiermeisters.highplains.bjcp.BjcpCategory;
 import com.kcbiermeisters.highplains.comp.Place;
 
 import lombok.Getter;
@@ -21,7 +23,7 @@ public class BrewerResults implements Results
 	@Getter
 	private final Brewer brewer;
 	
-    private final Map<String, Place> results;
+    private final Map<BjcpCategory, Place> results;
     
     /**
      * Constructor
@@ -35,7 +37,7 @@ public class BrewerResults implements Results
     /**
      * merge
      */
-    public void merge(final String category, final Place place)
+    public void merge(final BjcpCategory category, final Place place)
     {
         if (results.containsKey(category))
         {
@@ -93,6 +95,19 @@ public class BrewerResults implements Results
 	public int getThirdCount() 
 	{
 		return getCount(Place.THIRD);
+	}
+	
+	/**
+	 * getPlace
+	 */
+	public Optional<Place> getPlace(final BjcpCategory category)
+	{
+		if (results.containsKey(category))
+		{
+			return Optional.of(results.get(category));
+		}
+				
+		return Optional.empty();
 	}
     
     /**

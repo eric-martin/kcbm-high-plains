@@ -8,7 +8,10 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
+import com.kcbiermeisters.highplains.bjcp.BjcpCategory;
+import com.kcbiermeisters.highplains.bjcp.BjcpStyles;
 import com.kcbiermeisters.highplains.comp.Place;
 import com.kcbiermeisters.highplains.comp.WinningEntry;
 
@@ -21,7 +24,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class CircuitResults 
 {
-	private final Map<String, String> styleMap;
+	private final BjcpStyles bjcpStyles;
 	
 	private final Map<String, String> brewerAliases;
 	
@@ -32,9 +35,9 @@ public class CircuitResults
 	/**
 	 * Constructor
 	 */
-	public CircuitResults(final Map<String, String> styleMap, final Map<String, String> brewerAliases, final Map<String, String> clubAliases)
+	public CircuitResults(final BjcpStyles bjcpStyles, final Map<String, String> brewerAliases, final Map<String, String> clubAliases)
 	{
-		this.styleMap = styleMap;
+		this.bjcpStyles = bjcpStyles;
 		this.brewerAliases = brewerAliases;
 		this.clubAliases = clubAliases;
 		this.brewerResults = new HashMap<>();
@@ -47,7 +50,9 @@ public class CircuitResults
 	{
         for (WinningEntry winningEntry : winningEntries)
         {
-            if (styleMap.containsKey(winningEntry.getStyle()))
+        	Optional<BjcpCategory> optCategory = bjcpStyles.getCategory(winningEntry.getStyle());
+        	
+            if (optCategory.isPresent())
             {
             	String name = winningEntry.getName();
             	name = brewerAliases.getOrDefault(name, name);
@@ -62,10 +67,9 @@ public class CircuitResults
                     brewerResults.put(brewer, new BrewerResults(brewer));
                 }
                 
-                String category = styleMap.get(winningEntry.getStyle());
                 Place place = winningEntry.getPlace();
                 
-                brewerResults.get(brewer).merge(category, place);
+                brewerResults.get(brewer).merge(optCategory.get(), place);
             }
             else
             {

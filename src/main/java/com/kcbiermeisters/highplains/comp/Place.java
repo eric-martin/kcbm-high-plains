@@ -15,12 +15,15 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum Place
 {
-    FIRST(5),
-    SECOND(3),
-    THIRD(1),
-    FOURTH(0),
-    HM(0),
-    NA(0);
+    FIRST("G", 5),
+    SECOND("S", 3),
+    THIRD("B", 1),
+    FOURTH("", 0),
+    HM("", 0),
+    NA("", 0);
+    
+    @Getter
+    private final String medal;
     
     @Getter
     private final int points;
