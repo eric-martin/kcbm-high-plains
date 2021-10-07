@@ -60,8 +60,9 @@ public class KcbmHighPlainsResults
         CircuitResults circuitResults = new CircuitResults(styleMap, brewerAliases, clubAliases);
 
         String[] competitions = {
-            "https://www.kcbmcomp.com",
-            "www.ibuopen.com.html"
+            "www.kcbmcomp.com.html",
+            "www.ibuopen.com.html" // ,
+            // "https://www.lincolnlagers.com/cup"
         };
                         
         for (String competition : competitions)

@@ -11,10 +11,8 @@ import java.util.List;
 import org.apache.poi.hssf.util.HSSFColor;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellStyle;
-import org.apache.poi.ss.usermodel.ClientAnchor;
 import org.apache.poi.ss.usermodel.FillPatternType;
 import org.apache.poi.ss.usermodel.Font;
-import org.apache.poi.ss.usermodel.RichTextString;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
@@ -23,7 +21,6 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import com.kcbiermeisters.highplains.circuit.BrewerResults;
 import com.kcbiermeisters.highplains.circuit.ClubResults;
 import com.kcbiermeisters.highplains.circuit.Eligibility;
-import org.apache.poi.ss.usermodel.Comment;
 
 import lombok.SneakyThrows;
 
