@@ -61,8 +61,8 @@ public class KcbmHighPlainsResults
 
         String[] competitions = {
             "www.kcbmcomp.com.html",
-            "www.ibuopen.com.html" // ,
-            // "https://www.lincolnlagers.com/cup"
+            "www.ibuopen.com.html",
+            "https://www.lincolnlagers.com/cup"
         };
                         
         for (String competition : competitions)
@@ -76,6 +76,15 @@ public class KcbmHighPlainsResults
         		competitionFile = new File(outputDir, compUrl.getHost() + ".html");
         		
         		FileUtils.copyURLToFile(compUrl, competitionFile, 5000, 5000);
+        		
+        		if (competitionFile.length() < 1000)
+        		{
+        			compUrl = new URL(competition);
+            		
+            		competitionFile = new File(outputDir, compUrl.getHost() + ".html");
+            		
+            		FileUtils.copyURLToFile(compUrl, competitionFile, 5000, 5000);
+        		}
         	}
         	else
         	{

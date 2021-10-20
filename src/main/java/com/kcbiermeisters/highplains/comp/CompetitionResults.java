@@ -37,7 +37,28 @@ public class CompetitionResults
         
         List<WinningEntry> winningEntries = new ArrayList<>();
 
-        Elements body = htmlResults.select("body");
+        Element body = htmlResults.select("body").first();
+        
+        Elements script = body.select("script");
+        
+        if (!script.isEmpty())
+        {
+        	// remove best of show tables
+        	        	
+            for (Element child : body.select("div"))
+        	{
+            	if ("bcoem-winner-table".equals(child.className()))
+        		{
+        			Element heading = child.select("h3").first();
+        			
+        			if (heading.text().contains("Best of Show"))
+        			{
+        				child.remove();
+        			}
+        		}
+        	}
+        }
+        
         Elements tables = body.select("table");
         
         for (Element table : tables) 
@@ -53,6 +74,16 @@ public class CompetitionResults
                 String brewerText = cols.get(1).ownText();
                 String styleText = cols.get(3).ownText();
                 String clubText = cols.get(4).ownText();
+                
+                if (brewerText.contains("Co-Brewer:"))
+                {
+                	brewerText = brewerText.substring(0, brewerText.indexOf("Co-Brewer:")).trim();
+                }
+                
+                if (styleText.contains(":"))
+                {
+                	styleText = styleText.substring(styleText.indexOf(':') + 1).trim();
+                }
                 
                 log.debug("{} / {} / {} / {}", placeText, brewerText, styleText, clubText);
                 
@@ -77,4 +108,6 @@ public class CompetitionResults
         
         return winningEntries; 
     }
+    
+    
 }

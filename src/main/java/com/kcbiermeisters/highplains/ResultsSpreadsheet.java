@@ -155,7 +155,7 @@ public class ResultsSpreadsheet implements Closeable
 		for (BjcpCategory category : categories)
 		{
     		Cell catCell = header.createCell(colNum++);
-    		catCell.setCellValue(category.getName());
+    		catCell.setCellValue(category.getId() + ": " + category.getName());
     		catCell.setCellStyle(headerRotatedStyle);
     	}
         
