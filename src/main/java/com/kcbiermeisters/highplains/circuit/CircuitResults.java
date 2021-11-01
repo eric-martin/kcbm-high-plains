@@ -64,7 +64,57 @@ public class CircuitResults
                 
                 if (!brewerResults.containsKey(brewer))
                 {
-                    brewerResults.put(brewer, new BrewerResults(brewer));
+                	// no match 
+                	
+                	boolean found = false;
+
+                	// check for a match by name only
+                	
+                	Brewer possibleMatch = null;
+                	
+                	for (Brewer b : brewerResults.keySet())
+                	{
+                		if (b.getName().equals(brewer.getName()))
+                		{
+                			possibleMatch = b;
+                			break;
+                		}
+                	}
+                	
+                	// possibly merge brewers
+                	
+                	if (possibleMatch != null)
+                	{
+                		if (brewer.hasNoClub())
+                		{
+                			// existing brewer has a club defined
+                			// current brewer matches on name but no club defined
+                			// match to the existing brewer with a club
+                			
+                			brewer = possibleMatch;
+                			
+                			found = true;
+                		}
+                		else if (possibleMatch.hasNoClub())
+                		{
+                			// existing brewer doesn't have a club defined
+                			// current brewer matches on name and has a club defined
+                			// replace the existing brewer record with the current one
+                			
+	                		BrewerResults results = brewerResults.remove(possibleMatch);
+	                		results.getBrewer().setClub(brewer.getClub());
+	                		brewerResults.put(brewer, results);
+	                		
+	                		found = true;
+                		}
+                	}
+                	
+                	// add the brewer is we couldn't find an existing matching record
+                	
+                	if (!found)
+                	{
+                		brewerResults.put(brewer, new BrewerResults(brewer));
+                	}
                 }
                 
                 Place place = winningEntry.getPlace();

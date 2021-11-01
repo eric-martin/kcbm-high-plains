@@ -62,7 +62,8 @@ public class KcbmHighPlainsResults
         String[] competitions = {
             "www.kcbmcomp.com.html",
             "www.ibuopen.com.html",
-            "https://www.lincolnlagers.com/cup"
+            "https://www.lincolnlagers.com/cup",
+            "https://hoppyhalloween.com/comp/"
         };
                         
         for (String competition : competitions)
