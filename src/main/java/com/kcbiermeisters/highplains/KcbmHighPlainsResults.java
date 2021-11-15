@@ -63,7 +63,8 @@ public class KcbmHighPlainsResults
             "www.kcbmcomp.com.html",
             "www.ibuopen.com.html",
             "https://www.lincolnlagers.com/cup",
-            "https://hoppyhalloween.com/comp/"
+            "https://hoppyhalloween.com/comp/",
+            "https://mashout.org/bcoem/"
         };
                         
         for (String competition : competitions)
