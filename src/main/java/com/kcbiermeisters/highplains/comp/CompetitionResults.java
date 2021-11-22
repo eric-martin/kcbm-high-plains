@@ -51,7 +51,9 @@ public class CompetitionResults
         		{
         			Element heading = child.select("h3").first();
         			
-        			if (heading.text().contains("Best of Show"))
+        			if (heading.text().contains("Best of Show") || 
+        				heading.text().contains("Okie Cup") ||
+        				heading.text().contains("The FOAM Cup"))
         			{
         				child.remove();
         			}
