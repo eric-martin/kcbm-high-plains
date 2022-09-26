@@ -53,7 +53,10 @@ public class CompetitionResults
         			
         			if (heading.text().contains("Best of Show") || 
         				heading.text().contains("Okie Cup") ||
-        				heading.text().contains("The FOAM Cup"))
+        				heading.text().contains("The FOAM Cup") ||
+        				heading.text().contains("The Rager Cup") ||
+        				heading.text().contains("Best Brewer") ||
+        				heading.text().contains("Best Club"))
         			{
         				child.remove();
         			}

@@ -60,12 +60,12 @@ public class KcbmHighPlainsResults
         CircuitResults circuitResults = new CircuitResults(styleMap, brewerAliases, clubAliases);
 
         String[] competitions = {
-            "www.kcbmcomp.com.html",
-            "www.ibuopen.com.html",
+            "https://kcbmcomp.com",
+            "https://ibuopen.brewcompetition.com" /*,
             "https://www.lincolnlagers.com/cup",
             "https://hoppyhalloween.com/comp/",
             "mashout.org.html",
-            "https://foamcup.us/"
+            "https://foamcup.us/" */
         };
                         
         for (String competition : competitions)
@@ -74,20 +74,20 @@ public class KcbmHighPlainsResults
         	
         	if (competition.contains("://"))
         	{
-        		URL compUrl = new URL(competition + "/output/export.output.php?section=results&go=judging_scores&action=default&filter=none&view=html");
+        		URL compUrl = new URL(competition + "/output/export.output.php?section=results&go=judging_scores&action=default&filter=default&view=html");
         		
-        		competitionFile = new File(outputDir, compUrl.getHost() + ".html");
+        		//competitionFile = new File(outputDir, compUrl.getHost() + ".html");
         		
-        		FileUtils.copyURLToFile(compUrl, competitionFile, 5000, 5000);
+        		//FileUtils.copyURLToFile(compUrl, competitionFile, 5000, 5000);
         		
-        		if (competitionFile.length() < 1000)
-        		{
+        		//if (competitionFile.length() < 1000)
+        		//{
         			compUrl = new URL(competition);
             		
             		competitionFile = new File(outputDir, compUrl.getHost() + ".html");
             		
             		FileUtils.copyURLToFile(compUrl, competitionFile, 5000, 5000);
-        		}
+        		//}
         	}
         	else
         	{
