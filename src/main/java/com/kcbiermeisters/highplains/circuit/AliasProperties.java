@@ -28,14 +28,14 @@ public class AliasProperties
 	{
 		Map<String, String> aliases = new HashMap<>();
 		
-        try (Scanner aliasScanner = new Scanner(file))
+        try (Scanner aliasScanner = new Scanner(file, "UTF-8"))
         {
             while (aliasScanner.hasNextLine())
             {
                 String aliasLine = aliasScanner.nextLine();
-                
+
                 String[] aliasParts = aliasLine.split("=");
-                
+
                 if (aliasParts.length == 2)
                 {
                     String alias = aliasParts[0];
@@ -47,7 +47,7 @@ public class AliasProperties
                 }
                 else
                 {
-                    // TODO
+                    log.error("Alias parts => {}", aliasParts);
                 }
             }
         }

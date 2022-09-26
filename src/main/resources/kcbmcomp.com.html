@@ -1,0 +1,1223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Kansas City Bier Meisters 39th Annual Homebrew Competition - Brew Competition Online Entry &amp; Management</title>
+  	<!-- Load jQuery / http://jquery.com/ -->
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+    <!-- Load Bootstrap / http://www.getbootsrap.com -->
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Load DataTables / https://www.datatables.net -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/plug-ins/1.10.12/integration/font-awesome/dataTables.fontAwesome.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
+
+    <!-- Load Fancybox / http://www.fancyapps.com -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.pack.js"></script>
+
+
+
+
+  	<!-- Load Bootstrap Form Validator / http://1000hz.github.io/bootstrap-validator -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.9.0/validator.min.js"></script>
+
+    <!-- Load Bootstrap-Select / https://developer.snapappointments.com/bootstrap-select -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.0/css/bootstrap-select.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.0/js/bootstrap-select.min.js"></script>
+
+    <!-- Load Font Awesome / https://fortawesome.github.io/Font-Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/v4-shims.min.css" integrity="sha512-NfhLGuxy6G12XHj7/bvm0RC3jmR25RdpImn8P19aIMmN5pndO0fvIg78ihN2WIJtVRs+AYVrnYF4AipVikGPLg==" crossorigin="anonymous" />
+
+    <!-- Load BCOE&M Custom CSS - Contains Bootstrap overrides and custom classes common to all BCOE&M themes -->
+    <link rel="stylesheet" type="text/css" href="https://kcbmcomp.com/css/common.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://kcbmcomp.com/css/bruxellensis.min.css" />
+    
+    <!-- Load BCOE&M Custom JS -->
+    <script src="https://kcbmcomp.com/js_includes/bcoem_custom.min.js"></script>
+    
+    <!-- Open Graph Implementation -->
+    <meta property="og:title" content="Kansas City Bier Meisters 39th Annual Homebrew Competition" />
+    <meta property="og:image" content="https://kcbmcomp.com/user_images/kcbm39patch.jpg" />
+    <meta property="og:url" content="https://kcbmcomp.com/" />
+</head>
+<body>
+
+<!-- LOADER -->
+<div id="loader-submit">
+    <div class="center">
+        <span class="fa fa-cog fa-spin fa-5x fa-fw"></span>
+        <p><strong>Working.<br>Please stand by. Press Esc to hide.</strong></p>
+    </div>
+</div>
+<!-- ./LOADER -->
+
+<!-- MAIN NAV -->
+<div class="container hidden-print">
+    <script>
+$(document).ready(function(){
+	$("#login-modal-disable").hide();
+    $("#login-modal-enable").show();
+    $("#admin-disable").hide();
+    $("#admin-enable").show();
+	$("#user-menu-disable").hide();
+    $("#logout-disable").hide();
+    $("#user-menu-enable").show();
+	$("#print-enable").show();
+	$("#help-enable").show();
+	$('#loginModal').on('shown.bs.modal', function() {
+		 $(this).find('#loginUsername').focus();
+	});
+});
+</script>
+<!-- Login Form Modal -->
+<!-- Modal -->
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel">
+	<div class="modal-dialog modal-sm" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="loginModalLabel">Log In</h4>
+			</div>
+			<div class="modal-body">
+				<form class="form-horizontal" data-toggle="validator" role="form" action="https://kcbmcomp.com/includes/logincheck.inc.php?section=login" method="POST" name="form1" id="form1">
+					<div class="form-group">
+						<div class="col-md-12">
+							<div class="input-group has-warning">
+								<span class="input-group-addon" id="login-addon1"><span class="fa fa-envelope"></span></span>
+								<!-- Input Here -->
+								<input id="loginUsername" class="form-control" name="loginUsername" type="email" required placeholder="Email Address" data-error="Your user name (email address) is required.">
+								<span class="input-group-addon" id="login-addon2"><span class="fa fa-star"></span></span>
+							</div>
+							<span class="help-block with-errors"></span>
+						</div>
+					</div><!-- Form Group -->
+					<div class="form-group">
+						<div class="col-md-12">
+							<div class="input-group has-warning">
+								<span class="input-group-addon" id="login-addon3"><span class="fa fa-key"></span></span>
+								<!-- Input Here -->
+								<input class="form-control" name="loginPassword" type="password" required placeholder="Password" data-error="Your password is required.">
+								<span class="input-group-addon" id="login-addon4"><span class="fa fa-star"></span></span>
+							</div>
+							<span class="help-block with-errors"></span>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-md-12">
+							<!-- Input Here -->
+							<button name="submit" type="submit" class="btn btn-primary btn-block" >Log In <span class="fa fa-sign-in" aria-hidden="true"></span> </button>
+						</div>
+					</div><!-- Form Group -->
+				</form>
+			</div>
+			<div class="modal-footer">
+				<p align="center"><span class="fa fa-lg fa-exlamation-circle"></span> Forgot your password? <a href="https://kcbmcomp.com/index.php?section=login&amp;go=password&amp;action=forgot">Reset it</a>.</p>
+							</div>
+		</div>
+	</div>
+</div>
+	<!-- Fixed navbar -->
+    <div class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bcoem-navbar-collapse" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div class="collapse navbar-collapse" id="bcoem-navbar-collapse">
+              <ul class="nav navbar-nav">
+                <li class="active"><a class="hide-loader" href="#">Home</a></li>
+                <li><a class="hide-loader" href="https://kcbmcomp.com/entry">Info</a></li>
+                <li><a class="hide-loader" href="https://kcbmcomp.com/volunteers">Volunteers</a></li>
+                                <li><a class="hide-loader" href="https://kcbmcomp.com/sponsors">Sponsors</a></li>
+                                <li><a class="hide-loader" href="https://kcbmcomp.com/contact">Contact</a></li>
+                                              </ul>
+          <ul class="nav navbar-nav navbar-right">
+          	          	          	<li id="print-enable"><a class="hide-loader hidden-xs hidden-sm hidden-md" href="javascript:window.print()" role="button"><span class="fa fa-print"></span></a></li>
+                      	            <li id="login-modal-enable" ><a href="#" role="button" data-toggle="modal" data-target="#loginModal">Log In</a></li>
+            <li id="login-modal-disable"><a href="https://kcbmcomp.com/index.php?section=login">Log In</a></li>
+                        </ul>
+          </div>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+    </div><!-- container -->
+<!-- ./MAIN NAV -->
+
+<!-- ALERTS -->
+<div class="container bcoem-warning-container">
+    
+
+
+
+
+
+    
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  	
+          
+    <div id="no-js-alert" class="alert alert-danger lead">
+        <i class="fa fa-lg fa-exclamation-circle"></i> <strong>For an optimal experience and so that all features and functions execute properly, please enable JavaScript to continue using this site. Otherwise, unexpected behavior will occur.</strong>
+    </div>
+</div><!-- ./container -->
+<!-- ./ALERTS -->
+
+<!-- DEBUG -->
+<div class="container hidden-print">
+</div>
+<!-- ./DEBUG -->
+
+<!-- Public Pages (Fixed Layout with Sidebar) -->
+<div id="main-content" class="container">
+    <div class="row">
+        <div class="col col-lg-9 col-md-8 col-sm-12 col-xs-12">
+                <div class="page-header">
+            <h1>Kansas City Bier Meisters 39th Annual Homebrew Competition</h1>
+        </div>
+        <p class="lead">Thanks to all who participated in the Kansas City Bier Meisters 39th Annual Homebrew Competition.</p><p class="lead"><small>There were <strong class="text-success">459</strong> entries judged and <strong class="text-success">372</strong> registered participants, judges, and stewards.</small></p><h2>Best of Show Winners <a class="hide-loader" href="https://kcbmcomp.com/output/export.output.php?section=results&amp;go=judging_scores_bos&amp;action=download&amp;filter=default&amp;view=pdf" data-toggle="tooltip" title="Download the Best of Show winners in PDF format."><span class="fa fa-file-pdf-o hidden-print"></span></a> <a class="hide-loader" href="https://kcbmcomp.com/output/export.output.php?section=results&amp;go=judging_scores_bos&amp;action=download&amp;filter=default&amp;view=html" data-toggle="tooltip" title="Download the Best of Show winners in HTML format."><span class="fa fa-file-code-o hidden-print"></span></a></h2><script type="text/javascript" language="javascript">
+ $(document).ready(function() {
+	$('#sortable473794972').dataTable( {
+		"bPaginate" : false,
+		"sDom": 'rt',
+		"bStateSave" : false,
+		"bLengthChange" : false,
+		"aaSorting": [[0,'asc']],
+		"bProcessing" : false,
+		"aoColumns": [
+			{ "asSorting": [  ] },
+			{ "asSorting": [  ] },
+			{ "asSorting": [  ] },
+			{ "asSorting": [  ] },			{ "asSorting": [  ] }
+			]
+		} );
+	} );
+</script>
+<div class="bcoem-winner-table">
+<h3>Best of Show &ndash; Beer</h3><table class="table table-responsive table-striped table-bordered dataTable" id="sortable473794972">
+<thead>
+	<tr><th nowrap>Place</th><th>Brewer</th><th>Entry Name</th><th>Style</th><th>Club</th></tr></thead>
+<tbody>
+	<tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-gold'></span> 1st</td><td width="25%">Travis Kirby</td><td width="25%">Barrel Party Barleywine</td><td>33B: Specialty Wood-Aged Beer</td><td width="20%">Fellowship of Oklahoma Ale Makers (FOAM)</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-silver'></span> 2nd</td><td width="25%">Jeremiah Baer</td><td width="25%">Hibiscus Saison</td><td>30A: Spice, Herb, or Vegetable Beer</td><td width="20%">East Side Brewers [IL]</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-bronze'></span> 3rd</td><td width="25%">John Erste</td><td width="25%">Citra Island IPA</td><td>12C: English IPA</td><td width="20%">Little Mountain Homebrewers Association</td></tr></tbody>
+</table>
+</div>
+<script type="text/javascript" language="javascript">
+ $(document).ready(function() {
+	$('#sortable1365771484').dataTable( {
+		"bPaginate" : false,
+		"sDom": 'rt',
+		"bStateSave" : false,
+		"bLengthChange" : false,
+		"aaSorting": [[0,'asc']],
+		"bProcessing" : false,
+		"aoColumns": [
+			{ "asSorting": [  ] },
+			{ "asSorting": [  ] },
+			{ "asSorting": [  ] },
+			{ "asSorting": [  ] },			{ "asSorting": [  ] }
+			]
+		} );
+	} );
+</script>
+<div class="bcoem-winner-table">
+<h3>Best of Show &ndash; Cider</h3><table class="table table-responsive table-striped table-bordered dataTable" id="sortable1365771484">
+<thead>
+	<tr><th nowrap>Place</th><th>Brewer</th><th>Entry Name</th><th>Style</th><th>Club</th></tr></thead>
+<tbody>
+	<tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-gold'></span> 1st</td><td width="25%">Patrick Brown</td><td width="25%">Cotes Du Kansas </td><td>C1B: English Cider</td><td width="20%">Kansas City Bier Meisters</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-silver'></span> 2nd</td><td width="25%">Kevin Wagner</td><td width="25%">Brewed With The Bucketmaster 7000 Brewing System</td><td>C2E: Cider with Herbs/Spices</td><td width="20%">Kansas City Bier Meisters</td></tr></tbody>
+</table>
+</div>
+<script type="text/javascript" language="javascript">
+ $(document).ready(function() {
+	$('#sortable102265427949').dataTable( {
+		"bPaginate" : false,
+		"sDom": 'rt',
+		"bStateSave" : false,
+		"bLengthChange" : false,
+		"aaSorting": [[0,'asc']],
+		"bProcessing" : false,
+		"aoColumns": [
+			{ "asSorting": [  ] },
+			{ "asSorting": [  ] },
+			{ "asSorting": [  ] },
+			{ "asSorting": [  ] },			{ "asSorting": [  ] }
+			]
+		} );
+	} );
+</script>
+<div class="bcoem-winner-table">
+<h3>Best of Show &ndash; Mead</h3><table class="table table-responsive table-striped table-bordered dataTable" id="sortable102265427949">
+<thead>
+	<tr><th nowrap>Place</th><th>Brewer</th><th>Entry Name</th><th>Style</th><th>Club</th></tr></thead>
+<tbody>
+	<tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-gold'></span> 1st</td><td width="25%">Matthew Mead</td><td width="25%">Goodbye Moonmen - A Song By Fart</td><td>M2B: Pyment</td><td width="20%">Michigan Mead Coalition</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-silver'></span> 2nd</td><td width="25%">Traci Kuhfuss</td><td width="25%">Hawaiian Wildflower</td><td>M1C: Sweet Mead</td><td width="20%">Cane Island Alers (CIA)</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-bronze'></span> 3rd</td><td width="25%">Benjamin Daniels</td><td width="25%">&iexcl;gusto&excl;</td><td>M4C: Experimental Mead</td><td width="20%">Kansas City Bier Meisters</td></tr></tbody>
+</table>
+</div>
+<!-- Public Page Rebuild completed 08.26.15 -->
+
+
+
+<div class="bcoem-winner-table">
+	<h3>The Rager Cup (125 Participating Brewers)</h3>    <table class="table table-responsive table-striped table-bordered"  id="sortable">
+    <thead>
+        <tr><th nowrap>Place</th><th>Brewer</th><th>1st</th><th>2nd</th><th>3rd</th><th nowrap>Score</th><th>Club</th>    </thead>
+    <tbody>
+        <tr><td width="1%" nowrap><a name="16.02040016"></a><span class='fa fa-lg fa-trophy text-gold'></span> 1st</td><td width="20%">Fritz Schanz</td><td width="10%" nowrap>2</td><td width="10%" nowrap>2</td><td width="10%" nowrap>0</td><td width="1%" nowrap>16.02 <a href="#16.02040016" tabindex="0" role="button" data-toggle="popover" data-trigger="hover" data-placement="auto top" data-container="body" title="Actual Calculated Value" data-content="16.02040016"><span class="hidden-xs hidden-sm hidden-md hidden-print fa fa-question-circle"></span></a></td><td>Denton County Homebrewers Guild</td></tr>    </tbody>
+    </table>
+    <p>Scores and tie-breakers have been applied in accordance with the <a href="#" data-toggle="modal" data-target="#scoreMethod">scoring methodology</a>. Numbers reflected are rounded to the hundredth place. Hover over or tap the question mark icon (<span class="fa fa-question-circle"></span>) for the actual calculated value.</p></div>
+<div class="modal fade" id="scoreMethod" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">
+				The Rager Cup Scoring Methodology				</h4>
+			</div>
+			<div class="modal-body">
+				<p>Each placing entry is given the following points:</p>
+				<ul>
+					<li>1st Place: 5</li>
+					<li>2nd Place: 3</li>
+					<li>3rd Place: 1</li>
+														</ul>
+								<p>The following tie-breakers have been applied, in order of priority:</p>
+				<ol>
+					<li>The highest number of first places.</li>
+					<li>The highest total number of first, second, and third places.</li>					<li>The lowest number of entries.</li>																			</ol>
+							</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Public Page Rebuild completed 08.26.15 --><h2>Winning Entries <a class="hide-loader" href="https://kcbmcomp.com/output/export.output.php?section=results&amp;go=judging_scores&amp;action=default&amp;filter=none&amp;view=pdf" data-toggle="tooltip" title="Download the winning entries in PDF format."><span class="fa fa-file-pdf-o hidden-print"></span></a> <a class="hide-loader" href="https://kcbmcomp.com/output/export.output.php?section=results&amp;go=judging_scores&amp;action=default&amp;filter=none&amp;view=html" data-toggle="tooltip" title="Download the winning entries in HTML format."><span class="fa fa-file-code-o hidden-print"></span></a></h2>	<script type="text/javascript" language="javascript">
+	 $(document).ready(function() {
+		$('#sortableG247L404I5M63E9k9B33H9').dataTable( {
+			"bPaginate" : false,
+			"sDom": 'rt',
+			"bStateSave" : false,
+			"bLengthChange" : false,
+			"aaSorting": [[0,'asc']],
+			"bProcessing" : false,
+			"aoColumns": [
+				{ "asSorting": [  ] },
+				{ "asSorting": [  ] },
+				{ "asSorting": [  ] },
+				{ "asSorting": [  ] },				{ "asSorting": [  ] }				]
+			} );
+		} );
+	</script>
+	<div class="bcoem-winner-table">
+		<h3>Table 1: Light Hybrid Beer (22 entries)</h3>		<table class="table table-responsive table-striped table-bordered" id="sortableG247L404I5M63E9k9B33H9">
+		<thead>
+			<tr><th nowrap>Place</th><th>Brewer</th><th><span class="hidden-xs hidden-sm hidden-md">Entry </span>Name</th><th>Style</th><th>Club</th></tr>		</thead>
+		<tbody>
+			<tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-gold'></span> 1st</td><td>Logan Prasser</td><td width="25%">Gravvel</td><td width="25%">5B: Kolsch</td><td width="25%">Beer Barons of Milwaukee</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-silver'></span> 2nd</td><td>Caleb Meinke</td><td width="25%">Elska</td><td width="25%">18A: Blonde Ale</td><td width="25%">Madison Homebrewers &amp; Tasters</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-bronze'></span> 3rd</td><td>Mark Fleckenstein</td><td width="25%">Weary Traveler Kolsch</td><td width="25%">5B: Kolsch</td><td width="25%">THIRSTY</td></tr>		</tbody>
+		</table>
+	</div>
+		<script type="text/javascript" language="javascript">
+	 $(document).ready(function() {
+		$('#sortablet7l1047J4531T88Q10Q7').dataTable( {
+			"bPaginate" : false,
+			"sDom": 'rt',
+			"bStateSave" : false,
+			"bLengthChange" : false,
+			"aaSorting": [[0,'asc']],
+			"bProcessing" : false,
+			"aoColumns": [
+				{ "asSorting": [  ] },
+				{ "asSorting": [  ] },
+				{ "asSorting": [  ] },
+				{ "asSorting": [  ] },				{ "asSorting": [  ] }				]
+			} );
+		} );
+	</script>
+	<div class="bcoem-winner-table">
+		<h3>Table 2: Light Lagers (22 entries)</h3>		<table class="table table-responsive table-striped table-bordered" id="sortablet7l1047J4531T88Q10Q7">
+		<thead>
+			<tr><th nowrap>Place</th><th>Brewer</th><th><span class="hidden-xs hidden-sm hidden-md">Entry </span>Name</th><th>Style</th><th>Club</th></tr>		</thead>
+		<tbody>
+			<tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-gold'></span> 1st</td><td>Metts Potter</td><td width="25%">Little Buddy</td><td width="25%">1B: American Lager</td><td width="25%">Bloatarian Brewing League</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-silver'></span> 2nd</td><td>Nicholas Merfeld</td><td width="25%">Runoff Lager</td><td width="25%">1A: American Light Lager</td><td width="25%">Iowa Brewers Union</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-bronze'></span> 3rd</td><td>Joe Dauria</td><td width="25%">Sienna&apos;s Sunshine</td><td width="25%">2A: International Pale Lager</td><td width="25%">Metro South Homebrew League (MASH HOLES) [South Weymouth, MA]</td></tr>		</tbody>
+		</table>
+	</div>
+		<script type="text/javascript" language="javascript">
+	 $(document).ready(function() {
+		$('#sortable68710195I87e6W84').dataTable( {
+			"bPaginate" : false,
+			"sDom": 'rt',
+			"bStateSave" : false,
+			"bLengthChange" : false,
+			"aaSorting": [[0,'asc']],
+			"bProcessing" : false,
+			"aoColumns": [
+				{ "asSorting": [  ] },
+				{ "asSorting": [  ] },
+				{ "asSorting": [  ] },
+				{ "asSorting": [  ] },				{ "asSorting": [  ] }				]
+			} );
+		} );
+	</script>
+	<div class="bcoem-winner-table">
+		<h3>Table 3: Pilsner (11 entries)</h3>		<table class="table table-responsive table-striped table-bordered" id="sortable68710195I87e6W84">
+		<thead>
+			<tr><th nowrap>Place</th><th>Brewer</th><th><span class="hidden-xs hidden-sm hidden-md">Entry </span>Name</th><th>Style</th><th>Club</th></tr>		</thead>
+		<tbody>
+			<tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-gold'></span> 1st</td><td>Alex Boyer<br>Co-Brewer: Hilary Barbour</td><td width="25%">Reverse Flush</td><td width="25%">PRX5: New Zealand Pilsner</td><td width="25%">Johnson County Brewing Society</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-silver'></span> 2nd</td><td>Randy Daniels &amp; KC McKinney</td><td width="25%">German Pils</td><td width="25%">5D: German Pils</td><td width="25%">Iowa Brewers Union</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-bronze'></span> 3rd</td><td>David Thompson</td><td width="25%">Clever Name For Pilsner Coming Soon</td><td width="25%">5D: German Pils</td><td width="25%">Fellowship of Oklahoma Ale Makers (FOAM)</td></tr>		</tbody>
+		</table>
+	</div>
+		<script type="text/javascript" language="javascript">
+	 $(document).ready(function() {
+		$('#sortable10110c6p9788E410U31').dataTable( {
+			"bPaginate" : false,
+			"sDom": 'rt',
+			"bStateSave" : false,
+			"bLengthChange" : false,
+			"aaSorting": [[0,'asc']],
+			"bProcessing" : false,
+			"aoColumns": [
+				{ "asSorting": [  ] },
+				{ "asSorting": [  ] },
+				{ "asSorting": [  ] },
+				{ "asSorting": [  ] },				{ "asSorting": [  ] }				]
+			} );
+		} );
+	</script>
+	<div class="bcoem-winner-table">
+		<h3>Table 4: European Amber Lager (19 entries)</h3>		<table class="table table-responsive table-striped table-bordered" id="sortable10110c6p9788E410U31">
+		<thead>
+			<tr><th nowrap>Place</th><th>Brewer</th><th><span class="hidden-xs hidden-sm hidden-md">Entry </span>Name</th><th>Style</th><th>Club</th></tr>		</thead>
+		<tbody>
+			<tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-gold'></span> 1st</td><td>Andrew Lockwood</td><td width="25%">Restavus</td><td width="25%">4B: Festbier</td><td width="25%">Nordeast Brewers Alliance</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-silver'></span> 2nd</td><td>Mike &amp; Stephanie Butler</td><td width="25%">Naramore Tip &num;37</td><td width="25%">7A: Vienna Lager</td><td width="25%">Kansas City Bier Meisters</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-bronze'></span> 3rd</td><td>Kevin Olson</td><td width="25%">Jantar</td><td width="25%">3C: Czech Amber Lager</td><td width="25%">ZZHops Homebrewing Club</td></tr>		</tbody>
+		</table>
+	</div>
+		<script type="text/javascript" language="javascript">
+	 $(document).ready(function() {
+		$('#sortable27w102743n9459k9').dataTable( {
+			"bPaginate" : false,
+			"sDom": 'rt',
+			"bStateSave" : false,
+			"bLengthChange" : false,
+			"aaSorting": [[0,'asc']],
+			"bProcessing" : false,
+			"aoColumns": [
+				{ "asSorting": [  ] },
+				{ "asSorting": [  ] },
+				{ "asSorting": [  ] },
+				{ "asSorting": [  ] },				{ "asSorting": [  ] }				]
+			} );
+		} );
+	</script>
+	<div class="bcoem-winner-table">
+		<h3>Table 5: Dark Lager (15 entries)</h3>		<table class="table table-responsive table-striped table-bordered" id="sortable27w102743n9459k9">
+		<thead>
+			<tr><th nowrap>Place</th><th>Brewer</th><th><span class="hidden-xs hidden-sm hidden-md">Entry </span>Name</th><th>Style</th><th>Club</th></tr>		</thead>
+		<tbody>
+			<tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-gold'></span> 1st</td><td>Chester Smith</td><td width="25%">Chester&apos;s 3rd Best</td><td width="25%">2C: International Dark Lager</td><td width="25%">Iowa Brewers Union [Des Moines, IA]</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-silver'></span> 2nd</td><td>Travis Johnston<br>Co-Brewer: Micheal Platt</td><td width="25%">Schwarzbier</td><td width="25%">8B: Schwarzbier</td><td width="25%">Lawrence Brewers Guild</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-bronze'></span> 3rd</td><td>Jarrett Long<br>Co-Brewer: John Bates</td><td width="25%">Czech Me Out In The Dark</td><td width="25%">3D: Czech Dark Lager</td><td width="25%">Horsemen of the Hopocalypse</td></tr>		</tbody>
+		</table>
+	</div>
+		<script type="text/javascript" language="javascript">
+	 $(document).ready(function() {
+		$('#sortablet4U35964859M110h3u3').dataTable( {
+			"bPaginate" : false,
+			"sDom": 'rt',
+			"bStateSave" : false,
+			"bLengthChange" : false,
+			"aaSorting": [[0,'asc']],
+			"bProcessing" : false,
+			"aoColumns": [
+				{ "asSorting": [  ] },
+				{ "asSorting": [  ] },
+				{ "asSorting": [  ] },
+				{ "asSorting": [  ] },				{ "asSorting": [  ] }				]
+			} );
+		} );
+	</script>
+	<div class="bcoem-winner-table">
+		<h3>Table 6: Bock (8 entries)</h3>		<table class="table table-responsive table-striped table-bordered" id="sortablet4U35964859M110h3u3">
+		<thead>
+			<tr><th nowrap>Place</th><th>Brewer</th><th><span class="hidden-xs hidden-sm hidden-md">Entry </span>Name</th><th>Style</th><th>Club</th></tr>		</thead>
+		<tbody>
+			<tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-gold'></span> 1st</td><td>Chas Peterson</td><td width="25%">Delmarva Spring Break</td><td width="25%">6C: Dunkels Bock</td><td width="25%"></td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-silver'></span> 2nd</td><td>Mark Kanczuzewski</td><td width="25%">Doppelbach</td><td width="25%">9A: Doppelbock <a href="#507"  tabindex="0" role="button" data-toggle="popover" data-trigger="hover" data-placement="auto top" data-container="body" title="Info" data-content="Amber/Dark Color"><span class="hidden-xs hidden-sm hidden-md hidden-print fa fa-info-circle"></span></a></td></td><td width="25%"></td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-bronze'></span> 3rd</td><td>David Thompson</td><td width="25%">Juicy Ddh Hazy Kviek Maibock</td><td width="25%">4C: Helles Bock</td><td width="25%">Fellowship of Oklahoma Ale Makers (FOAM)</td></tr>		</tbody>
+		</table>
+	</div>
+		<script type="text/javascript" language="javascript">
+	 $(document).ready(function() {
+		$('#sortable610399q910S489a6n2').dataTable( {
+			"bPaginate" : false,
+			"sDom": 'rt',
+			"bStateSave" : false,
+			"bLengthChange" : false,
+			"aaSorting": [[0,'asc']],
+			"bProcessing" : false,
+			"aoColumns": [
+				{ "asSorting": [  ] },
+				{ "asSorting": [  ] },
+				{ "asSorting": [  ] },
+				{ "asSorting": [  ] },				{ "asSorting": [  ] }				]
+			} );
+		} );
+	</script>
+	<div class="bcoem-winner-table">
+		<h3>Table 7: Specialty IPA (20 entries)</h3>		<table class="table table-responsive table-striped table-bordered" id="sortable610399q910S489a6n2">
+		<thead>
+			<tr><th nowrap>Place</th><th>Brewer</th><th><span class="hidden-xs hidden-sm hidden-md">Entry </span>Name</th><th>Style</th><th>Club</th></tr>		</thead>
+		<tbody>
+			<tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-gold'></span> 1st</td><td>Alex Williams<br>Co-Brewer: Patrick Williams</td><td width="25%">Technicolor Octopus III</td><td width="25%">21B7: New England IPA <a href="#2"  tabindex="0" role="button" data-toggle="popover" data-trigger="hover" data-placement="auto top" data-container="body" title="Info" data-content="Standard Strength"><span class="hidden-xs hidden-sm hidden-md hidden-print fa fa-info-circle"></span></a></td></td><td width="25%">Big Easy Homebrewers</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-silver'></span> 2nd</td><td>Scott Bakken</td><td width="25%">Nor&rsquo;easter</td><td width="25%">21B7: New England IPA <a href="#500"  tabindex="0" role="button" data-toggle="popover" data-trigger="hover" data-placement="auto top" data-container="body" title="Info" data-content="Double Strength"><span class="hidden-xs hidden-sm hidden-md hidden-print fa fa-info-circle"></span></a></td></td><td width="25%"></td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-bronze'></span> 3rd</td><td>Jarrett Long<br>Co-Brewer: John Bates</td><td width="25%">Louder Robot Noises Beep Boop Beep</td><td width="25%">21B2: Black IPA <a href="#443"  tabindex="0" role="button" data-toggle="popover" data-trigger="hover" data-placement="auto top" data-container="body" title="Info" data-content="Standard Strength"><span class="hidden-xs hidden-sm hidden-md hidden-print fa fa-info-circle"></span></a></td></td><td width="25%">Horsemen of the Hopocalypse</td></tr>		</tbody>
+		</table>
+	</div>
+		<script type="text/javascript" language="javascript">
+	 $(document).ready(function() {
+		$('#sortableO3L5y94c4q4K8108e619').dataTable( {
+			"bPaginate" : false,
+			"sDom": 'rt',
+			"bStateSave" : false,
+			"bLengthChange" : false,
+			"aaSorting": [[0,'asc']],
+			"bProcessing" : false,
+			"aoColumns": [
+				{ "asSorting": [  ] },
+				{ "asSorting": [  ] },
+				{ "asSorting": [  ] },
+				{ "asSorting": [  ] },				{ "asSorting": [  ] }				]
+			} );
+		} );
+	</script>
+	<div class="bcoem-winner-table">
+		<h3>Table 8: English Pale Ale &amp; IPA (8 entries)</h3>		<table class="table table-responsive table-striped table-bordered" id="sortableO3L5y94c4q4K8108e619">
+		<thead>
+			<tr><th nowrap>Place</th><th>Brewer</th><th><span class="hidden-xs hidden-sm hidden-md">Entry </span>Name</th><th>Style</th><th>Club</th></tr>		</thead>
+		<tbody>
+			<tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-gold'></span> 1st</td><td>John Erste</td><td width="25%">Citra Island IPA</td><td width="25%">12C: English IPA</td><td width="25%">Little Mountain Homebrewers Association</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-silver'></span> 2nd</td><td>Fritz Schanz</td><td width="25%">Stearman&apos;s Best Bitter</td><td width="25%">11B: Best Bitter</td><td width="25%">Denton County Homebrewers Guild</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-bronze'></span> 3rd</td><td>Adam Joyce</td><td width="25%">Yah&comma; I&apos;m Bitter&period;&period;&period;&period;&period;So What&quest;</td><td width="25%">11C: Strong Bitter</td><td width="25%">Sun Prairie Worthogs</td></tr>		</tbody>
+		</table>
+	</div>
+		<script type="text/javascript" language="javascript">
+	 $(document).ready(function() {
+		$('#sortable4G148W95O105T1043d6').dataTable( {
+			"bPaginate" : false,
+			"sDom": 'rt',
+			"bStateSave" : false,
+			"bLengthChange" : false,
+			"aaSorting": [[0,'asc']],
+			"bProcessing" : false,
+			"aoColumns": [
+				{ "asSorting": [  ] },
+				{ "asSorting": [  ] },
+				{ "asSorting": [  ] },
+				{ "asSorting": [  ] },				{ "asSorting": [  ] }				]
+			} );
+		} );
+	</script>
+	<div class="bcoem-winner-table">
+		<h3>Table 9: Scottish &amp; Irish Ale (5 entries)</h3>		<table class="table table-responsive table-striped table-bordered" id="sortable4G148W95O105T1043d6">
+		<thead>
+			<tr><th nowrap>Place</th><th>Brewer</th><th><span class="hidden-xs hidden-sm hidden-md">Entry </span>Name</th><th>Style</th><th>Club</th></tr>		</thead>
+		<tbody>
+			<tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-gold'></span> 1st</td><td>Fritz Schanz</td><td width="25%">Stearman&apos;s Scottish Export</td><td width="25%">14C: Scottish Export</td><td width="25%">Denton County Homebrewers Guild</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-silver'></span> 2nd</td><td>Michael Rensing</td><td width="25%">Brian Kelly&apos;s Backwash</td><td width="25%">15A: Irish Red Ale</td><td width="25%">Cane Island Alers (CIA)</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-bronze'></span> 3rd</td><td>Gary Black</td><td width="25%">Black&apos;s Mid Watch</td><td width="25%">14C: Scottish Export</td><td width="25%">Jefferson County Home Brewers (JCHB)</td></tr>		</tbody>
+		</table>
+	</div>
+		<script type="text/javascript" language="javascript">
+	 $(document).ready(function() {
+		$('#sortable799q9K8y5f6J15W6H2b10').dataTable( {
+			"bPaginate" : false,
+			"sDom": 'rt',
+			"bStateSave" : false,
+			"bLengthChange" : false,
+			"aaSorting": [[0,'asc']],
+			"bProcessing" : false,
+			"aoColumns": [
+				{ "asSorting": [  ] },
+				{ "asSorting": [  ] },
+				{ "asSorting": [  ] },
+				{ "asSorting": [  ] },				{ "asSorting": [  ] }				]
+			} );
+		} );
+	</script>
+	<div class="bcoem-winner-table">
+		<h3>Table 10: American Pale Ale (6 entries)</h3>		<table class="table table-responsive table-striped table-bordered" id="sortable799q9K8y5f6J15W6H2b10">
+		<thead>
+			<tr><th nowrap>Place</th><th>Brewer</th><th><span class="hidden-xs hidden-sm hidden-md">Entry </span>Name</th><th>Style</th><th>Club</th></tr>		</thead>
+		<tbody>
+			<tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-gold'></span> 1st</td><td>Andrew McHenry</td><td width="25%">Andy&apos;s Pale Ale</td><td width="25%">18B: American Pale Ale</td><td width="25%">Wichita Homebrewers Organization (WHO)</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-silver'></span> 2nd</td><td>Ron Barnes</td><td width="25%">Oz&rsquo;s Pale</td><td width="25%">18B: American Pale Ale</td><td width="25%">Kansas City Bier Meisters</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-bronze'></span> 3rd</td><td>Ian Kobler</td><td width="25%">The Good Life</td><td width="25%">18B: American Pale Ale</td><td width="25%"></td></tr>		</tbody>
+		</table>
+	</div>
+		<script type="text/javascript" language="javascript">
+	 $(document).ready(function() {
+		$('#sortable6P310210a11M10k1866M9').dataTable( {
+			"bPaginate" : false,
+			"sDom": 'rt',
+			"bStateSave" : false,
+			"bLengthChange" : false,
+			"aaSorting": [[0,'asc']],
+			"bProcessing" : false,
+			"aoColumns": [
+				{ "asSorting": [  ] },
+				{ "asSorting": [  ] },
+				{ "asSorting": [  ] },
+				{ "asSorting": [  ] },				{ "asSorting": [  ] }				]
+			} );
+		} );
+	</script>
+	<div class="bcoem-winner-table">
+		<h3>Table 11: Other American Ale (13 entries)</h3>		<table class="table table-responsive table-striped table-bordered" id="sortable6P310210a11M10k1866M9">
+		<thead>
+			<tr><th nowrap>Place</th><th>Brewer</th><th><span class="hidden-xs hidden-sm hidden-md">Entry </span>Name</th><th>Style</th><th>Club</th></tr>		</thead>
+		<tbody>
+			<tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-gold'></span> 1st</td><td>Mike &amp; Stephanie Butler</td><td width="25%">Amber Alert</td><td width="25%">19A: American Amber Ale</td><td width="25%">Kansas City Bier Meisters</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-silver'></span> 2nd</td><td>Marc Prichard</td><td width="25%">In Honor of Greg Brown</td><td width="25%">19C: American Brown Ale</td><td width="25%">Red Earth Brewers</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-bronze'></span> 3rd</td><td>Donald Bing</td><td width="25%">Cali Dreaming</td><td width="25%">19B: California Common</td><td width="25%">Kansas City Bier Meisters</td></tr>		</tbody>
+		</table>
+	</div>
+		<script type="text/javascript" language="javascript">
+	 $(document).ready(function() {
+		$('#sortablez28x6158b6b5Q2G557').dataTable( {
+			"bPaginate" : false,
+			"sDom": 'rt',
+			"bStateSave" : false,
+			"bLengthChange" : false,
+			"aaSorting": [[0,'asc']],
+			"bProcessing" : false,
+			"aoColumns": [
+				{ "asSorting": [  ] },
+				{ "asSorting": [  ] },
+				{ "asSorting": [  ] },
+				{ "asSorting": [  ] },				{ "asSorting": [  ] }				]
+			} );
+		} );
+	</script>
+	<div class="bcoem-winner-table">
+		<h3>Table 12: English Brown Ale (13 entries)</h3>		<table class="table table-responsive table-striped table-bordered" id="sortablez28x6158b6b5Q2G557">
+		<thead>
+			<tr><th nowrap>Place</th><th>Brewer</th><th><span class="hidden-xs hidden-sm hidden-md">Entry </span>Name</th><th>Style</th><th>Club</th></tr>		</thead>
+		<tbody>
+			<tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-gold'></span> 1st</td><td>Jamye Naramore<br>Co-Brewer: Cody Naramore</td><td width="25%">Walrus Gumboot</td><td width="25%">13A: Dark Mild</td><td width="25%">Kansas City Bier Meisters</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-silver'></span> 2nd</td><td>Ben Sookying</td><td width="25%">Bear Market Brown</td><td width="25%">13B: English Brown Ale</td><td width="25%">Brew Knights [CA]</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-bronze'></span> 3rd</td><td>Christopher Barrier</td><td width="25%">Dark Mild</td><td width="25%">13A: Dark Mild</td><td width="25%">ZZHops Homebrewing Club</td></tr>		</tbody>
+		</table>
+	</div>
+		<script type="text/javascript" language="javascript">
+	 $(document).ready(function() {
+		$('#sortable5d10U1081B9z10068a823').dataTable( {
+			"bPaginate" : false,
+			"sDom": 'rt',
+			"bStateSave" : false,
+			"bLengthChange" : false,
+			"aaSorting": [[0,'asc']],
+			"bProcessing" : false,
+			"aoColumns": [
+				{ "asSorting": [  ] },
+				{ "asSorting": [  ] },
+				{ "asSorting": [  ] },
+				{ "asSorting": [  ] },				{ "asSorting": [  ] }				]
+			} );
+		} );
+	</script>
+	<div class="bcoem-winner-table">
+		<h3>Table 13: Porter (17 entries)</h3>		<table class="table table-responsive table-striped table-bordered" id="sortable5d10U1081B9z10068a823">
+		<thead>
+			<tr><th nowrap>Place</th><th>Brewer</th><th><span class="hidden-xs hidden-sm hidden-md">Entry </span>Name</th><th>Style</th><th>Club</th></tr>		</thead>
+		<tbody>
+			<tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-gold'></span> 1st</td><td>Fritz Schanz</td><td width="25%">Stearman&apos;s Baltic Porter</td><td width="25%">9C: Baltic Porter</td><td width="25%">Denton County Homebrewers Guild</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-silver'></span> 2nd</td><td>Michael Fagan<br>Co-Brewer: Connie Fagan</td><td width="25%">Winter Night</td><td width="25%">13C: English Porter</td><td width="25%">Kansas City Bier Meisters</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-bronze'></span> 3rd</td><td>Jeremy Anderson</td><td width="25%">Pegasus</td><td width="25%">20A: American Porter</td><td width="25%"></td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-teal'></span> HM</td><td>Travis Kirby</td><td width="25%">Baltic Porter</td><td width="25%">9C: Baltic Porter</td><td width="25%">Fellowship of Oklahoma Ale Makers (FOAM)</td></tr>		</tbody>
+		</table>
+	</div>
+		<script type="text/javascript" language="javascript">
+	 $(document).ready(function() {
+		$('#sortablei98y69N84T3813G74').dataTable( {
+			"bPaginate" : false,
+			"sDom": 'rt',
+			"bStateSave" : false,
+			"bLengthChange" : false,
+			"aaSorting": [[0,'asc']],
+			"bProcessing" : false,
+			"aoColumns": [
+				{ "asSorting": [  ] },
+				{ "asSorting": [  ] },
+				{ "asSorting": [  ] },
+				{ "asSorting": [  ] },				{ "asSorting": [  ] }				]
+			} );
+		} );
+	</script>
+	<div class="bcoem-winner-table">
+		<h3>Table 14: Stouts (7 entries)</h3>		<table class="table table-responsive table-striped table-bordered" id="sortablei98y69N84T3813G74">
+		<thead>
+			<tr><th nowrap>Place</th><th>Brewer</th><th><span class="hidden-xs hidden-sm hidden-md">Entry </span>Name</th><th>Style</th><th>Club</th></tr>		</thead>
+		<tbody>
+			<tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-gold'></span> 1st</td><td>Samuel Brewster</td><td width="25%">Stoutmeal</td><td width="25%">16B: Oatmeal Stout</td><td width="25%">ZZHops Homebrewing Club</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-silver'></span> 2nd</td><td>Timothy Bickel</td><td width="25%">Louie&apos;s Revenge Oatmeal Stout</td><td width="25%">16B: Oatmeal Stout</td><td width="25%">Red Earth Brewers</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-bronze'></span> 3rd</td><td>Travis Kirby</td><td width="25%">Irish Stout</td><td width="25%">15B: Irish Stout</td><td width="25%">Fellowship of Oklahoma Ale Makers (FOAM)</td></tr>		</tbody>
+		</table>
+	</div>
+		<script type="text/javascript" language="javascript">
+	 $(document).ready(function() {
+		$('#sortableq1073161E3C2510L29b8').dataTable( {
+			"bPaginate" : false,
+			"sDom": 'rt',
+			"bStateSave" : false,
+			"bLengthChange" : false,
+			"aaSorting": [[0,'asc']],
+			"bProcessing" : false,
+			"aoColumns": [
+				{ "asSorting": [  ] },
+				{ "asSorting": [  ] },
+				{ "asSorting": [  ] },
+				{ "asSorting": [  ] },				{ "asSorting": [  ] }				]
+			} );
+		} );
+	</script>
+	<div class="bcoem-winner-table">
+		<h3>Table 15: Strong Stouts (18 entries)</h3>		<table class="table table-responsive table-striped table-bordered" id="sortableq1073161E3C2510L29b8">
+		<thead>
+			<tr><th nowrap>Place</th><th>Brewer</th><th><span class="hidden-xs hidden-sm hidden-md">Entry </span>Name</th><th>Style</th><th>Club</th></tr>		</thead>
+		<tbody>
+			<tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-gold'></span> 1st</td><td>Alex Hannagan</td><td width="25%">Orc Draught</td><td width="25%">20C: Imperial Stout</td><td width="25%">Downright Obsessed Homebrewers (DOH)</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-silver'></span> 2nd</td><td>Eric Martin</td><td width="25%">No Turkey</td><td width="25%">20B: American Stout</td><td width="25%">Kansas City Bier Meisters</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-bronze'></span> 3rd</td><td>Jarrett Long<br>Co-Brewer: John Bates</td><td width="25%">Fat Guy Touchdown&excl; </td><td width="25%">16C: Tropical Stout</td><td width="25%">Horsemen of the Hopocalypse</td></tr>		</tbody>
+		</table>
+	</div>
+		<script type="text/javascript" language="javascript">
+	 $(document).ready(function() {
+		$('#sortable1S85437328139').dataTable( {
+			"bPaginate" : false,
+			"sDom": 'rt',
+			"bStateSave" : false,
+			"bLengthChange" : false,
+			"aaSorting": [[0,'asc']],
+			"bProcessing" : false,
+			"aoColumns": [
+				{ "asSorting": [  ] },
+				{ "asSorting": [  ] },
+				{ "asSorting": [  ] },
+				{ "asSorting": [  ] },				{ "asSorting": [  ] }				]
+			} );
+		} );
+	</script>
+	<div class="bcoem-winner-table">
+		<h3>Table 16: American IPA (13 entries)</h3>		<table class="table table-responsive table-striped table-bordered" id="sortable1S85437328139">
+		<thead>
+			<tr><th nowrap>Place</th><th>Brewer</th><th><span class="hidden-xs hidden-sm hidden-md">Entry </span>Name</th><th>Style</th><th>Club</th></tr>		</thead>
+		<tbody>
+			<tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-gold'></span> 1st</td><td>Travis Johnston<br>Co-Brewer: Micheal Platt</td><td width="25%">How You Like Them Pineapples</td><td width="25%">21A: American IPA</td><td width="25%">Lawrence Brewers Guild</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-silver'></span> 2nd</td><td>Patrick Brown</td><td width="25%">Iunno IPA</td><td width="25%">21A: American IPA</td><td width="25%">Kansas City Bier Meisters</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-bronze'></span> 3rd</td><td>Joe Rose<br>Co-Brewer: Julie </td><td width="25%">IPA Lot</td><td width="25%">21A: American IPA</td><td width="25%">Kansas City Bier Meisters</td></tr>		</tbody>
+		</table>
+	</div>
+		<script type="text/javascript" language="javascript">
+	 $(document).ready(function() {
+		$('#sortablex12t2G103102f77104y8').dataTable( {
+			"bPaginate" : false,
+			"sDom": 'rt',
+			"bStateSave" : false,
+			"bLengthChange" : false,
+			"aaSorting": [[0,'asc']],
+			"bProcessing" : false,
+			"aoColumns": [
+				{ "asSorting": [  ] },
+				{ "asSorting": [  ] },
+				{ "asSorting": [  ] },
+				{ "asSorting": [  ] },				{ "asSorting": [  ] }				]
+			} );
+		} );
+	</script>
+	<div class="bcoem-winner-table">
+		<h3>Table 17: German Wheat and Rye (7 entries)</h3>		<table class="table table-responsive table-striped table-bordered" id="sortablex12t2G103102f77104y8">
+		<thead>
+			<tr><th nowrap>Place</th><th>Brewer</th><th><span class="hidden-xs hidden-sm hidden-md">Entry </span>Name</th><th>Style</th><th>Club</th></tr>		</thead>
+		<tbody>
+			<tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-gold'></span> 1st</td><td>Phillip Abbott</td><td width="25%">Hefe Lies The Crown</td><td width="25%">10A: Weissbier</td><td width="25%">Johnson County Brewing Society</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-silver'></span> 2nd</td><td>Fritz Schanz</td><td width="25%">Stearman&apos;s Dunkles Weissbier</td><td width="25%">10B: Dunkels Weissbier</td><td width="25%">Denton County Homebrewers Guild</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-bronze'></span> 3rd</td><td>Phillip Abbott</td><td width="25%">Abbventinus</td><td width="25%">10C: Weizenbock <a href="#291"  tabindex="0" role="button" data-toggle="popover" data-trigger="hover" data-placement="auto top" data-container="body" title="Info" data-content="Amber/Dark Color"><span class="hidden-xs hidden-sm hidden-md hidden-print fa fa-info-circle"></span></a></td></td><td width="25%">Johnson County Brewing Society</td></tr>		</tbody>
+		</table>
+	</div>
+		<script type="text/javascript" language="javascript">
+	 $(document).ready(function() {
+		$('#sortable8t32x518t7V2Z942u10').dataTable( {
+			"bPaginate" : false,
+			"sDom": 'rt',
+			"bStateSave" : false,
+			"bLengthChange" : false,
+			"aaSorting": [[0,'asc']],
+			"bProcessing" : false,
+			"aoColumns": [
+				{ "asSorting": [  ] },
+				{ "asSorting": [  ] },
+				{ "asSorting": [  ] },
+				{ "asSorting": [  ] },				{ "asSorting": [  ] }				]
+			} );
+		} );
+	</script>
+	<div class="bcoem-winner-table">
+		<h3>Table 18: Belgian and French Ale (20 entries)</h3>		<table class="table table-responsive table-striped table-bordered" id="sortable8t32x518t7V2Z942u10">
+		<thead>
+			<tr><th nowrap>Place</th><th>Brewer</th><th><span class="hidden-xs hidden-sm hidden-md">Entry </span>Name</th><th>Style</th><th>Club</th></tr>		</thead>
+		<tbody>
+			<tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-gold'></span> 1st</td><td>Jeremy Anderson</td><td width="25%">Satsuma Dome</td><td width="25%">24A: Witbier</td><td width="25%"></td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-silver'></span> 2nd</td><td>Peter Polczynski</td><td width="25%">Monksonly&period; Com</td><td width="25%">26A: Trappist Single</td><td width="25%">Fellowship of Oklahoma Ale Makers (FOAM)</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-bronze'></span> 3rd</td><td>Kevin Olson</td><td width="25%">Enkel</td><td width="25%">26A: Trappist Single</td><td width="25%">ZZHops Homebrewing Club</td></tr>		</tbody>
+		</table>
+	</div>
+		<script type="text/javascript" language="javascript">
+	 $(document).ready(function() {
+		$('#sortableu54L10Z31098543n4G2d9').dataTable( {
+			"bPaginate" : false,
+			"sDom": 'rt',
+			"bStateSave" : false,
+			"bLengthChange" : false,
+			"aaSorting": [[0,'asc']],
+			"bProcessing" : false,
+			"aoColumns": [
+				{ "asSorting": [  ] },
+				{ "asSorting": [  ] },
+				{ "asSorting": [  ] },
+				{ "asSorting": [  ] },				{ "asSorting": [  ] }				]
+			} );
+		} );
+	</script>
+	<div class="bcoem-winner-table">
+		<h3>Table 19: Sour Ale (11 entries)</h3>		<table class="table table-responsive table-striped table-bordered" id="sortableu54L10Z31098543n4G2d9">
+		<thead>
+			<tr><th nowrap>Place</th><th>Brewer</th><th><span class="hidden-xs hidden-sm hidden-md">Entry </span>Name</th><th>Style</th><th>Club</th></tr>		</thead>
+		<tbody>
+			<tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-gold'></span> 1st</td><td>Chris Proulx</td><td width="25%">They Call Me&comma; Ned</td><td width="25%">23B: Flanders Red Ale</td><td width="25%">Homebrewers Local 402</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-silver'></span> 2nd</td><td>Enid Lints</td><td width="25%">Gose</td><td width="25%">27A1: Gose</td><td width="25%">West Sound Brewers</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-bronze'></span> 3rd</td><td>Jamye Naramore<br>Co-Brewer: Cody Naramore</td><td width="25%">Bit Too Leisurely</td><td width="25%">PRX4: Catharina Sour <a href="#67"  tabindex="0" role="button" data-toggle="popover" data-trigger="hover" data-placement="auto top" data-container="body" title="Info" data-content="Raspberry"><span class="hidden-xs hidden-sm hidden-md hidden-print fa fa-info-circle"></span></a></td></td><td width="25%">Kansas City Bier Meisters</td></tr>		</tbody>
+		</table>
+	</div>
+		<script type="text/javascript" language="javascript">
+	 $(document).ready(function() {
+		$('#sortablew2T15102j10223687d6E8').dataTable( {
+			"bPaginate" : false,
+			"sDom": 'rt',
+			"bStateSave" : false,
+			"bLengthChange" : false,
+			"aaSorting": [[0,'asc']],
+			"bProcessing" : false,
+			"aoColumns": [
+				{ "asSorting": [  ] },
+				{ "asSorting": [  ] },
+				{ "asSorting": [  ] },
+				{ "asSorting": [  ] },				{ "asSorting": [  ] }				]
+			} );
+		} );
+	</script>
+	<div class="bcoem-winner-table">
+		<h3>Table 20: Belgian Strong Ale (27 entries)</h3>		<table class="table table-responsive table-striped table-bordered" id="sortablew2T15102j10223687d6E8">
+		<thead>
+			<tr><th nowrap>Place</th><th>Brewer</th><th><span class="hidden-xs hidden-sm hidden-md">Entry </span>Name</th><th>Style</th><th>Club</th></tr>		</thead>
+		<tbody>
+			<tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-gold'></span> 1st</td><td>Peter Polczynski</td><td width="25%">I Could Waffle But I&apos;m Not Going To</td><td width="25%">25A: Belgian Blond Ale</td><td width="25%">Fellowship of Oklahoma Ale Makers (FOAM)</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-silver'></span> 2nd</td><td>Roger Gibson</td><td width="25%">Monk Business</td><td width="25%">26D: Belgian Dark Strong Ale</td><td width="25%">Kansas City Bier Meisters</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-bronze'></span> 3rd</td><td>Drew Schrum<br>Co-Brewer: John Knowles</td><td width="25%">Dark Tides</td><td width="25%">26D: Belgian Dark Strong Ale</td><td width="25%">Kansas City Bier Meisters</td></tr>		</tbody>
+		</table>
+	</div>
+		<script type="text/javascript" language="javascript">
+	 $(document).ready(function() {
+		$('#sortable79p5586546o10j1638t10').dataTable( {
+			"bPaginate" : false,
+			"sDom": 'rt',
+			"bStateSave" : false,
+			"bLengthChange" : false,
+			"aaSorting": [[0,'asc']],
+			"bProcessing" : false,
+			"aoColumns": [
+				{ "asSorting": [  ] },
+				{ "asSorting": [  ] },
+				{ "asSorting": [  ] },
+				{ "asSorting": [  ] },				{ "asSorting": [  ] }				]
+			} );
+		} );
+	</script>
+	<div class="bcoem-winner-table">
+		<h3>Table 21: Strong Ale (15 entries)</h3>		<table class="table table-responsive table-striped table-bordered" id="sortable79p5586546o10j1638t10">
+		<thead>
+			<tr><th nowrap>Place</th><th>Brewer</th><th><span class="hidden-xs hidden-sm hidden-md">Entry </span>Name</th><th>Style</th><th>Club</th></tr>		</thead>
+		<tbody>
+			<tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-gold'></span> 1st</td><td>Jay Highfill</td><td width="25%">Light In the Republic</td><td width="25%">22D: Wheatwine</td><td width="25%">Kansas City Bier Meisters</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-silver'></span> 2nd</td><td>Mike &amp; Stephanie Butler</td><td width="25%">640 Acres</td><td width="25%">22C: American Barleywine</td><td width="25%">Kansas City Bier Meisters</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-bronze'></span> 3rd</td><td>Michael Rensing</td><td width="25%">MacGuffin</td><td width="25%">17C: Wee Heavy</td><td width="25%">Cane Island Alers (CIA)</td></tr>		</tbody>
+		</table>
+	</div>
+		<script type="text/javascript" language="javascript">
+	 $(document).ready(function() {
+		$('#sortable91T2g10T4T417Q4n1b47').dataTable( {
+			"bPaginate" : false,
+			"sDom": 'rt',
+			"bStateSave" : false,
+			"bLengthChange" : false,
+			"aaSorting": [[0,'asc']],
+			"bProcessing" : false,
+			"aoColumns": [
+				{ "asSorting": [  ] },
+				{ "asSorting": [  ] },
+				{ "asSorting": [  ] },
+				{ "asSorting": [  ] },				{ "asSorting": [  ] }				]
+			} );
+		} );
+	</script>
+	<div class="bcoem-winner-table">
+		<h3>Table 22: Fruit Beer (8 entries)</h3>		<table class="table table-responsive table-striped table-bordered" id="sortable91T2g10T4T417Q4n1b47">
+		<thead>
+			<tr><th nowrap>Place</th><th>Brewer</th><th><span class="hidden-xs hidden-sm hidden-md">Entry </span>Name</th><th>Style</th><th>Club</th></tr>		</thead>
+		<tbody>
+			<tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-gold'></span> 1st</td><td>Fernando Garcia-Polite</td><td width="25%">Frutos Del Bosque</td><td width="25%">29A: Fruit Beer <a href="#463"  tabindex="0" role="button" data-toggle="popover" data-trigger="hover" data-placement="auto top" data-container="body" title="Info" data-content="Berliner Weisse fruited with Raspberry and Blackberry"><span class="hidden-xs hidden-sm hidden-md hidden-print fa fa-info-circle"></span></a></td></td><td width="25%">Boston Wort Processors</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-silver'></span> 2nd</td><td>Alex Dropkin</td><td width="25%">Pink Lightning </td><td width="25%">29A: Fruit Beer <a href="#286"  tabindex="0" role="button" data-toggle="popover" data-trigger="hover" data-placement="auto top" data-container="body" title="Info" data-content="Berliner Weisse With Strawberry and Pink Guava"><span class="hidden-xs hidden-sm hidden-md hidden-print fa fa-info-circle"></span></a></td></td><td width="25%">C.H.A.O.S. Brew Club</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-bronze'></span> 3rd</td><td>Mike Kalny</td><td width="25%">Blues In Beer</td><td width="25%">29A: Fruit Beer <a href="#88"  tabindex="0" role="button" data-toggle="popover" data-trigger="hover" data-placement="auto top" data-container="body" title="Info" data-content="Amber beer with blueberries"><span class="hidden-xs hidden-sm hidden-md hidden-print fa fa-info-circle"></span></a></td></td><td width="25%">Kansas City Bier Meisters</td></tr>		</tbody>
+		</table>
+	</div>
+		<script type="text/javascript" language="javascript">
+	 $(document).ready(function() {
+		$('#sortable22Q742728B2310f10b2d6').dataTable( {
+			"bPaginate" : false,
+			"sDom": 'rt',
+			"bStateSave" : false,
+			"bLengthChange" : false,
+			"aaSorting": [[0,'asc']],
+			"bProcessing" : false,
+			"aoColumns": [
+				{ "asSorting": [  ] },
+				{ "asSorting": [  ] },
+				{ "asSorting": [  ] },
+				{ "asSorting": [  ] },				{ "asSorting": [  ] }				]
+			} );
+		} );
+	</script>
+	<div class="bcoem-winner-table">
+		<h3>Table 23: Spice/Herb/Vegetable (28 entries)</h3>		<table class="table table-responsive table-striped table-bordered" id="sortable22Q742728B2310f10b2d6">
+		<thead>
+			<tr><th nowrap>Place</th><th>Brewer</th><th><span class="hidden-xs hidden-sm hidden-md">Entry </span>Name</th><th>Style</th><th>Club</th></tr>		</thead>
+		<tbody>
+			<tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-gold'></span> 1st</td><td>Jeremiah Baer</td><td width="25%">Hibiscus Saison</td><td width="25%">30A: Spice, Herb, or Vegetable Beer <a href="#128"  tabindex="0" role="button" data-toggle="popover" data-trigger="hover" data-placement="auto top" data-container="body" title="Info" data-content="Pale Saison base (standard strength) with Hibiscus"><span class="hidden-xs hidden-sm hidden-md hidden-print fa fa-info-circle"></span></a></td></td><td width="25%">East Side Brewers [IL]</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-silver'></span> 2nd</td><td>Michael Rensing</td><td width="25%">Mariah Carey</td><td width="25%">30C: Winter Seasonal Beer <a href="#169"  tabindex="0" role="button" data-toggle="popover" data-trigger="hover" data-placement="auto top" data-container="body" title="Info" data-content="Britsh strong ale with mulling spices"><span class="hidden-xs hidden-sm hidden-md hidden-print fa fa-info-circle"></span></a></td></td><td width="25%">Cane Island Alers (CIA)</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-bronze'></span> 3rd</td><td>Alan Roten</td><td width="25%">Jalape&ntilde;o Kolsch</td><td width="25%">30A: Spice, Herb, or Vegetable Beer <a href="#458"  tabindex="0" role="button" data-toggle="popover" data-trigger="hover" data-placement="auto top" data-container="body" title="Info" data-content="Kolsch
+Jalapeños "><span class="hidden-xs hidden-sm hidden-md hidden-print fa fa-info-circle"></span></a></td></td><td width="25%">Red Earth Brewers</td></tr>		</tbody>
+		</table>
+	</div>
+		<script type="text/javascript" language="javascript">
+	 $(document).ready(function() {
+		$('#sortable3Y71B3110x1b14I101B4').dataTable( {
+			"bPaginate" : false,
+			"sDom": 'rt',
+			"bStateSave" : false,
+			"bLengthChange" : false,
+			"aaSorting": [[0,'asc']],
+			"bProcessing" : false,
+			"aoColumns": [
+				{ "asSorting": [  ] },
+				{ "asSorting": [  ] },
+				{ "asSorting": [  ] },
+				{ "asSorting": [  ] },				{ "asSorting": [  ] }				]
+			} );
+		} );
+	</script>
+	<div class="bcoem-winner-table">
+		<h3>Table 24: Smoke and Wood Beer (11 entries)</h3>		<table class="table table-responsive table-striped table-bordered" id="sortable3Y71B3110x1b14I101B4">
+		<thead>
+			<tr><th nowrap>Place</th><th>Brewer</th><th><span class="hidden-xs hidden-sm hidden-md">Entry </span>Name</th><th>Style</th><th>Club</th></tr>		</thead>
+		<tbody>
+			<tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-gold'></span> 1st</td><td>Travis Kirby</td><td width="25%">Barrel Party Barleywine</td><td width="25%">33B: Specialty Wood-Aged Beer <a href="#245"  tabindex="0" role="button" data-toggle="popover" data-trigger="hover" data-placement="auto top" data-container="body" title="Info" data-content="bourbon barrel barleywine"><span class="hidden-xs hidden-sm hidden-md hidden-print fa fa-info-circle"></span></a></td></td><td width="25%">Fellowship of Oklahoma Ale Makers (FOAM)</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-silver'></span> 2nd</td><td>Chris Proulx</td><td width="25%">1792</td><td width="25%">33B: Specialty Wood-Aged Beer <a href="#230"  tabindex="0" role="button" data-toggle="popover" data-trigger="hover" data-placement="auto top" data-container="body" title="Info" data-content="Imperial Stout aged 18 months in a 1792 Rye/Bourbon barrel"><span class="hidden-xs hidden-sm hidden-md hidden-print fa fa-info-circle"></span></a></td></td><td width="25%">Homebrewers Local 402</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-bronze'></span> 3rd</td><td>Samuel Brewster</td><td width="25%">Barrel Aged Dropsy</td><td width="25%">33B: Specialty Wood-Aged Beer <a href="#206"  tabindex="0" role="button" data-toggle="popover" data-trigger="hover" data-placement="auto top" data-container="body" title="Info" data-content="Imperial Stout aged in French oak bourbon barrel "><span class="hidden-xs hidden-sm hidden-md hidden-print fa fa-info-circle"></span></a></td></td><td width="25%">ZZHops Homebrewing Club</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-teal'></span> HM</td><td>Michael Rensing</td><td width="25%">Barrel Aged Jamie Tartt</td><td width="25%">33B: Specialty Wood-Aged Beer <a href="#168"  tabindex="0" role="button" data-toggle="popover" data-trigger="hover" data-placement="auto top" data-container="body" title="Info" data-content="American wild ale aged in whiskey barrel"><span class="hidden-xs hidden-sm hidden-md hidden-print fa fa-info-circle"></span></a></td></td><td width="25%">Cane Island Alers (CIA)</td></tr>		</tbody>
+		</table>
+	</div>
+		<script type="text/javascript" language="javascript">
+	 $(document).ready(function() {
+		$('#sortable4410O5H3321q27y52Q5').dataTable( {
+			"bPaginate" : false,
+			"sDom": 'rt',
+			"bStateSave" : false,
+			"bLengthChange" : false,
+			"aaSorting": [[0,'asc']],
+			"bProcessing" : false,
+			"aoColumns": [
+				{ "asSorting": [  ] },
+				{ "asSorting": [  ] },
+				{ "asSorting": [  ] },
+				{ "asSorting": [  ] },				{ "asSorting": [  ] }				]
+			} );
+		} );
+	</script>
+	<div class="bcoem-winner-table">
+		<h3>Table 25: American Wild Ale (14 entries)</h3>		<table class="table table-responsive table-striped table-bordered" id="sortable4410O5H3321q27y52Q5">
+		<thead>
+			<tr><th nowrap>Place</th><th>Brewer</th><th><span class="hidden-xs hidden-sm hidden-md">Entry </span>Name</th><th>Style</th><th>Club</th></tr>		</thead>
+		<tbody>
+			<tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-gold'></span> 1st</td><td>Drew Templeton</td><td width="25%">Guava Derp Face</td><td width="25%">28C: Wild Specialty Beer <a href="#47"  tabindex="0" role="button" data-toggle="popover" data-trigger="hover" data-placement="auto top" data-container="body" title="Info" data-content="Pale sour base pulled from oak solera barrel transferred to age with guava"><span class="hidden-xs hidden-sm hidden-md hidden-print fa fa-info-circle"></span></a></td></td><td width="25%">Iowa Brewers Union</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-silver'></span> 2nd</td><td>Scott Okenquist</td><td width="25%">Uff Da&excl;</td><td width="25%">28C: Wild Specialty Beer <a href="#318"  tabindex="0" role="button" data-toggle="popover" data-trigger="hover" data-placement="auto top" data-container="body" title="Info" data-content="Norwegian Farmhouse Ale with additions of apricot, juniper, and Brett.
+9.0% ABV"><span class="hidden-xs hidden-sm hidden-md hidden-print fa fa-info-circle"></span></a></td></td><td width="25%">ZZHops Homebrewing Club</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-bronze'></span> 3rd</td><td>Chad Medford</td><td width="25%">Just Peachy&excl;</td><td width="25%">28C: Wild Specialty Beer <a href="#115"  tabindex="0" role="button" data-toggle="popover" data-trigger="hover" data-placement="auto top" data-container="body" title="Info" data-content="American Wheat soured and fermented with Phily Sour, with peach puree added"><span class="hidden-xs hidden-sm hidden-md hidden-print fa fa-info-circle"></span></a></td></td><td width="25%">Red Earth Brewers</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-teal'></span> HM</td><td>Tom Mendick</td><td width="25%">Does This Look Infected</td><td width="25%">28B: Mixed Fermentation Sour Beer <a href="#89"  tabindex="0" role="button" data-toggle="popover" data-trigger="hover" data-placement="auto top" data-container="body" title="Info" data-content="Kettle Soured Session IPA - Philly Sour Yeast and Bergamot Hops"><span class="hidden-xs hidden-sm hidden-md hidden-print fa fa-info-circle"></span></a></td></td><td width="25%">Homebrewers Local 402</td></tr>		</tbody>
+		</table>
+	</div>
+		<script type="text/javascript" language="javascript">
+	 $(document).ready(function() {
+		$('#sortable44K8j12V29k3q108l942').dataTable( {
+			"bPaginate" : false,
+			"sDom": 'rt',
+			"bStateSave" : false,
+			"bLengthChange" : false,
+			"aaSorting": [[0,'asc']],
+			"bProcessing" : false,
+			"aoColumns": [
+				{ "asSorting": [  ] },
+				{ "asSorting": [  ] },
+				{ "asSorting": [  ] },
+				{ "asSorting": [  ] },				{ "asSorting": [  ] }				]
+			} );
+		} );
+	</script>
+	<div class="bcoem-winner-table">
+		<h3>Table 26: Specialty Beer (5 entries)</h3>		<table class="table table-responsive table-striped table-bordered" id="sortable44K8j12V29k3q108l942">
+		<thead>
+			<tr><th nowrap>Place</th><th>Brewer</th><th><span class="hidden-xs hidden-sm hidden-md">Entry </span>Name</th><th>Style</th><th>Club</th></tr>		</thead>
+		<tbody>
+			<tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-gold'></span> 1st</td><td>Eric Martin</td><td width="25%">No Turkey</td><td width="25%">31A: Alternative Grain Beer <a href="#77"  tabindex="0" role="button" data-toggle="popover" data-trigger="hover" data-placement="auto top" data-container="body" title="Info" data-content="American Strong Ale (22B) with Rye"><span class="hidden-xs hidden-sm hidden-md hidden-print fa fa-info-circle"></span></a></td></td><td width="25%">Kansas City Bier Meisters</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-silver'></span> 2nd</td><td>Alex Hannagan</td><td width="25%">King of the Nubtars</td><td width="25%">34C: Experimental Beer <a href="#362"  tabindex="0" role="button" data-toggle="popover" data-trigger="hover" data-placement="auto top" data-container="body" title="Info" data-content="Imperial White Ale. 7.5%, 20 IBU, 4 SRM. Grains of paradise + normal Witbier adjuncts. Also dry hopped, should impart tangelo."><span class="hidden-xs hidden-sm hidden-md hidden-print fa fa-info-circle"></span></a></td></td><td width="25%">Downright Obsessed Homebrewers (DOH)</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-bronze'></span> 3rd</td><td>Nathaniel Peat</td><td width="25%">Heneral Luna</td><td width="25%">34C: Experimental Beer <a href="#425"  tabindex="0" role="button" data-toggle="popover" data-trigger="hover" data-placement="auto top" data-container="body" title="Info" data-content="Tubâ - Trad. Filipino wild ferment coconut *SAP*(NOT FRUIT) wine/cider  w/ added raw mangoes, mixed w/ Filip. style pilsner. No classic style."><span class="hidden-xs hidden-sm hidden-md hidden-print fa fa-info-circle"></span></a></td></td><td width="25%"></td></tr>		</tbody>
+		</table>
+	</div>
+		<script type="text/javascript" language="javascript">
+	 $(document).ready(function() {
+		$('#sortableg78d10c5W7663214c10Z910').dataTable( {
+			"bPaginate" : false,
+			"sDom": 'rt',
+			"bStateSave" : false,
+			"bLengthChange" : false,
+			"aaSorting": [[0,'asc']],
+			"bProcessing" : false,
+			"aoColumns": [
+				{ "asSorting": [  ] },
+				{ "asSorting": [  ] },
+				{ "asSorting": [  ] },
+				{ "asSorting": [  ] },				{ "asSorting": [  ] }				]
+			} );
+		} );
+	</script>
+	<div class="bcoem-winner-table">
+		<h3>Table 27: Traditional Mead (7 entries)</h3>		<table class="table table-responsive table-striped table-bordered" id="sortableg78d10c5W7663214c10Z910">
+		<thead>
+			<tr><th nowrap>Place</th><th>Brewer</th><th><span class="hidden-xs hidden-sm hidden-md">Entry </span>Name</th><th>Style</th><th>Club</th></tr>		</thead>
+		<tbody>
+			<tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-gold'></span> 1st</td><td>Traci Kuhfuss</td><td width="25%">Hawaiian Wildflower</td><td width="25%">M1C: Sweet Mead</td><td width="25%">Cane Island Alers (CIA)</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-silver'></span> 2nd</td><td>Bill Boyer</td><td width="25%">Sir Galahad The Pure - Tangerine Lemon</td><td width="25%">M1A: Dry Mead</td><td width="25%">North Georgia Malt Monkeys</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-bronze'></span> 3rd</td><td>Traci Kuhfuss</td><td width="25%">MacAdamia Nut Blossom</td><td width="25%">M1B: Semi-Sweet Mead</td><td width="25%">Cane Island Alers (CIA)</td></tr>		</tbody>
+		</table>
+	</div>
+		<script type="text/javascript" language="javascript">
+	 $(document).ready(function() {
+		$('#sortable5S342J324J8O6k676').dataTable( {
+			"bPaginate" : false,
+			"sDom": 'rt',
+			"bStateSave" : false,
+			"bLengthChange" : false,
+			"aaSorting": [[0,'asc']],
+			"bProcessing" : false,
+			"aoColumns": [
+				{ "asSorting": [  ] },
+				{ "asSorting": [  ] },
+				{ "asSorting": [  ] },
+				{ "asSorting": [  ] },				{ "asSorting": [  ] }				]
+			} );
+		} );
+	</script>
+	<div class="bcoem-winner-table">
+		<h3>Table 28: Fruit Mead (19 entries)</h3>		<table class="table table-responsive table-striped table-bordered" id="sortable5S342J324J8O6k676">
+		<thead>
+			<tr><th nowrap>Place</th><th>Brewer</th><th><span class="hidden-xs hidden-sm hidden-md">Entry </span>Name</th><th>Style</th><th>Club</th></tr>		</thead>
+		<tbody>
+			<tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-gold'></span> 1st</td><td>Matthew Mead</td><td width="25%">Goodbye Moonmen - A Song By Fart</td><td width="25%">M2B: Pyment</td><td width="25%">Michigan Mead Coalition</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-silver'></span> 2nd</td><td>Bill Boyer</td><td width="25%">Quest For The Holy Grail</td><td width="25%">M2B: Pyment</td><td width="25%">North Georgia Malt Monkeys</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-bronze'></span> 3rd</td><td>Rob Barnhardt</td><td width="25%">Sunshine</td><td width="25%">M2E: Melomel <a href="#483"  tabindex="0" role="button" data-toggle="popover" data-trigger="hover" data-placement="auto top" data-container="body" title="Info" data-content="Still sweet sack 14.4%"><span class="hidden-xs hidden-sm hidden-md hidden-print fa fa-info-circle"></span></a></td></td><td width="25%">Michigan Mead Coalition </td></tr>		</tbody>
+		</table>
+	</div>
+		<script type="text/javascript" language="javascript">
+	 $(document).ready(function() {
+		$('#sortable24b3o7b8551055p99d10').dataTable( {
+			"bPaginate" : false,
+			"sDom": 'rt',
+			"bStateSave" : false,
+			"bLengthChange" : false,
+			"aaSorting": [[0,'asc']],
+			"bProcessing" : false,
+			"aoColumns": [
+				{ "asSorting": [  ] },
+				{ "asSorting": [  ] },
+				{ "asSorting": [  ] },
+				{ "asSorting": [  ] },				{ "asSorting": [  ] }				]
+			} );
+		} );
+	</script>
+	<div class="bcoem-winner-table">
+		<h3>Table 29: Spice and Specialty Mead (12 entries)</h3>		<table class="table table-responsive table-striped table-bordered" id="sortable24b3o7b8551055p99d10">
+		<thead>
+			<tr><th nowrap>Place</th><th>Brewer</th><th><span class="hidden-xs hidden-sm hidden-md">Entry </span>Name</th><th>Style</th><th>Club</th></tr>		</thead>
+		<tbody>
+			<tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-gold'></span> 1st</td><td>Benjamin Daniels</td><td width="25%">&iexcl;gusto&excl;</td><td width="25%">M4C: Experimental Mead <a href="#399"  tabindex="0" role="button" data-toggle="popover" data-trigger="hover" data-placement="auto top" data-container="body" title="Info" data-content="Caramelized Bananas and Christmas Berry Honey with Saigon Cinnamon. Acid+Tannin for balance"><span class="hidden-xs hidden-sm hidden-md hidden-print fa fa-info-circle"></span></a></td></td><td width="25%">Kansas City Bier Meisters</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-silver'></span> 2nd</td><td>Andrew Kjos</td><td width="25%">Cinnamon Vanilla Mead</td><td width="25%">M3B: Spice, Herb, or Vegetable Mead <a href="#58"  tabindex="0" role="button" data-toggle="popover" data-trigger="hover" data-placement="auto top" data-container="body" title="Info" data-content="Wildflower Mead with Cinnamon and Vanilla Beans"><span class="hidden-xs hidden-sm hidden-md hidden-print fa fa-info-circle"></span></a></td></td><td width="25%">Iowa Brewers Union [Des Moines, IA]</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-bronze'></span> 3rd</td><td>Marek Leczycki</td><td width="25%">Dwojniak Gruszniak </td><td width="25%">M4B: Historical Mead <a href="#16"  tabindex="0" role="button" data-toggle="popover" data-trigger="hover" data-placement="auto top" data-container="body" title="Info" data-content="Dwojniak- historical Polish mead , mead made with pears and honey, no water used"><span class="hidden-xs hidden-sm hidden-md hidden-print fa fa-info-circle"></span></a></td></td><td width="25%">Polski Miód Pitny</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-teal'></span> HM</td><td>Roger Gibson</td><td width="25%">Vieux Rouge Avec Chipotle</td><td width="25%">M3A: Fruit and Spice Mead <a href="#336"  tabindex="0" role="button" data-toggle="popover" data-trigger="hover" data-placement="auto top" data-container="body" title="Info" data-content="elderberry and chipotle"><span class="hidden-xs hidden-sm hidden-md hidden-print fa fa-info-circle"></span></a></td></td><td width="25%">Kansas City Bier Meisters</td></tr>		</tbody>
+		</table>
+	</div>
+		<script type="text/javascript" language="javascript">
+	 $(document).ready(function() {
+		$('#sortableh832g421h8N75y6172').dataTable( {
+			"bPaginate" : false,
+			"sDom": 'rt',
+			"bStateSave" : false,
+			"bLengthChange" : false,
+			"aaSorting": [[0,'asc']],
+			"bProcessing" : false,
+			"aoColumns": [
+				{ "asSorting": [  ] },
+				{ "asSorting": [  ] },
+				{ "asSorting": [  ] },
+				{ "asSorting": [  ] },				{ "asSorting": [  ] }				]
+			} );
+		} );
+	</script>
+	<div class="bcoem-winner-table">
+		<h3>Table 30: Standard Cider and Perry (9 entries)</h3>		<table class="table table-responsive table-striped table-bordered" id="sortableh832g421h8N75y6172">
+		<thead>
+			<tr><th nowrap>Place</th><th>Brewer</th><th><span class="hidden-xs hidden-sm hidden-md">Entry </span>Name</th><th>Style</th><th>Club</th></tr>		</thead>
+		<tbody>
+			<tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-gold'></span> 1st</td><td>Patrick Brown</td><td width="25%">Cotes Du Kansas </td><td width="25%">C1B: English Cider</td><td width="25%">Kansas City Bier Meisters</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-silver'></span> 2nd</td><td>Kevin Wagner</td><td width="25%">Pitter Patter Lets Getatter</td><td width="25%">C1A: New World Cider</td><td width="25%">Kansas City Bier Meisters</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-bronze'></span> 3rd</td><td>Bill Boyer</td><td width="25%">Being There</td><td width="25%">C1A: New World Cider</td><td width="25%">North Georgia Malt Monkeys</td></tr>		</tbody>
+		</table>
+	</div>
+		<script type="text/javascript" language="javascript">
+	 $(document).ready(function() {
+		$('#sortableQ45114519462F87').dataTable( {
+			"bPaginate" : false,
+			"sDom": 'rt',
+			"bStateSave" : false,
+			"bLengthChange" : false,
+			"aaSorting": [[0,'asc']],
+			"bProcessing" : false,
+			"aoColumns": [
+				{ "asSorting": [  ] },
+				{ "asSorting": [  ] },
+				{ "asSorting": [  ] },
+				{ "asSorting": [  ] },				{ "asSorting": [  ] }				]
+			} );
+		} );
+	</script>
+	<div class="bcoem-winner-table">
+		<h3>Table 31: Specialty Cider and Perry (13 entries)</h3>		<table class="table table-responsive table-striped table-bordered" id="sortableQ45114519462F87">
+		<thead>
+			<tr><th nowrap>Place</th><th>Brewer</th><th><span class="hidden-xs hidden-sm hidden-md">Entry </span>Name</th><th>Style</th><th>Club</th></tr>		</thead>
+		<tbody>
+			<tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-gold'></span> 1st</td><td>Kevin Wagner</td><td width="25%">Brewed With The Bucketmaster 7000 Brewing System</td><td width="25%">C2E: Cider with Herbs/Spices <a href="#24"  tabindex="0" role="button" data-toggle="popover" data-trigger="hover" data-placement="auto top" data-container="body" title="Info" data-content="Honeycrisp and heirloom apples with ginger, mango and habanero"><span class="hidden-xs hidden-sm hidden-md hidden-print fa fa-info-circle"></span></a></td></td><td width="25%">Kansas City Bier Meisters</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-silver'></span> 2nd</td><td>Bill Boyer</td><td width="25%">The Eldritchberry Terrors</td><td width="25%">C2B: Cider with Other Fruit <a href="#151"  tabindex="0" role="button" data-toggle="popover" data-trigger="hover" data-placement="auto top" data-container="body" title="Info" data-content="Elderberry"><span class="hidden-xs hidden-sm hidden-md hidden-print fa fa-info-circle"></span></a></td></td><td width="25%">North Georgia Malt Monkeys</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-bronze'></span> 3rd</td><td>Scott Taylor</td><td width="25%">Funk&apos;n Cider</td><td width="25%">C2F: Specialty Cider/Perry <a href="#288"  tabindex="0" role="button" data-toggle="popover" data-trigger="hover" data-placement="auto top" data-container="body" title="Info" data-content="Apple cider aged on Brett."><span class="hidden-xs hidden-sm hidden-md hidden-print fa fa-info-circle"></span></a></td></td><td width="25%">Iowa Brewers Union</td></tr>		</tbody>
+		</table>
+	</div>
+		<script type="text/javascript" language="javascript">
+	 $(document).ready(function() {
+		$('#sortableq8Z44k3i7514p110G37').dataTable( {
+			"bPaginate" : false,
+			"sDom": 'rt',
+			"bStateSave" : false,
+			"bLengthChange" : false,
+			"aaSorting": [[0,'asc']],
+			"bProcessing" : false,
+			"aoColumns": [
+				{ "asSorting": [  ] },
+				{ "asSorting": [  ] },
+				{ "asSorting": [  ] },
+				{ "asSorting": [  ] },				{ "asSorting": [  ] }				]
+			} );
+		} );
+	</script>
+	<div class="bcoem-winner-table">
+		<h3>Table 35: Transport Scale-Up (9 entries)</h3>		<table class="table table-responsive table-striped table-bordered" id="sortableq8Z44k3i7514p110G37">
+		<thead>
+			<tr><th nowrap>Place</th><th>Brewer</th><th><span class="hidden-xs hidden-sm hidden-md">Entry </span>Name</th><th>Style</th><th>Club</th></tr>		</thead>
+		<tbody>
+			<tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-gold'></span> 1st</td><td>Jamye Naramore<br>Co-Brewer: Cody Naramore</td><td width="25%">Dikkenek</td><td width="25%">35A: Transport Scale-Up</td><td width="25%">Kansas City Bier Meisters</td></tr>		</tbody>
+		</table>
+	</div>
+		<script type="text/javascript" language="javascript">
+	 $(document).ready(function() {
+		$('#sortablek3I42108w2w4a21L1D21').dataTable( {
+			"bPaginate" : false,
+			"sDom": 'rt',
+			"bStateSave" : false,
+			"bLengthChange" : false,
+			"aaSorting": [[0,'asc']],
+			"bProcessing" : false,
+			"aoColumns": [
+				{ "asSorting": [  ] },
+				{ "asSorting": [  ] },
+				{ "asSorting": [  ] },
+				{ "asSorting": [  ] },				{ "asSorting": [  ] }				]
+			} );
+		} );
+	</script>
+	<div class="bcoem-winner-table">
+		<h3>Table 38: KC Bier Co Scale-Up (18 entries)</h3>		<table class="table table-responsive table-striped table-bordered" id="sortablek3I42108w2w4a21L1D21">
+		<thead>
+			<tr><th nowrap>Place</th><th>Brewer</th><th><span class="hidden-xs hidden-sm hidden-md">Entry </span>Name</th><th>Style</th><th>Club</th></tr>		</thead>
+		<tbody>
+			<tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-gold'></span> 1st</td><td>Enid Lints</td><td width="25%">Schwarzbier</td><td width="25%">38A: KC Bier Co Scale-Up</td><td width="25%">West Sound Brewers</td></tr>		</tbody>
+		</table>
+	</div>
+		<script type="text/javascript" language="javascript">
+	 $(document).ready(function() {
+		$('#sortableu1O983C8M2V39D10119y610').dataTable( {
+			"bPaginate" : false,
+			"sDom": 'rt',
+			"bStateSave" : false,
+			"bLengthChange" : false,
+			"aaSorting": [[0,'asc']],
+			"bProcessing" : false,
+			"aoColumns": [
+				{ "asSorting": [  ] },
+				{ "asSorting": [  ] },
+				{ "asSorting": [  ] },
+				{ "asSorting": [  ] },				{ "asSorting": [  ] }				]
+			} );
+		} );
+	</script>
+	<div class="bcoem-winner-table">
+		<h3>Table 39: Alma Mader Scale Up (5 entries)</h3>		<table class="table table-responsive table-striped table-bordered" id="sortableu1O983C8M2V39D10119y610">
+		<thead>
+			<tr><th nowrap>Place</th><th>Brewer</th><th><span class="hidden-xs hidden-sm hidden-md">Entry </span>Name</th><th>Style</th><th>Club</th></tr>		</thead>
+		<tbody>
+			<tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-gold'></span> 1st</td><td>Daniel Eakins</td><td width="25%">Concordia Discors</td><td width="25%">39A: Alma Mader Scale Up</td><td width="25%"></td></tr>		</tbody>
+		</table>
+	</div>
+		<script type="text/javascript" language="javascript">
+	 $(document).ready(function() {
+		$('#sortableL10S44985h751M103B65').dataTable( {
+			"bPaginate" : false,
+			"sDom": 'rt',
+			"bStateSave" : false,
+			"bLengthChange" : false,
+			"aaSorting": [[0,'asc']],
+			"bProcessing" : false,
+			"aoColumns": [
+				{ "asSorting": [  ] },
+				{ "asSorting": [  ] },
+				{ "asSorting": [  ] },
+				{ "asSorting": [  ] },				{ "asSorting": [  ] }				]
+			} );
+		} );
+	</script>
+	<div class="bcoem-winner-table">
+		<h3>Table 40: Bier Meisters in Britain (4 entries)</h3>		<table class="table table-responsive table-striped table-bordered" id="sortableL10S44985h751M103B65">
+		<thead>
+			<tr><th nowrap>Place</th><th>Brewer</th><th><span class="hidden-xs hidden-sm hidden-md">Entry </span>Name</th><th>Style</th><th>Club</th></tr>		</thead>
+		<tbody>
+			<tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-gold'></span> 1st</td><td>Myles Burkemper</td><td width="25%">Maple Mild</td><td width="25%">40A: Bier Meisters in Britain</td><td width="25%">Kansas City Bier Meisters</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-silver'></span> 2nd</td><td>Eric Martin</td><td width="25%">No Turkey</td><td width="25%">40A: Bier Meisters in Britain</td><td width="25%">Kansas City Bier Meisters</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-bronze'></span> 3rd</td><td>Daniel Jent</td><td width="25%">God Save The Queen&period;&period;&period; A Beer</td><td width="25%">40A: Bier Meisters in Britain</td><td width="25%">Zymurgists of the Ozarks</td></tr>		</tbody>
+		</table>
+	</div>
+	
+<!-- Public Page Rebuild completed 08.26.15 -->
+
+        </div><!-- ./left column -->
+        <div class="sidebar col col-lg-3 col-md-4 col-sm-12 col-xs-12">
+            <img src="https://kcbmcomp.com/user_images/kcbm39patch.jpg" class="bcoem-comp-logo img-responsive hidden-print center-block" alt="Competition Logo" title="Competition Logo" /><div class="bcoem-admin-element hidden-print"><a class="btn btn-primary btn-block btn-sm" href="https://kcbmcomp.com/awards.php" target="_blank">Launch Awards Presentation <span class="fa fa-award"></span></a></div><div class="panel panel-info"><div class="panel-heading"><h4 class="panel-title">Past Winners</h4></div><div class="panel-body"><ul class="list-unstyled"><li><i class="fa fa-trophy text-silver"></i> <a href="https://kcbmcomp.com/past-winners/2019">2019</a></li><li><i class="fa fa-trophy text-silver"></i> <a href="https://kcbmcomp.com/past-winners/2020">2020</a></li><li><i class="fa fa-trophy text-silver"></i> <a href="https://kcbmcomp.com/past-winners/2021">2021</a></li></ul></div></div><div class="panel panel-info"><div class="panel-heading"><h4 class="panel-title">Judging Sessions and Dates</h4></div><div class="panel-body"><p><strong>Basement Session - 2/9</strong> <a class="hide-loader" href="#" target="_self" data-toggle="tooltip" data-placement="top" title="Log in to view the Basement Session - 2/9 location"> <span class="fa fa-lg fa-map-marker"></span></a><br />02/09/2022 6:00 PM, CST.</p><p><strong>G1 - Garage Session - 2/12</strong> <a class="hide-loader" href="#" target="_self" data-toggle="tooltip" data-placement="top" title="Log in to view the G1 - Garage Session - 2/12 location"> <span class="fa fa-lg fa-map-marker"></span></a><br />02/12/2022 10:00 AM, CST.</p><p><strong>G2 - Garage Session - 2/12</strong> <a class="hide-loader" href="#" target="_self" data-toggle="tooltip" data-placement="top" title="Log in to view the G2 - Garage Session - 2/12 location"> <span class="fa fa-lg fa-map-marker"></span></a><br />02/12/2022 1:00 PM, CST.</p><p><strong>T1 - Tuesday at Bier Co</strong> <a class="hide-loader" href="#" target="_self" data-toggle="tooltip" data-placement="top" title="Log in to view the T1 - Tuesday at Bier Co location"> <span class="fa fa-lg fa-map-marker"></span></a><br />02/15/2022 6:30 PM, CST.</p><p><strong>W1 - Wednesday at Bier Co</strong> <a class="hide-loader" href="#" target="_self" data-toggle="tooltip" data-placement="top" title="Log in to view the W1 - Wednesday at Bier Co location"> <span class="fa fa-lg fa-map-marker"></span></a><br />02/16/2022 6:30 PM, CST.</p><p><strong>F1 - Friday Early at Bier Co</strong> <a class="hide-loader" href="#" target="_self" data-toggle="tooltip" data-placement="top" title="Log in to view the F1 - Friday Early at Bier Co location"> <span class="fa fa-lg fa-map-marker"></span></a><br />02/18/2022 3:15 PM, CST.</p><p><strong>F2 - Friday Late at Bier Co</strong> <a class="hide-loader" href="#" target="_self" data-toggle="tooltip" data-placement="top" title="Log in to view the F2 - Friday Late at Bier Co location"> <span class="fa fa-lg fa-map-marker"></span></a><br />02/18/2022 6:15 PM, CST.</p><p><strong>S1 - Saturday Early at Bier Co</strong> <a class="hide-loader" href="#" target="_self" data-toggle="tooltip" data-placement="top" title="Log in to view the S1 - Saturday Early at Bier Co location"> <span class="fa fa-lg fa-map-marker"></span></a><br />02/19/2022 9:00 AM, CST.</p><p><strong>S2 - Saturday PM at Bier Co</strong> <a class="hide-loader" href="#" target="_self" data-toggle="tooltip" data-placement="top" title="Log in to view the S2 - Saturday PM at Bier Co location"> <span class="fa fa-lg fa-map-marker"></span></a><br />02/19/2022 12:20 PM, CST.</p></div></div><div class="panel panel-danger"><div class="panel-heading"><h4 class="panel-title">Account Registration Closed</h4></div><div class="panel-body"></div></div><div class="panel panel-danger"><div class="panel-heading"><h4 class="panel-title">Entry Registration Closed</h4></div><div class="panel-body"><span class="text-danger">The competition paid entry limit has been reached.</span></div></div><div class="panel panel-danger"><div class="panel-heading"><h4 class="panel-title">Entry Drop-Off Closed</h4></div><div class="panel-body">Entry bottles accepted at <a href="https://kcbmcomp.com/entry#drop-off-location">drop-off locations</a> 01/15/2022 11:00 AM, CST through 01/29/2022 5:00 PM, CST.</p><p><small>Please pay attention to the notes provided for each drop-off location. There could be earlier deadlines for some drop-off locations listed, particular hours when entries are accepted, certain individuals to leave your entries with, etc. <strong class="text-danger">All entrants are responsible for reading the information provided by the organizers for each drop-off location.</strong></small></p></div></div><div class="panel panel-danger"><div class="panel-heading"><h4 class="panel-title">Entry Shipping Closed</h4></div><div class="panel-body">Entry bottles accepted at <a href="https://kcbmcomp.com/entry#shipping-info">the shipping location</a> 01/15/2022 11:00 AM, CST through 01/29/2022 5:00 PM, CST.</p></div></div>        </div><!-- ./sidebar -->
+    </div><!-- ./row -->
+    <!-- ./Public Pages -->
+</div><!-- ./container -->
+<!-- ./Public Pages -->
+
+
+<!-- Footer -->
+<footer class="footer hidden-xs hidden-sm hidden-md">
+    <div class="navbar navbar-default navbar-fixed-bottom">
+        <div class="container text-center">
+            <p class="navbar-text col-md-12 col-sm-12 col-xs-12 text-muted small bcoem-footer">Kansas City Bier Meisters 39th Annual Homebrew Competition &ndash; <a href="http://www.brewcompetition.com" target="_blank">BCOE&amp;M</a> 2.3.0 (e) Amateur Competition Edition <span class="far fa-copyright fa-xs"></span>2009-2022</p>
+        </div>
+    </div>
+</footer><!-- ./footer -->
+<!-- ./ Footer -->
+<script type="text/javascript" src="https://kcbmcomp.com/js_includes/loader_target.min.js"></script>
+</body>
+</html>

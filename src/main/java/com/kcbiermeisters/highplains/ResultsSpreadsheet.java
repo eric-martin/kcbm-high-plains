@@ -211,7 +211,7 @@ public class ResultsSpreadsheet implements Closeable
 	private CellStyle getIneligibleStyle()
 	{
         Font font = workbook.createFont();
-        font.setColor(HSSFColor.HSSFColorPredefined.RED.getIndex());
+		font.setStrikeout(true);
 
         CellStyle style = workbook.createCellStyle();
         style.setFont(font);
