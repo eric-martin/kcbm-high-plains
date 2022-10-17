@@ -61,11 +61,11 @@ public class KcbmHighPlainsResults
 
         String[] competitions = {
             "kcbmcomp.com.html",
-            "https://ibuopen.brewcompetition.com" /*,
+            "ibuopen.brewcompetition.com.html",
             "https://www.lincolnlagers.com/cup",
             "https://hoppyhalloween.com/comp/",
-            "mashout.org.html",
-            "https://foamcup.us/" */
+            "https://foamcup.us/",
+            //"https://stlbrews.brewcompetition.com/"
         };
                         
         for (String competition : competitions)
