@@ -65,40 +65,43 @@ public class KcbmHighPlainsResults
             "https://www.lincolnlagers.com/cup",
             "https://hoppyhalloween.com/comp/",
             "https://foamcup.us/",
-            //"https://stlbrews.brewcompetition.com/"
+            "https://stlbrews.brewcompetition.com/"
         };
                         
         for (String competition : competitions)
         {
         	File competitionFile;
-        	
+
         	if (competition.contains("://"))
         	{
         		URL compUrl = new URL(competition + "/output/export.output.php?section=results&go=judging_scores&action=default&filter=default&view=html");
-        		
+
         		//competitionFile = new File(outputDir, compUrl.getHost() + ".html");
-        		
+
         		//FileUtils.copyURLToFile(compUrl, competitionFile, 5000, 5000);
-        		
+
         		//if (competitionFile.length() < 1000)
         		//{
         			compUrl = new URL(competition);
-            		
+
             		competitionFile = new File(outputDir, compUrl.getHost() + ".html");
-            		
+
             		FileUtils.copyURLToFile(compUrl, competitionFile, 5000, 5000);
         		//}
         	}
         	else
         	{
         		competitionFile = new File(inputDir, competition);
-        		
+
         		FileUtils.copyFile(competitionFile, new File(outputDir, competition));
         	}
-        	        	
+
         	List<WinningEntry> winningEntries = CompetitionResults.getResults(competitionFile);
-        	
-        	circuitResults.mergeWinningEntries(winningEntries);
+
+            if (!winningEntries.isEmpty())
+            {
+                circuitResults.mergeWinningEntries(winningEntries);
+            }
         }
                 
         // write the results
@@ -108,8 +111,8 @@ public class KcbmHighPlainsResults
         Eligibility eligibility = new Eligibility(clubState);
 
         ResultsSpreadsheet resultsSpreadsheet = new ResultsSpreadsheet(directory, "high-plains-results-" + directory + ".xlsx");
-        resultsSpreadsheet.createBrewerSheet(circuitResults.getBrewerResults(), eligibility);
         resultsSpreadsheet.createClubSheet(circuitResults.getClubResults(), eligibility);
+        resultsSpreadsheet.createBrewerSheet(circuitResults.getBrewerResults(), eligibility);
         resultsSpreadsheet.createBrewerDetailsSheet(circuitResults.getBrewerResults(), styleMap.getCategories());
         resultsSpreadsheet.write();
         resultsSpreadsheet.close();
