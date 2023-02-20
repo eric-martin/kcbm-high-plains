@@ -48,6 +48,8 @@ public class KcbmHighPlainsResults
         // read the style guide
         
         BjcpStyles styleMap = new BjcpStyles(new File(inputDir, "bjcp/2015_styleguide.xml"));
+
+        styleMap.adjustFor2021Guidelines();
         
         Map<String, String> styleAliases = AliasProperties.readFile(new File(inputDir, "circuit/style-alias.properties"));
         styleMap.addStyleAliases(styleAliases);
@@ -60,12 +62,12 @@ public class KcbmHighPlainsResults
         CircuitResults circuitResults = new CircuitResults(styleMap, brewerAliases, clubAliases);
 
         String[] competitions = {
-            "kcbmcomp.com.html",
-            "ibuopen.brewcompetition.com.html",
-            "https://www.lincolnlagers.com/cup",
-            "https://hoppyhalloween.com/comp/",
-            "https://foamcup.us/",
-            "https://stlbrews.brewcompetition.com/"
+            "https://kcbmcomp.com" //,
+            //"ibuopen.brewcompetition.com.html",
+            //"https://www.lincolnlagers.com/cup",
+            //"https://hoppyhalloween.com/comp/",
+            //"https://foamcup.us/",
+            //"https://stlbrews.brewcompetition.com/"
         };
                         
         for (String competition : competitions)

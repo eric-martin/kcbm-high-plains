@@ -54,7 +54,7 @@ public class BjcpStyles
             	
                 for (XmlSubcategory xmlSubcategory : xmlCategory.getSubcategories())
                 {
-                    log.debug("{} => {}", xmlSubcategory.getName(), category);
+                    //log.debug("{} => {}", xmlSubcategory.getName(), category);
                     
                     subToCat.put(xmlSubcategory.getName(), category);
                 }               
@@ -112,4 +112,56 @@ public class BjcpStyles
     	
     	return Optional.empty();
     }
+
+	/**
+	 * adjustFor2021Guidelines
+	 */
+	public void adjustFor2021Guidelines()
+	{
+		// 26 Trappist Ale -> Monastic Ale
+
+		for (BjcpCategory category : categories)
+		{
+			if (category.getId().equals("26") && category.getName().equals("Trappist Ale"))
+			{
+				category.setName("Monastic Ale");
+				break;
+			}
+		}
+
+		// 28D Straight Sour Beer
+
+		for (BjcpCategory category : categories)
+		{
+			if (category.getId().equals("28") && category.getName().equals("American Wild Ale"))
+			{
+				subToCat.put("Straight Sour Beer", category);
+				break;
+			}
+		}
+
+		// PRX Provisional Style -> LSX Local Styles
+		// Dorada Pampeana
+		// IPA Argenta
+		// Italian Grape Ale
+		// Catharina Sour
+		// New Zealand Pilsner
+
+		for (BjcpCategory category : categories)
+		{
+			if (category.getId().equals("PRX") && category.getName().equals("Provisional Style"))
+			{
+				category.setId("LSX");
+				category.setName("Local Styles");
+
+				subToCat.put("Dorada Pampeana", category);
+				subToCat.put("IPA Argenta", category);
+				subToCat.put("Italian Grape Ale", category);
+				subToCat.put("Catharina Sour", category);
+				subToCat.put("New Zealand Pilsner", category);
+
+				break;
+			}
+		}
+	}
 }

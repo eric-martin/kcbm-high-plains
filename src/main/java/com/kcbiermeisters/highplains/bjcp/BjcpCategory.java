@@ -3,6 +3,7 @@
  */
 package com.kcbiermeisters.highplains.bjcp;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 /**
@@ -10,8 +11,9 @@ import lombok.Data;
  * @author Eric Martin
  */
 @Data
+@AllArgsConstructor
 public class BjcpCategory 
 {
-    private final String id;
-    private final String name;
+    private String id;
+    private String name;
 }

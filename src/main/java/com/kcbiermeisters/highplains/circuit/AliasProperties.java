@@ -41,7 +41,7 @@ public class AliasProperties
                     String alias = aliasParts[0];
                     String actual = aliasParts[1];
                     
-                    log.debug("Alias => {} => {}", alias, actual);
+                    //log.debug("Alias => {} => {}", alias, actual);
                     
                     aliases.put(alias, actual);
                 }
