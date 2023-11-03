@@ -65,7 +65,7 @@ public class KcbmHighPlainsResults
             "https://kcbmcomp.com",
 			"ibuopen.brewcompetition.com.html",
             "https://www.lincolnlagers.com/cup",
-            //"https://hoppyhalloween.com/comp/",
+            "https://hoppyhalloween.com/comp/",
             //"https://foamcup.us/",
             //"https://stlbrews.brewcompetition.com/"
         };
