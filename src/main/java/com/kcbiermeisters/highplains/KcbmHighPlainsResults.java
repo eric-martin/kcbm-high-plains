@@ -62,12 +62,12 @@ public class KcbmHighPlainsResults
         CircuitResults circuitResults = new CircuitResults(styleMap, brewerAliases, clubAliases);
 
         String[] competitions = {
-            "https://kcbmcomp.com",
-			"ibuopen.brewcompetition.com.html",
-            "https://www.lincolnlagers.com/cup",
-            "https://hoppyhalloween.com/comp/",
-            "https://foamcup.us/",
-			"https://stlbrews.brewingcompetitions.com"
+            "https://kcbm.brewingcompetitions.com/",
+			//"ibuopen.brewcompetition.com.html",
+            //"https://www.lincolnlagers.com/cup",
+            //"https://hoppyhalloween.com/comp/",
+            //"https://foamcup.us/",
+			//"https://stlbrews.brewingcompetitions.com"
         };
                         
         for (String competition : competitions)
