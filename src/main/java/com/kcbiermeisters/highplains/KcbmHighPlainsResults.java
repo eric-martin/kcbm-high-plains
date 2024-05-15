@@ -64,6 +64,8 @@ public class KcbmHighPlainsResults
         String[] competitions = {
             "https://kcbm.brewingcompetitions.com/",
 			"https://ibuopen.brewingcompetitions.com/",
+			"https://competitions.redearthbrewers.com/springbrewoff/",
+			//"https://doggdayzz.brewingcompetitions.com/",
             //"https://www.lincolnlagers.com/cup",
             //"https://hoppyhalloween.com/comp/",
             //"https://foamcup.us/",
@@ -76,20 +78,11 @@ public class KcbmHighPlainsResults
 
         	if (competition.contains("://"))
         	{
-        		URL compUrl = new URL(competition + "/output/export.output.php?section=results&go=judging_scores&action=default&filter=default&view=html");
+        		URL compUrl = new URL(competition);
 
-        		//competitionFile = new File(outputDir, compUrl.getHost() + ".html");
+            	competitionFile = new File(outputDir, compUrl.getHost() + ".html");
 
-        		//FileUtils.copyURLToFile(compUrl, competitionFile, 5000, 5000);
-
-        		//if (competitionFile.length() < 1000)
-        		//{
-        			compUrl = new URL(competition);
-
-            		competitionFile = new File(outputDir, compUrl.getHost() + ".html");
-
-            		FileUtils.copyURLToFile(compUrl, competitionFile, 5000, 5000);
-        		//}
+            	FileUtils.copyURLToFile(compUrl, competitionFile, 5000, 5000);
         	}
         	else
         	{

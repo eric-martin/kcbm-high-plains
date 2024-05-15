@@ -69,7 +69,7 @@ public class CircuitResults
                 	boolean found = false;
 
                 	// check for a match by name only
-                	
+                	/*
                 	Brewer possibleMatch = null;
                 	
                 	for (Brewer b : brewerResults.keySet())
@@ -108,7 +108,7 @@ public class CircuitResults
 	                		found = true;
                 		}
                 	}
-                	
+					*/
                 	// add the brewer is we couldn't find an existing matching record
                 	
                 	if (!found)

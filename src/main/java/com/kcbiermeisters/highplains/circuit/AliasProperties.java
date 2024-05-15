@@ -4,6 +4,7 @@
 package com.kcbiermeisters.highplains.circuit;
 
 import java.io.File;
+import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -28,7 +29,7 @@ public class AliasProperties
 	{
 		Map<String, String> aliases = new HashMap<>();
 		
-        try (Scanner aliasScanner = new Scanner(file, "UTF-8"))
+        try (Scanner aliasScanner = new Scanner(file, StandardCharsets.ISO_8859_1.name()))
         {
             while (aliasScanner.hasNextLine())
             {

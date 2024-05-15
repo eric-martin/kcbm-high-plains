@@ -56,7 +56,9 @@ public class CompetitionResults
         				heading.text().contains("The FOAM Cup") ||
         				heading.text().contains("The Rager Cup") ||
         				heading.text().contains("Best Brewer") ||
-        				heading.text().contains("Best Club"))
+        				heading.text().contains("Best Club") ||
+					    heading.text().contains("Master Brewer") ||
+					    heading.text().contains("Club of the Year"))
         			{
         				child.remove();
         			}
@@ -113,6 +115,4 @@ public class CompetitionResults
         
         return winningEntries; 
     }
-    
-    
 }
