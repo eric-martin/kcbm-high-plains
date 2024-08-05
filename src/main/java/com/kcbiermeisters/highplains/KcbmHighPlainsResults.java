@@ -11,8 +11,11 @@ import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 import org.apache.commons.io.FileUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.kcbiermeisters.highplains.bjcp.BjcpStyles;
 import com.kcbiermeisters.highplains.circuit.AliasProperties;
@@ -27,7 +30,9 @@ import com.kcbiermeisters.highplains.comp.WinningEntry;
  */
 public class KcbmHighPlainsResults
 {
-    /**
+	private static final Logger log = LoggerFactory.getLogger(KcbmHighPlainsResults.class);
+
+	/**
      * main
      */
     public static void main(String[] args) throws Exception
@@ -57,46 +62,39 @@ public class KcbmHighPlainsResults
         // tally up results
 
         Map<String, String> brewerAliases = AliasProperties.readFile(new File(inputDir, "circuit/brewer-alias.properties"));
+
         Map<String, String> clubAliases = AliasProperties.readFile(new File(inputDir, "circuit/club-alias.properties"));
-        
+
         CircuitResults circuitResults = new CircuitResults(styleMap, brewerAliases, clubAliases);
 
         String[] competitions = {
-            "https://kcbm.brewingcompetitions.com/",
-			"https://ibuopen.brewingcompetitions.com/",
-			"https://competitions.redearthbrewers.com/springbrewoff/",
-			//"https://doggdayzz.brewingcompetitions.com/",
+			"https://kcbm.brewingcompetitions.com",
+			"https://ibuopen.brewingcompetitions.com",
+			"https://competitions.redearthbrewers.com/springbrewoff",
+			//"https://doggdayzz.brewingcompetitions.com",
             //"https://www.lincolnlagers.com/cup",
-            //"https://hoppyhalloween.com/comp/",
-            //"https://foamcup.us/",
+            //"https://hoppyhalloween.com/comp",
+            //"https://foamcup.us",
 			//"https://stlbrews.brewingcompetitions.com"
         };
+
+		CompetitionFileDownloader compFileDownloader = new CompetitionFileDownloader(inputDir, outputDir);
                         
         for (String competition : competitions)
         {
-        	File competitionFile;
+			URL compUrl = new URL(competition);
 
-        	if (competition.contains("://"))
-        	{
-        		URL compUrl = new URL(competition);
+			Optional<File> compFile = compFileDownloader.download(compUrl);
 
-            	competitionFile = new File(outputDir, compUrl.getHost() + ".html");
+			if (compFile.isPresent())
+			{
+				List<WinningEntry> winningEntries = CompetitionResults.getResults(compFile.get());
 
-            	FileUtils.copyURLToFile(compUrl, competitionFile, 5000, 5000);
-        	}
-        	else
-        	{
-        		competitionFile = new File(inputDir, competition);
-
-        		FileUtils.copyFile(competitionFile, new File(outputDir, competition));
-        	}
-
-        	List<WinningEntry> winningEntries = CompetitionResults.getResults(competitionFile);
-
-            if (!winningEntries.isEmpty())
-            {
-                circuitResults.mergeWinningEntries(winningEntries);
-            }
+				if (!winningEntries.isEmpty())
+				{
+					circuitResults.mergeWinningEntries(winningEntries);
+				}
+			}
         }
                 
         // write the results
