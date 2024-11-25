@@ -74,7 +74,7 @@ public class KcbmHighPlainsResults
 			"https://doggdayzz.brewingcompetitions.com",
             "https://www.lincolnlagers.com/cup",
             "https://hoppyhalloween.com/comp",
-            //"https://foamcup.us",
+            "https://foamcup.us",
 			//"https://stlbrews.brewingcompetitions.com"
         };
 
