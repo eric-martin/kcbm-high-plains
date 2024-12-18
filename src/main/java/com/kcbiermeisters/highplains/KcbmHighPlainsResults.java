@@ -75,7 +75,7 @@ public class KcbmHighPlainsResults
             "https://www.lincolnlagers.com/cup",
             "https://hoppyhalloween.com/comp",
             "https://foamcup.us",
-			//"https://stlbrews.brewingcompetitions.com"
+			"https://stlbrews.brewingcompetitions.com"
         };
 
 		CompetitionFileDownloader compFileDownloader = new CompetitionFileDownloader(inputDir, outputDir);
