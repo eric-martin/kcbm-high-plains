@@ -69,13 +69,12 @@ public class KcbmHighPlainsResults
 
         String[] competitions = {
 			"https://kcbm.brewingcompetitions.com",
-			//"https://ibuopen.brewingcompetitions.com",
+			"https://ibuopen.brewingcompetitions.com",
 			//"https://competitions.redearthbrewers.com/springbrewoff",
 			//"https://doggdayzz.brewingcompetitions.com",
             //"https://www.lincolnlagers.com/cup",
             //"https://hoppyhalloween.com/comp",
-            //"https://foamcup.us",
-			//"https://stlbrews.brewingcompetitions.com"
+            //"https://foamcup.us"
         };
 
 		CompetitionFileDownloader compFileDownloader = new CompetitionFileDownloader(inputDir, outputDir);
