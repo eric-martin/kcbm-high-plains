@@ -71,8 +71,8 @@ public class KcbmHighPlainsResults
 			"https://kcbm.brewingcompetitions.com",
 			"https://ibuopen.brewingcompetitions.com",
 			"https://competitions.redearthbrewers.com/springbrewoff",
-			//"https://doggdayzz.brewingcompetitions.com",
-            "https://www.lincolnlagers.com/cup",
+			"https://www.lincolnlagers.com/cup",
+			"https://doggdayzz.brewingcompetitions.com",
             //"https://hoppyhalloween.com/comp",
             //"https://foamcup.us"
         };
