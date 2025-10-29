@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>The 2025 Sower's Cup - Brew Competition Online Entry &amp; Management</title>
+    <!-- Load jQuery / http://jquery.com/ -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+    <!-- Load Bootstrap / http://www.getbootsrap.com -->
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Load DataTables / https://www.datatables.net -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/plug-ins/1.10.12/integration/font-awesome/dataTables.fontAwesome.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
+
+    <!-- Load Fancybox / http://www.fancyapps.com -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css"/>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js"></script>
+
+    <!-- Load Moment -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment-with-locales.min.js"></script>
+
+    <!-- Load Bootstrap DateTime Picker / http://eonasdan.github.io/bootstrap-datetimepicker/ -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
+
+
+
+    <!-- Load Bootstrap Form Validator / http://1000hz.github.io/bootstrap-validator -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.9.0/validator.min.js"></script>
+
+    <!-- Load Bootstrap-Select / https://developer.snapappointments.com/bootstrap-select -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.18/css/bootstrap-select.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.18/js/bootstrap-select.min.js"></script>
+
+    <!-- Load Font Awesome / https://fortawesome.github.io/Font-Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/v4-shims.min.css" integrity="sha512-NfhLGuxy6G12XHj7/bvm0RC3jmR25RdpImn8P19aIMmN5pndO0fvIg78ihN2WIJtVRs+AYVrnYF4AipVikGPLg==" crossorigin="anonymous" />
+
+    <!-- Load BCOE&M Custom CSS - Contains Bootstrap overrides and custom classes common to all BCOE&M themes -->
+    <link rel="stylesheet" type="text/css" href="https://www.lincolnlagers.com/cup/css/common.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://www.lincolnlagers.com/cup/css/default.min.css" />
+
+    <script type="text/javascript">
+        var username_url = "https://www.lincolnlagers.com/cup/ajax/username.ajax.php";
+        var email_url="https://www.lincolnlagers.com/cup/ajax/valid_email.ajax.php";
+        var user_agent_msg = "Internet Explorer is not supported by BCOE&M - features and functions will not render properly and your experience will not be optimal. Please upgrade to a newer browser.";
+        var setup = 0;
+    </script>
+    
+    <!-- Open Graph Implementation -->
+    <meta property="og:title" content="The 2025 Sower's Cup" />
+    <meta property="og:image" content="https://www.lincolnlagers.com/cup/user_images/sowers_cup_logo_no-date.jpg" />
+    <meta property="og:url" content="https://www.lincolnlagers.com/cup/" />
+</head>
+<body>
+
+<a name="top"></a>
+
+<!-- LOADER -->
+<div id="loader-submit">
+    <div class="center">
+        <span class="fa fa-cog fa-spin fa-5x fa-fw"></span>
+        <p><strong>Working.<br>Please stand by. Press Esc to hide.</strong></p>
+    </div>
+</div>
+<!-- ./LOADER -->
+
+<!-- MAIN NAV -->
+<div class="container hidden-print">
+    <script>
+$(document).ready(function(){
+	$("#login-modal-disable").hide();
+    $("#login-modal-enable").show();
+    $("#admin-disable").hide();
+    $("#admin-enable").show();
+	$("#user-menu-disable").hide();
+    $("#logout-disable").hide();
+    $("#user-menu-enable").show();
+	$("#print-enable").show();
+	$("#help-enable").show();
+	$('#loginModal').on('shown.bs.modal', function() {
+		 $(this).find('#loginUsername').focus();
+	});
+});
+</script>
+<!-- Login Form Modal logincheck.inc.php?section=login -->
+<!-- Modal -->
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel">
+	<div class="modal-dialog modal-sm" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="loginModalLabel">Log In</h4>
+			</div>
+			<div class="modal-body">
+				<form class="form-horizontal" data-toggle="validator" role="form" action="https://www.lincolnlagers.com/cup/includes/process.inc.php?section=login&action=login" method="POST" name="form1" id="form1">
+					<div class="form-group">
+						<div class="col-md-12">
+							<div class="input-group has-warning">
+								<span class="input-group-addon" id="login-addon1"><span class="fa fa-envelope"></span></span>
+								<!-- Input Here -->
+								<input id="loginUsername" class="form-control" name="loginUsername" type="email" required placeholder="Email Address" data-error="Your user name (email address) is required.">
+								<span class="input-group-addon" id="login-addon2" data-tooltip="true" title="This field is required."><span class="fa fa-star"></span></span>
+							</div>
+							<span class="help-block with-errors"></span>
+						</div>
+					</div><!-- Form Group -->
+					<div class="form-group">
+						<div class="col-md-12">
+							<div class="input-group has-warning">
+								<span class="input-group-addon" id="login-addon3"><span class="fa fa-key"></span></span>
+								<!-- Input Here -->
+								<input class="form-control" name="loginPassword" type="password" required placeholder="Password" data-error="Your password is required.">
+								<span class="input-group-addon" id="login-addon4" data-tooltip="true" title="This field is required."><span class="fa fa-star"></span></span>
+							</div>
+							<span class="help-block with-errors"></span>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-md-12">
+							<!-- Input Here -->
+							<button name="submit" type="submit" class="btn btn-primary btn-block" >Log In <span class="fa fa-sign-in" aria-hidden="true"></span> </button>
+						</div>
+					</div><!-- Form Group -->
+				</form>
+			</div>
+			<div class="modal-footer">
+				<p align="center"><span class="fa fa-lg fa-exlamation-circle"></span> Forgot your password? <a href="https://www.lincolnlagers.com/cup/index.php?section=login&amp;go=password&amp;action=forgot">Reset it</a>.</p>
+							</div>
+		</div>
+	</div>
+</div>
+	<!-- Fixed navbar -->
+    <div class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bcoem-navbar-collapse" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div class="collapse navbar-collapse" id="bcoem-navbar-collapse">
+              <ul class="nav navbar-nav">
+                <li class="active"><a class="hide-loader" href="#">Home</a></li>
+                <li><a class="hide-loader" href="https://www.lincolnlagers.com/cup/index.php?section=entry">Info</a></li>
+                <li><a class="hide-loader" href="https://www.lincolnlagers.com/cup/index.php?section=volunteers">Volunteers</a></li>
+                                <li><a class="hide-loader" href="https://www.lincolnlagers.com/cup/index.php?section=sponsors">Sponsors</a></li>
+                                <li><a class="hide-loader" href="https://www.lincolnlagers.com/cup/index.php?section=contact">Contact</a></li>
+                                              </ul>
+          <ul class="nav navbar-nav navbar-right">
+          	          	          	<li id="print-enable"><a class="hide-loader hidden-xs hidden-sm hidden-md" href="#" onclick="window.print()" role="button"><span class="fa fa-print"></span></a></li>
+                      	            <li id="login-modal-enable" ><a href="#" role="button" data-toggle="modal" data-target="#loginModal">Log In</a></li>
+            <li id="login-modal-disable"><a href="https://www.lincolnlagers.com/cup/index.php?section=login">Log In</a></li>
+                        <li class="small visible-xs"><a href="https://brewingcompetitions.com" target="_blank">v 2.7.0</a></li>
+            </ul>
+
+          </div>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+    </div><!-- container -->
+<!-- ./MAIN NAV -->
+
+<!-- ALERTS -->
+<div class="container bcoem-warning-container">
+    
+
+
+
+
+    
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+  
+  
+
+    <div id="no-js-alert" class="alert alert-danger">
+        <i class="fa fa-lg fa-exclamation-circle"></i> <strong>For an optimal experience and so that all features and functions execute properly, please enable JavaScript to continue using this site. Otherwise, unexpected behavior will occur.</strong>
+    </div>
+
+
+
+
+
+</div><!-- ./container -->
+<!-- ./ALERTS -->
+
+<!-- Top line JS -->
+<script>
+    $("#no-js-alert").hide();
+    try {
+        var ua = window.navigator.userAgent;
+        var msie = ua.indexOf("MSIE ");
+        if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./)) {
+            alert(user_agent_msg)
+        }
+    } catch (error) {
+        console.error('Error checking user agent.', error)
+    }
+</script>
+
+<!-- DEBUG -->
+<div class="container hidden-print">
+</div>
+<!-- ./DEBUG -->
+
+<!-- Public Pages (Fixed Layout with Sidebar) -->
+<div id="main-content" class="container">
+    <div class="row">
+        <div class="col col-lg-9 col-md-8 col-sm-12 col-xs-12">
+                <div class="page-header">
+            <h1>The 2025 Sower's Cup</h1>
+        </div>
+        <p class="lead">Thanks to all who participated in the The 2025 Sower's Cup.</p><p class="lead"><small>There were <strong class="text-success">388</strong> entries judged and <strong class="text-success">145</strong> registered participants, judges, and stewards.</small></p><h2>Best of Show Winners <small><a class="hide-loader" href="https://www.lincolnlagers.com/cup/includes/output.inc.php?section=export-results&amp;go=judging_scores_bos&amp;action=download&amp;filter=default&amp;view=pdf" data-toggle="tooltip" title="Download the Best of Show winners in PDF format." target="_blank"><span class="fa fa-fw fa-file-pdf hidden-print"></span></a><a class="hide-loader" href="https://www.lincolnlagers.com/cup/includes/output.inc.php?section=export-results&amp;go=judging_scores_bos&amp;action=download&amp;filter=default&amp;view=html" data-toggle="tooltip" title="Download the Best of Show winners in HTML format." target="_blank"><span class="fa fa-fw fa-file-code hidden-print"></span></a></small></h2><script type="text/javascript" language="javascript">
+ $(document).ready(function() {
+	$('#sortable77549542532').dataTable( {
+		"bPaginate" : false,
+		"sDom": 'rt',
+		"bStateSave" : false,
+		"bLengthChange" : false,
+		"aaSorting": [[0,'asc']],
+		"bProcessing" : false,
+		"aoColumns": [
+			{ "asSorting": [  ] },
+			{ "asSorting": [  ] },
+			{ "asSorting": [  ] },
+			{ "asSorting": [  ] },			{ "asSorting": [  ] }
+			]
+		} );
+	} );
+</script>
+<div class="bcoem-winner-table">
+<h3>Best of Show &ndash; Beer</h3><table class="table table-responsive table-striped table-bordered dataTable" id="sortable77549542532">
+<thead>
+	<tr><th nowrap>Place</th><th>Brewer</th><th>Entry Name</th><th>Style</th><th>Club</th></tr></thead>
+<tbody>
+	<tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-gold'></span> 1st</td><td width="25%">Randy Daniels KC McKinney</td><td width="25%">Happy Accident</td><td>15B: Irish Stout</td><td width="20%">Iowa Brewers Union</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-silver'></span> 2nd</td><td width="25%">Kent Porter</td><td width="25%">Zaphod</td><td>5C: German Helles Exportbier</td><td width="20%">OmaHops</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-bronze'></span> 3rd</td><td width="25%">Drew Templeton</td><td width="25%">Derp Face Kriek</td><td>23F: Fruit Lambic</td><td width="20%">Iowa Brewers Union</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-teal'></span> HM</td><td width="25%">Craig Samek</td><td width="25%">Gardedrag</td><td>24C: Bière de Garde</td><td width="20%">Lincoln Lagers</td></tr></tbody>
+</table>
+</div>
+<script type="text/javascript" language="javascript">
+ $(document).ready(function() {
+	$('#sortable6610908489').dataTable( {
+		"bPaginate" : false,
+		"sDom": 'rt',
+		"bStateSave" : false,
+		"bLengthChange" : false,
+		"aaSorting": [[0,'asc']],
+		"bProcessing" : false,
+		"aoColumns": [
+			{ "asSorting": [  ] },
+			{ "asSorting": [  ] },
+			{ "asSorting": [  ] },
+			{ "asSorting": [  ] },			{ "asSorting": [  ] }
+			]
+		} );
+	} );
+</script>
+<div class="bcoem-winner-table">
+<h3>Best of Show &ndash; Cider</h3><table class="table table-responsive table-striped table-bordered dataTable" id="sortable6610908489">
+<thead>
+	<tr><th nowrap>Place</th><th>Brewer</th><th>Entry Name</th><th>Style</th><th>Club</th></tr></thead>
+<tbody>
+	<tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-gold'></span> 1st</td><td width="25%">Adam Lund</td><td width="25%">I&apos;ve Always Won&comma; And I&apos;m Going To Continue To Win&period; And That&apos;s The Way It Is&period;</td><td>C2B: Cider with Other Fruit</td><td width="20%">Oregon Brew Crew</td></tr></tbody>
+</table>
+</div>
+<script type="text/javascript" language="javascript">
+ $(document).ready(function() {
+	$('#sortable379757636751').dataTable( {
+		"bPaginate" : false,
+		"sDom": 'rt',
+		"bStateSave" : false,
+		"bLengthChange" : false,
+		"aaSorting": [[0,'asc']],
+		"bProcessing" : false,
+		"aoColumns": [
+			{ "asSorting": [  ] },
+			{ "asSorting": [  ] },
+			{ "asSorting": [  ] },
+			{ "asSorting": [  ] },			{ "asSorting": [  ] }
+			]
+		} );
+	} );
+</script>
+<div class="bcoem-winner-table">
+<h3>Best of Show &ndash; Mead</h3><table class="table table-responsive table-striped table-bordered dataTable" id="sortable379757636751">
+<thead>
+	<tr><th nowrap>Place</th><th>Brewer</th><th>Entry Name</th><th>Style</th><th>Club</th></tr></thead>
+<tbody>
+	<tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-gold'></span> 1st</td><td width="25%">Zach Fenton</td><td width="25%">Berry Mead</td><td>M2C: Berry Mead</td><td width="20%">Lincoln Lagers</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-silver'></span> 2nd</td><td width="25%">Shawn Montgomery</td><td width="25%">Sangria Mead</td><td>M3A: Fruit and Spice Mead</td><td width="20%">Iowa Brewers Union</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-bronze'></span> 3rd</td><td width="25%">Zach Fenton</td><td width="25%">Dreamsoda</td><td>M1B: Semi-Sweet Mead</td><td width="20%">Lincoln Lagers</td></tr></tbody>
+</table>
+</div>
+<!-- Public Page Rebuild completed 08.26.15 -->
+
+
+<h2>Winning Entries <small><a class="hide-loader" href="https://www.lincolnlagers.com/cup/includes/output.inc.php?section=export-results&amp;go=judging_scores&amp;action=default&amp;filter=default&amp;view=pdf" data-toggle="tooltip" title="Download the winning entries in PDF format." target="_blank"><span class="fa fa-fw fa-file-pdf hidden-print"></span></a><a class="hide-loader" href="https://www.lincolnlagers.com/cup/includes/output.inc.php?section=export-results&amp;go=judging_scores&amp;action=default&amp;filter=default&amp;view=html" data-toggle="tooltip" title="Download the winning entries in HTML format." target="_blank"><span class="fa fa-fw fa-file-code hidden-print"></span></a></h2>
+				<script type="text/javascript" language="javascript">
+				$(document).ready(function() {
+				    $('#sortableY6105G15t8I9b379232').dataTable( {
+				    	"bPaginate" : false,
+				    	"sDom": 'rt',
+				        "aaSorting": [ [0,'asc'] ],
+				        "aoColumns": [
+				            { "asSorting": [  ] },
+				            { "asSorting": [  ] },
+				            { "asSorting": [  ] },
+				            { "asSorting": [  ] }, { "asSorting": [  ] },
+				        ]
+				    });
+				} );
+				</script>
+				<div class="bcoem-winner-table"><h3>Table 1: American Lager (18 entries)</h3><table class="table table-responsive table-striped table-bordered" id="sortableY6105G15t8I9b379232"><thead><tr><th nowrap>Place</th><th>Brewer</th><th><span class="hidden-xs hidden-sm hidden-md">Entry </span>Name</th><th>Style</th><th>Club</th></tr></thead><tbody><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-gold'></span> 1st</td><td>Justin Gerharter</td><td width="25%">Head For The Mountains</td><td width="25%">1A: American Light Lager</td><td width="25%">Homebrewers Local 402</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-silver'></span> 2nd</td><td>Bryan Dort <span data-toggle="tooltip" data-placement="top" title="Master Homebrewer Program Participant" style="color: #F2D06C; background-color: #000;" class="badge">MHP</span></td><td width="25%">Sometimes 9 1&sol;2</td><td width="25%">1B: American Lager</td><td width="25%">Homebrewers Local 402</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-bronze'></span> 3rd</td><td>Stephen Polczynski <span data-toggle="tooltip" data-placement="top" title="Master Homebrewer Program Participant" style="color: #F2D06C; background-color: #000;" class="badge">MHP</span></td><td width="25%">Polk Lite</td><td width="25%">1A: American Light Lager</td><td width="25%">Red Earth Brewers</td></tr></tbody></table></div>
+				<script type="text/javascript" language="javascript">
+				$(document).ready(function() {
+				    $('#sortable3u68T5971657x2q43').dataTable( {
+				    	"bPaginate" : false,
+				    	"sDom": 'rt',
+				        "aaSorting": [ [0,'asc'] ],
+				        "aoColumns": [
+				            { "asSorting": [  ] },
+				            { "asSorting": [  ] },
+				            { "asSorting": [  ] },
+				            { "asSorting": [  ] }, { "asSorting": [  ] },
+				        ]
+				    });
+				} );
+				</script>
+				<div class="bcoem-winner-table"><h3>Table 2: International and Pale Malty Lager (20 entries)</h3><table class="table table-responsive table-striped table-bordered" id="sortable3u68T5971657x2q43"><thead><tr><th nowrap>Place</th><th>Brewer</th><th><span class="hidden-xs hidden-sm hidden-md">Entry </span>Name</th><th>Style</th><th>Club</th></tr></thead><tbody><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-gold'></span> 1st</td><td>Michael Sawyer</td><td width="25%">Hirschgarten Helles</td><td width="25%">4A: Munich Helles</td><td width="25%">ZZHops Homebrewing Club</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-silver'></span> 2nd</td><td>Randy Daniels KC McKinney <span data-toggle="tooltip" data-placement="top" title="Master Homebrewer Program Participant" style="color: #F2D06C; background-color: #000;" class="badge">MHP</span></td><td width="25%">Football Season Is Coming&period;&period;&period;</td><td width="25%">2A: International Pale Lager <a href="#43" tabindex="0" role="button" data-toggle="popover" data-trigger="hover" data-placement="auto top" data-container="body" title="Info" data-content="Mexican Lager"><span class="hidden-xs hidden-sm hidden-md hidden-print fa fa-info-circle"></span></a></td><td width="25%">Iowa Brewers Union</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-bronze'></span> 3rd</td><td>Jamye &amp; Cody Naramore <span data-toggle="tooltip" data-placement="top" title="Master Homebrewer Program Participant" style="color: #F2D06C; background-color: #000;" class="badge">MHP</span></td><td width="25%">Devil Wouldn&apos;t Walk In My Shoes</td><td width="25%">2C: International Dark Lager</td><td width="25%">Kansas City Bier Meisters</td></tr></tbody></table></div>
+				<script type="text/javascript" language="javascript">
+				$(document).ready(function() {
+				    $('#sortable5d7041z8U2417Z975').dataTable( {
+				    	"bPaginate" : false,
+				    	"sDom": 'rt',
+				        "aaSorting": [ [0,'asc'] ],
+				        "aoColumns": [
+				            { "asSorting": [  ] },
+				            { "asSorting": [  ] },
+				            { "asSorting": [  ] },
+				            { "asSorting": [  ] }, { "asSorting": [  ] },
+				        ]
+				    });
+				} );
+				</script>
+				<div class="bcoem-winner-table"><h3>Table 3: Czech Lager (16 entries)</h3><table class="table table-responsive table-striped table-bordered" id="sortable5d7041z8U2417Z975"><thead><tr><th nowrap>Place</th><th>Brewer</th><th><span class="hidden-xs hidden-sm hidden-md">Entry </span>Name</th><th>Style</th><th>Club</th></tr></thead><tbody><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-gold'></span> 1st</td><td>Randy Daniels KC McKinney <span data-toggle="tooltip" data-placement="top" title="Master Homebrewer Program Participant" style="color: #F2D06C; background-color: #000;" class="badge">MHP</span></td><td width="25%">CPL</td><td width="25%">3A: Czech Pale Lager</td><td width="25%">Iowa Brewers Union</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-silver'></span> 2nd</td><td>Matt Young <span data-toggle="tooltip" data-placement="top" title="Master Homebrewer Program Participant" style="color: #F2D06C; background-color: #000;" class="badge">MHP</span></td><td width="25%">Vortex Of Hate 2&period;0</td><td width="25%">3D: Czech Dark Lager</td><td width="25%">Ace Brewing Society</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-bronze'></span> 3rd</td><td>Dirk Montgomery <span data-toggle="tooltip" data-placement="top" title="Master Homebrewer Program Participant" style="color: #F2D06C; background-color: #000;" class="badge">MHP</span></td><td width="25%">Czech It Out&excl;</td><td width="25%">3D: Czech Dark Lager</td><td width="25%">Red Earth Brewers</td></tr></tbody></table></div>
+				<script type="text/javascript" language="javascript">
+				$(document).ready(function() {
+				    $('#sortable73I7N115H38136d5').dataTable( {
+				    	"bPaginate" : false,
+				    	"sDom": 'rt',
+				        "aaSorting": [ [0,'asc'] ],
+				        "aoColumns": [
+				            { "asSorting": [  ] },
+				            { "asSorting": [  ] },
+				            { "asSorting": [  ] },
+				            { "asSorting": [  ] }, { "asSorting": [  ] },
+				        ]
+				    });
+				} );
+				</script>
+				<div class="bcoem-winner-table"><h3>Table 4: Pale Bitter European Beer (13 entries)</h3><table class="table table-responsive table-striped table-bordered" id="sortable73I7N115H38136d5"><thead><tr><th nowrap>Place</th><th>Brewer</th><th><span class="hidden-xs hidden-sm hidden-md">Entry </span>Name</th><th>Style</th><th>Club</th></tr></thead><tbody><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-gold'></span> 1st</td><td>Kent Porter</td><td width="25%">Zaphod</td><td width="25%">5C: German Helles Exportbier</td><td width="25%">OmaHops</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-silver'></span> 2nd</td><td>Ross Stuart <span data-toggle="tooltip" data-placement="top" title="Master Homebrewer Program Participant" style="color: #F2D06C; background-color: #000;" class="badge">MHP</span></td><td width="25%">Kolsch</td><td width="25%">5B: Kölsch</td><td width="25%">Arizona Society of Homebrewers</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-bronze'></span> 3rd</td><td>David Towles <span data-toggle="tooltip" data-placement="top" title="Master Homebrewer Program Participant" style="color: #F2D06C; background-color: #000;" class="badge">MHP</span></td><td width="25%">Kolsch</td><td width="25%">5B: Kölsch</td><td width="25%">High Plains Drafters [TX]</td></tr></tbody></table></div>
+				<script type="text/javascript" language="javascript">
+				$(document).ready(function() {
+				    $('#sortable4F1010N58f626N7028683').dataTable( {
+				    	"bPaginate" : false,
+				    	"sDom": 'rt',
+				        "aaSorting": [ [0,'asc'] ],
+				        "aoColumns": [
+				            { "asSorting": [  ] },
+				            { "asSorting": [  ] },
+				            { "asSorting": [  ] },
+				            { "asSorting": [  ] }, { "asSorting": [  ] },
+				        ]
+				    });
+				} );
+				</script>
+				<div class="bcoem-winner-table"><h3>Table 5: Pilsners (11 entries)</h3><table class="table table-responsive table-striped table-bordered" id="sortable4F1010N58f626N7028683"><thead><tr><th nowrap>Place</th><th>Brewer</th><th><span class="hidden-xs hidden-sm hidden-md">Entry </span>Name</th><th>Style</th><th>Club</th></tr></thead><tbody><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-gold'></span> 1st</td><td>Matthew Johnsen <span data-toggle="tooltip" data-placement="top" title="Master Homebrewer Program Participant" style="color: #F2D06C; background-color: #000;" class="badge">MHP</span></td><td width="25%">Open Bar Dude&excl;</td><td width="25%">5D: German Pils</td><td width="25%">Rock Hoppers Brew Club</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-silver'></span> 2nd</td><td>Mike &amp; Stephanie Butler <span data-toggle="tooltip" data-placement="top" title="Master Homebrewer Program Participant" style="color: #F2D06C; background-color: #000;" class="badge">MHP</span></td><td width="25%">Socks With Crocks&equals;FUN&excl;</td><td width="25%">LSX5: New Zealand Pilsner</td><td width="25%">Kansas City Bier Meisters</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-bronze'></span> 3rd</td><td>Pete Graham <span data-toggle="tooltip" data-placement="top" title="Master Homebrewer Program Participant" style="color: #F2D06C; background-color: #000;" class="badge">MHP</span></td><td width="25%">3 Stepped Pils</td><td width="25%">5D: German Pils</td><td width="25%">Foam Blowers of Indiana (FBI)</td></tr></tbody></table></div>
+				<script type="text/javascript" language="javascript">
+				$(document).ready(function() {
+				    $('#sortableA4k7R831R75e7985175').dataTable( {
+				    	"bPaginate" : false,
+				    	"sDom": 'rt',
+				        "aaSorting": [ [0,'asc'] ],
+				        "aoColumns": [
+				            { "asSorting": [  ] },
+				            { "asSorting": [  ] },
+				            { "asSorting": [  ] },
+				            { "asSorting": [  ] }, { "asSorting": [  ] },
+				        ]
+				    });
+				} );
+				</script>
+				<div class="bcoem-winner-table"><h3>Table 6: Amber European Beer (19 entries)</h3><table class="table table-responsive table-striped table-bordered" id="sortableA4k7R831R75e7985175"><thead><tr><th nowrap>Place</th><th>Brewer</th><th><span class="hidden-xs hidden-sm hidden-md">Entry </span>Name</th><th>Style</th><th>Club</th></tr></thead><tbody><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-gold'></span> 1st</td><td>Metts Potter</td><td width="25%">Gray Skies</td><td width="25%">7A: Vienna Lager</td><td width="25%">Bloatarian Brewing League</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-silver'></span> 2nd</td><td>Kevin Olson <span data-toggle="tooltip" data-placement="top" title="Master Homebrewer Program Participant" style="color: #F2D06C; background-color: #000;" class="badge">MHP</span></td><td width="25%">Zecks Panther</td><td width="25%">6C: Dunkels Bock</td><td width="25%">ZZHops Homebrewing Club</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-bronze'></span> 3rd</td><td>Drew Templeton <span data-toggle="tooltip" data-placement="top" title="Master Homebrewer Program Participant" style="color: #F2D06C; background-color: #000;" class="badge">MHP</span></td><td width="25%">All The Pets Alt</td><td width="25%">7B: Altbier</td><td width="25%">Iowa Brewers Union</td></tr></tbody></table></div>
+				<script type="text/javascript" language="javascript">
+				$(document).ready(function() {
+				    $('#sortableH9G5L242310e6R933k410').dataTable( {
+				    	"bPaginate" : false,
+				    	"sDom": 'rt',
+				        "aaSorting": [ [0,'asc'] ],
+				        "aoColumns": [
+				            { "asSorting": [  ] },
+				            { "asSorting": [  ] },
+				            { "asSorting": [  ] },
+				            { "asSorting": [  ] }, { "asSorting": [  ] },
+				        ]
+				    });
+				} );
+				</script>
+				<div class="bcoem-winner-table"><h3>Table 7: Dark &amp; Strong European Lager (13 entries)</h3><table class="table table-responsive table-striped table-bordered" id="sortableH9G5L242310e6R933k410"><thead><tr><th nowrap>Place</th><th>Brewer</th><th><span class="hidden-xs hidden-sm hidden-md">Entry </span>Name</th><th>Style</th><th>Club</th></tr></thead><tbody><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-gold'></span> 1st</td><td>Kevin Olson <span data-toggle="tooltip" data-placement="top" title="Master Homebrewer Program Participant" style="color: #F2D06C; background-color: #000;" class="badge">MHP</span></td><td width="25%">Cody&apos;s Strong Hand</td><td width="25%">9A: Doppelbock <a href="#58" tabindex="0" role="button" data-toggle="popover" data-trigger="hover" data-placement="auto top" data-container="body" title="Info" data-content="Amber/Dark Color"><span class="hidden-xs hidden-sm hidden-md hidden-print fa fa-info-circle"></span></a></td><td width="25%">ZZHops Homebrewing Club</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-silver'></span> 2nd</td><td>Ross Stuart <span data-toggle="tooltip" data-placement="top" title="Master Homebrewer Program Participant" style="color: #F2D06C; background-color: #000;" class="badge">MHP</span></td><td width="25%">Schwrzbier</td><td width="25%">8B: Schwarzbier</td><td width="25%">Arizona Society of Homebrewers</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-bronze'></span> 3rd</td><td>Mike &amp; Stephanie Butler <span data-toggle="tooltip" data-placement="top" title="Master Homebrewer Program Participant" style="color: #F2D06C; background-color: #000;" class="badge">MHP</span></td><td width="25%">Preaching To The Converted</td><td width="25%">9A: Doppelbock <a href="#52" tabindex="0" role="button" data-toggle="popover" data-trigger="hover" data-placement="auto top" data-container="body" title="Info" data-content="Amber/Dark Color"><span class="hidden-xs hidden-sm hidden-md hidden-print fa fa-info-circle"></span></a></td><td width="25%">Kansas City Bier Meisters</td></tr></tbody></table></div>
+				<script type="text/javascript" language="javascript">
+				$(document).ready(function() {
+				    $('#sortable47A2d5Z5Z9210U198i87710').dataTable( {
+				    	"bPaginate" : false,
+				    	"sDom": 'rt',
+				        "aaSorting": [ [0,'asc'] ],
+				        "aoColumns": [
+				            { "asSorting": [  ] },
+				            { "asSorting": [  ] },
+				            { "asSorting": [  ] },
+				            { "asSorting": [  ] }, { "asSorting": [  ] },
+				        ]
+				    });
+				} );
+				</script>
+				<div class="bcoem-winner-table"><h3>Table 8: Wheat Beer (14 entries)</h3><table class="table table-responsive table-striped table-bordered" id="sortable47A2d5Z5Z9210U198i87710"><thead><tr><th nowrap>Place</th><th>Brewer</th><th><span class="hidden-xs hidden-sm hidden-md">Entry </span>Name</th><th>Style</th><th>Club</th></tr></thead><tbody><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-gold'></span> 1st</td><td>Bryan Dort <span data-toggle="tooltip" data-placement="top" title="Master Homebrewer Program Participant" style="color: #F2D06C; background-color: #000;" class="badge">MHP</span></td><td width="25%">Just Add Water</td><td width="25%">10A: Weissbier</td><td width="25%">Homebrewers Local 402</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-silver'></span> 2nd</td><td>Taylor Norland</td><td width="25%">Independence Day Wheat</td><td width="25%">1D: American Wheat Beer</td><td width="25%">Iowa Brewers Union</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-bronze'></span> 3rd</td><td>Michael Rensing <span data-toggle="tooltip" data-placement="top" title="Master Homebrewer Program Participant" style="color: #F2D06C; background-color: #000;" class="badge">MHP</span></td><td width="25%">Fawn Knutsen</td><td width="25%">10B: Dunkels Weissbier</td><td width="25%">Cider, Homebrew, And Mead Production Specialists (CHAMPS)</td></tr></tbody></table></div>
+				<script type="text/javascript" language="javascript">
+				$(document).ready(function() {
+				    $('#sortableK23629d110p21523107').dataTable( {
+				    	"bPaginate" : false,
+				    	"sDom": 'rt',
+				        "aaSorting": [ [0,'asc'] ],
+				        "aoColumns": [
+				            { "asSorting": [  ] },
+				            { "asSorting": [  ] },
+				            { "asSorting": [  ] },
+				            { "asSorting": [  ] }, { "asSorting": [  ] },
+				        ]
+				    });
+				} );
+				</script>
+				<div class="bcoem-winner-table"><h3>Table 9: Commonwealth Pale &amp; Bitter Beer (14 entries)</h3><table class="table table-responsive table-striped table-bordered" id="sortableK23629d110p21523107"><thead><tr><th nowrap>Place</th><th>Brewer</th><th><span class="hidden-xs hidden-sm hidden-md">Entry </span>Name</th><th>Style</th><th>Club</th></tr></thead><tbody><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-gold'></span> 1st</td><td>David Towles <span data-toggle="tooltip" data-placement="top" title="Master Homebrewer Program Participant" style="color: #F2D06C; background-color: #000;" class="badge">MHP</span></td><td width="25%">Ordinary Bitter</td><td width="25%">11A: Ordinary Bitter</td><td width="25%">High Plains Drafters [TX]</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-silver'></span> 2nd</td><td>Michael Sawyer</td><td width="25%">Haxey Hood</td><td width="25%">12A: British Golden Ale</td><td width="25%">ZZHops Homebrewing Club</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-bronze'></span> 3rd</td><td>Taylor Norland</td><td width="25%">British Boy</td><td width="25%">12A: British Golden Ale</td><td width="25%">Iowa Brewers Union</td></tr></tbody></table></div>
+				<script type="text/javascript" language="javascript">
+				$(document).ready(function() {
+				    $('#sortable6A4W5h4b4524u2V59S1j8').dataTable( {
+				    	"bPaginate" : false,
+				    	"sDom": 'rt',
+				        "aaSorting": [ [0,'asc'] ],
+				        "aoColumns": [
+				            { "asSorting": [  ] },
+				            { "asSorting": [  ] },
+				            { "asSorting": [  ] },
+				            { "asSorting": [  ] }, { "asSorting": [  ] },
+				        ]
+				    });
+				} );
+				</script>
+				<div class="bcoem-winner-table"><h3>Table 10: Brown British Beer (8 entries)</h3><table class="table table-responsive table-striped table-bordered" id="sortable6A4W5h4b4524u2V59S1j8"><thead><tr><th nowrap>Place</th><th>Brewer</th><th><span class="hidden-xs hidden-sm hidden-md">Entry </span>Name</th><th>Style</th><th>Club</th></tr></thead><tbody><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-gold'></span> 1st</td><td>John Luhmann <span data-toggle="tooltip" data-placement="top" title="Master Homebrewer Program Participant" style="color: #F2D06C; background-color: #000;" class="badge">MHP</span></td><td width="25%">Caramel Bomb</td><td width="25%">13B: British Brown Ale</td><td width="25%">Iowa Brewers Union</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-silver'></span> 2nd</td><td>Kim Hynek <span data-toggle="tooltip" data-placement="top" title="Master Homebrewer Program Participant" style="color: #F2D06C; background-color: #000;" class="badge">MHP</span></td><td width="25%">Poke The Brown Bear</td><td width="25%">13B: British Brown Ale</td><td width="25%">Red Earth Brewers</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-bronze'></span> 3rd</td><td>Cody Barrier</td><td width="25%">Dark Mild</td><td width="25%">13A: Dark Mild</td><td width="25%">ZZHops Homebrewing Club</td></tr></tbody></table></div>
+				<script type="text/javascript" language="javascript">
+				$(document).ready(function() {
+				    $('#sortableL14b3Z674I7255Z4b4').dataTable( {
+				    	"bPaginate" : false,
+				    	"sDom": 'rt',
+				        "aaSorting": [ [0,'asc'] ],
+				        "aoColumns": [
+				            { "asSorting": [  ] },
+				            { "asSorting": [  ] },
+				            { "asSorting": [  ] },
+				            { "asSorting": [  ] }, { "asSorting": [  ] },
+				        ]
+				    });
+				} );
+				</script>
+				<div class="bcoem-winner-table"><h3>Table 11: British Isles Amber Ale (13 entries)</h3><table class="table table-responsive table-striped table-bordered" id="sortableL14b3Z674I7255Z4b4"><thead><tr><th nowrap>Place</th><th>Brewer</th><th><span class="hidden-xs hidden-sm hidden-md">Entry </span>Name</th><th>Style</th><th>Club</th></tr></thead><tbody><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-gold'></span> 1st</td><td>David Towles <span data-toggle="tooltip" data-placement="top" title="Master Homebrewer Program Participant" style="color: #F2D06C; background-color: #000;" class="badge">MHP</span></td><td width="25%">Scottish Export</td><td width="25%">14C: Scottish Export</td><td width="25%">High Plains Drafters [TX]</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-silver'></span> 2nd</td><td>Jamye &amp; Cody Naramore <span data-toggle="tooltip" data-placement="top" title="Master Homebrewer Program Participant" style="color: #F2D06C; background-color: #000;" class="badge">MHP</span></td><td width="25%">We&apos;ve Got Nothing To Prove</td><td width="25%">14A: Scottish Light</td><td width="25%">Kansas City Bier Meisters</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-bronze'></span> 3rd</td><td>Stephen Polczynski <span data-toggle="tooltip" data-placement="top" title="Master Homebrewer Program Participant" style="color: #F2D06C; background-color: #000;" class="badge">MHP</span></td><td width="25%">Dirty English Bastards</td><td width="25%">15A: Irish Red Ale</td><td width="25%">Red Earth Brewers</td></tr></tbody></table></div>
+				<script type="text/javascript" language="javascript">
+				$(document).ready(function() {
+				    $('#sortable6E106883c21Q1b68j8u10').dataTable( {
+				    	"bPaginate" : false,
+				    	"sDom": 'rt',
+				        "aaSorting": [ [0,'asc'] ],
+				        "aoColumns": [
+				            { "asSorting": [  ] },
+				            { "asSorting": [  ] },
+				            { "asSorting": [  ] },
+				            { "asSorting": [  ] }, { "asSorting": [  ] },
+				        ]
+				    });
+				} );
+				</script>
+				<div class="bcoem-winner-table"><h3>Table 12: European Stout &amp; Porter (10 entries)</h3><table class="table table-responsive table-striped table-bordered" id="sortable6E106883c21Q1b68j8u10"><thead><tr><th nowrap>Place</th><th>Brewer</th><th><span class="hidden-xs hidden-sm hidden-md">Entry </span>Name</th><th>Style</th><th>Club</th></tr></thead><tbody><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-gold'></span> 1st</td><td>Randy Daniels KC McKinney <span data-toggle="tooltip" data-placement="top" title="Master Homebrewer Program Participant" style="color: #F2D06C; background-color: #000;" class="badge">MHP</span></td><td width="25%">Happy Accident</td><td width="25%">15B: Irish Stout</td><td width="25%">Iowa Brewers Union</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-silver'></span> 2nd</td><td>Kim Hynek <span data-toggle="tooltip" data-placement="top" title="Master Homebrewer Program Participant" style="color: #F2D06C; background-color: #000;" class="badge">MHP</span></td><td width="25%">Mickey&apos;s Mighty Stout</td><td width="25%">15B: Irish Stout</td><td width="25%">Red Earth Brewers</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-bronze'></span> 3rd</td><td>Dirk Montgomery <span data-toggle="tooltip" data-placement="top" title="Master Homebrewer Program Participant" style="color: #F2D06C; background-color: #000;" class="badge">MHP</span></td><td width="25%">Ragnar&apos;s Valhalla</td><td width="25%">9C: Baltic Porter</td><td width="25%">Red Earth Brewers</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-teal'></span> HM</td><td>Cole Christian <span data-toggle="tooltip" data-placement="top" title="Master Homebrewer Program Participant" style="color: #F2D06C; background-color: #000;" class="badge">MHP</span></td><td width="25%">Yappie Neighbor</td><td width="25%">16D: Foreign Extra Stout</td><td width="25%">DC Homebrewers</td></tr></tbody></table></div>
+				<script type="text/javascript" language="javascript">
+				$(document).ready(function() {
+				    $('#sortableW9H2G10y62E3k2P10152352').dataTable( {
+				    	"bPaginate" : false,
+				    	"sDom": 'rt',
+				        "aaSorting": [ [0,'asc'] ],
+				        "aoColumns": [
+				            { "asSorting": [  ] },
+				            { "asSorting": [  ] },
+				            { "asSorting": [  ] },
+				            { "asSorting": [  ] }, { "asSorting": [  ] },
+				        ]
+				    });
+				} );
+				</script>
+				<div class="bcoem-winner-table"><h3>Table 13: Strong Ale (12 entries)</h3><table class="table table-responsive table-striped table-bordered" id="sortableW9H2G10y62E3k2P10152352"><thead><tr><th nowrap>Place</th><th>Brewer</th><th><span class="hidden-xs hidden-sm hidden-md">Entry </span>Name</th><th>Style</th><th>Club</th></tr></thead><tbody><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-gold'></span> 1st</td><td>Eric Martin</td><td width="25%">Harvest</td><td width="25%">22D: Wheatwine</td><td width="25%">Kansas City Bier Meisters</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-silver'></span> 2nd</td><td>Tyler Miller <span data-toggle="tooltip" data-placement="top" title="Master Homebrewer Program Participant" style="color: #F2D06C; background-color: #000;" class="badge">MHP</span></td><td width="25%">I&apos;m Not That Ale</td><td width="25%">17A: British Strong Ale</td><td width="25%">Arizona Society of Homebrewers</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-bronze'></span> 3rd</td><td>Ben Bosco</td><td width="25%">Of Malt And Men</td><td width="25%">22C: American Barleywine</td><td width="25%">Homebrewers Local 402</td></tr></tbody></table></div>
+				<script type="text/javascript" language="javascript">
+				$(document).ready(function() {
+				    $('#sortable2P41592q8788432').dataTable( {
+				    	"bPaginate" : false,
+				    	"sDom": 'rt',
+				        "aaSorting": [ [0,'asc'] ],
+				        "aoColumns": [
+				            { "asSorting": [  ] },
+				            { "asSorting": [  ] },
+				            { "asSorting": [  ] },
+				            { "asSorting": [  ] }, { "asSorting": [  ] },
+				        ]
+				    });
+				} );
+				</script>
+				<div class="bcoem-winner-table"><h3>Table 14: Pale American Ale (16 entries)</h3><table class="table table-responsive table-striped table-bordered" id="sortable2P41592q8788432"><thead><tr><th nowrap>Place</th><th>Brewer</th><th><span class="hidden-xs hidden-sm hidden-md">Entry </span>Name</th><th>Style</th><th>Club</th></tr></thead><tbody><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-gold'></span> 1st</td><td>Dave Frombach <span data-toggle="tooltip" data-placement="top" title="Master Homebrewer Program Participant" style="color: #F2D06C; background-color: #000;" class="badge">MHP</span></td><td width="25%">Strata Special</td><td width="25%">18B: American Pale Ale</td><td width="25%">Peninsula Fermentation Society</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-silver'></span> 2nd</td><td>Mike Neice <span data-toggle="tooltip" data-placement="top" title="Master Homebrewer Program Participant" style="color: #F2D06C; background-color: #000;" class="badge">MHP</span></td><td width="25%">US Precision Pale Ale</td><td width="25%">18B: American Pale Ale</td><td width="25%">Ace Brewing Society </td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-bronze'></span> 3rd</td><td>Alex Boyer <span data-toggle="tooltip" data-placement="top" title="Master Homebrewer Program Participant" style="color: #F2D06C; background-color: #000;" class="badge">MHP</span></td><td width="25%">Baron Zumo</td><td width="25%">18A: Blonde Ale</td><td width="25%">Johnson County Brewing Society</td></tr></tbody></table></div>
+				<script type="text/javascript" language="javascript">
+				$(document).ready(function() {
+				    $('#sortableP892794I67K10F3153').dataTable( {
+				    	"bPaginate" : false,
+				    	"sDom": 'rt',
+				        "aaSorting": [ [0,'asc'] ],
+				        "aoColumns": [
+				            { "asSorting": [  ] },
+				            { "asSorting": [  ] },
+				            { "asSorting": [  ] },
+				            { "asSorting": [  ] }, { "asSorting": [  ] },
+				        ]
+				    });
+				} );
+				</script>
+				<div class="bcoem-winner-table"><h3>Table 15: Amber &amp; Brown American Beer (7 entries)</h3><table class="table table-responsive table-striped table-bordered" id="sortableP892794I67K10F3153"><thead><tr><th nowrap>Place</th><th>Brewer</th><th><span class="hidden-xs hidden-sm hidden-md">Entry </span>Name</th><th>Style</th><th>Club</th></tr></thead><tbody><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-gold'></span> 1st</td><td>Cole Christian <span data-toggle="tooltip" data-placement="top" title="Master Homebrewer Program Participant" style="color: #F2D06C; background-color: #000;" class="badge">MHP</span></td><td width="25%">Common Hound</td><td width="25%">19B: California Common</td><td width="25%">DC Homebrewers</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-silver'></span> 2nd</td><td>Patrick McCabe</td><td width="25%">Is It Weird&quest; Is It Kinky&quest; Who&apos;s To Say&quest;</td><td width="25%">19A: American Amber Ale</td><td width="25%">Lincoln Lagers</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-bronze'></span> 3rd</td><td>Alex &amp; Patrick Williams <span data-toggle="tooltip" data-placement="top" title="Master Homebrewer Program Participant" style="color: #F2D06C; background-color: #000;" class="badge">MHP</span></td><td width="25%">Feels So Good</td><td width="25%">19C: American Brown Ale</td><td width="25%">Kansas City Bier Meisters</td></tr></tbody></table></div>
+				<script type="text/javascript" language="javascript">
+				$(document).ready(function() {
+				    $('#sortable90984394U64l1u86I2').dataTable( {
+				    	"bPaginate" : false,
+				    	"sDom": 'rt',
+				        "aaSorting": [ [0,'asc'] ],
+				        "aoColumns": [
+				            { "asSorting": [  ] },
+				            { "asSorting": [  ] },
+				            { "asSorting": [  ] },
+				            { "asSorting": [  ] }, { "asSorting": [  ] },
+				        ]
+				    });
+				} );
+				</script>
+				<div class="bcoem-winner-table"><h3>Table 16: American Porter &amp; Stout (15 entries)</h3><table class="table table-responsive table-striped table-bordered" id="sortable90984394U64l1u86I2"><thead><tr><th nowrap>Place</th><th>Brewer</th><th><span class="hidden-xs hidden-sm hidden-md">Entry </span>Name</th><th>Style</th><th>Club</th></tr></thead><tbody><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-gold'></span> 1st</td><td>Jeremy Rott <span data-toggle="tooltip" data-placement="top" title="Master Homebrewer Program Participant" style="color: #F2D06C; background-color: #000;" class="badge">MHP</span></td><td width="25%">Lighting The Darkness</td><td width="25%">20C: Imperial Stout</td><td width="25%">Johnson County Brewing Society</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-silver'></span> 2nd</td><td>Michael Sawyer</td><td width="25%">Pellicane Stout</td><td width="25%">20B: American Stout</td><td width="25%">ZZHops Homebrewing Club</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-bronze'></span> 3rd</td><td>Phillip Abbott <span data-toggle="tooltip" data-placement="top" title="Master Homebrewer Program Participant" style="color: #F2D06C; background-color: #000;" class="badge">MHP</span></td><td width="25%">Rocket To Russia</td><td width="25%">20C: Imperial Stout</td><td width="25%">Johnson County Brewing Society</td></tr></tbody></table></div>
+				<script type="text/javascript" language="javascript">
+				$(document).ready(function() {
+				    $('#sortableZ7128L53V486z10621861').dataTable( {
+				    	"bPaginate" : false,
+				    	"sDom": 'rt',
+				        "aaSorting": [ [0,'asc'] ],
+				        "aoColumns": [
+				            { "asSorting": [  ] },
+				            { "asSorting": [  ] },
+				            { "asSorting": [  ] },
+				            { "asSorting": [  ] }, { "asSorting": [  ] },
+				        ]
+				    });
+				} );
+				</script>
+				<div class="bcoem-winner-table"><h3>Table 17: IPA (17 entries)</h3><table class="table table-responsive table-striped table-bordered" id="sortableZ7128L53V486z10621861"><thead><tr><th nowrap>Place</th><th>Brewer</th><th><span class="hidden-xs hidden-sm hidden-md">Entry </span>Name</th><th>Style</th><th>Club</th></tr></thead><tbody><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-gold'></span> 1st</td><td>Ross Stuart <span data-toggle="tooltip" data-placement="top" title="Master Homebrewer Program Participant" style="color: #F2D06C; background-color: #000;" class="badge">MHP</span></td><td width="25%">IPA</td><td width="25%">21A: American IPA</td><td width="25%">Arizona Society of Homebrewers</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-silver'></span> 2nd</td><td>Gerad Miller <span data-toggle="tooltip" data-placement="top" title="Master Homebrewer Program Participant" style="color: #F2D06C; background-color: #000;" class="badge">MHP</span></td><td width="25%">Baby&comma; You Make Me Wish I Had Three Hands</td><td width="25%">21C: Hazy IPA</td><td width="25%">Dayton Regional Amateur Fermentation Technologists</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-bronze'></span> 3rd</td><td>Jonathan Marut <span data-toggle="tooltip" data-placement="top" title="Master Homebrewer Program Participant" style="color: #F2D06C; background-color: #000;" class="badge">MHP</span></td><td width="25%">Don&apos;t Change Anything NEIPA</td><td width="25%">21C: Hazy IPA</td><td width="25%">Horsemen of the Hopocalypse</td></tr></tbody></table></div>
+				<script type="text/javascript" language="javascript">
+				$(document).ready(function() {
+				    $('#sortableD691761q19y10M1N9610').dataTable( {
+				    	"bPaginate" : false,
+				    	"sDom": 'rt',
+				        "aaSorting": [ [0,'asc'] ],
+				        "aoColumns": [
+				            { "asSorting": [  ] },
+				            { "asSorting": [  ] },
+				            { "asSorting": [  ] },
+				            { "asSorting": [  ] }, { "asSorting": [  ] },
+				        ]
+				    });
+				} );
+				</script>
+				<div class="bcoem-winner-table"><h3>Table 18: Sour Ale (15 entries)</h3><table class="table table-responsive table-striped table-bordered" id="sortableD691761q19y10M1N9610"><thead><tr><th nowrap>Place</th><th>Brewer</th><th><span class="hidden-xs hidden-sm hidden-md">Entry </span>Name</th><th>Style</th><th>Club</th></tr></thead><tbody><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-gold'></span> 1st</td><td>Drew Templeton <span data-toggle="tooltip" data-placement="top" title="Master Homebrewer Program Participant" style="color: #F2D06C; background-color: #000;" class="badge">MHP</span></td><td width="25%">Derp Face Kriek</td><td width="25%">23F: Fruit Lambic <a href="#47" tabindex="0" role="button" data-toggle="popover" data-trigger="hover" data-placement="auto top" data-container="body" title="Info" data-content="Cherry - Kriek Lambic Medium Sweetness Medium Carbonation"><span class="hidden-xs hidden-sm hidden-md hidden-print fa fa-info-circle"></span></a></td><td width="25%">Iowa Brewers Union</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-silver'></span> 2nd</td><td>Jonathan Rollins <span data-toggle="tooltip" data-placement="top" title="Master Homebrewer Program Participant" style="color: #F2D06C; background-color: #000;" class="badge">MHP</span></td><td width="25%">Sunwoven</td><td width="25%">28B: Mixed Fermentation Sour Beer <a href="#97" tabindex="0" role="button" data-toggle="popover" data-trigger="hover" data-placement="auto top" data-container="body" title="Info" data-content="Farmhouse ale with French Saison yeast, multiple brett &amp; lacto strains plus will Saccharomyces. Loosely based on "La Petit Prince" by Jester King but with American hops."><span class="hidden-xs hidden-sm hidden-md hidden-print fa fa-info-circle"></span></a></td><td width="25%">Horsemen of the Hopocalypse</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-bronze'></span> 3rd</td><td>Jonathan Rollins <span data-toggle="tooltip" data-placement="top" title="Master Homebrewer Program Participant" style="color: #F2D06C; background-color: #000;" class="badge">MHP</span></td><td width="25%">Murmuration</td><td width="25%">23F: Fruit Lambic <a href="#97" tabindex="0" role="button" data-toggle="popover" data-trigger="hover" data-placement="auto top" data-container="body" title="Info" data-content="Lambic style base beer conditioned on red wine grape pomace. Low/None Sweetness Medium Carbonation"><span class="hidden-xs hidden-sm hidden-md hidden-print fa fa-info-circle"></span></a></td><td width="25%">Horsemen of the Hopocalypse</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-teal'></span> HM</td><td>Stephen Schmitt <span data-toggle="tooltip" data-placement="top" title="Master Homebrewer Program Participant" style="color: #F2D06C; background-color: #000;" class="badge">MHP</span></td><td width="25%">Old &amp; New</td><td width="25%">23E: Gueuze</td><td width="25%">Evanston Homebrew Club</td></tr></tbody></table></div>
+				<script type="text/javascript" language="javascript">
+				$(document).ready(function() {
+				    $('#sortableU1H2410823l4d7X10K5g5').dataTable( {
+				    	"bPaginate" : false,
+				    	"sDom": 'rt',
+				        "aaSorting": [ [0,'asc'] ],
+				        "aoColumns": [
+				            { "asSorting": [  ] },
+				            { "asSorting": [  ] },
+				            { "asSorting": [  ] },
+				            { "asSorting": [  ] }, { "asSorting": [  ] },
+				        ]
+				    });
+				} );
+				</script>
+				<div class="bcoem-winner-table"><h3>Table 19: Belgian Ale (18 entries)</h3><table class="table table-responsive table-striped table-bordered" id="sortableU1H2410823l4d7X10K5g5"><thead><tr><th nowrap>Place</th><th>Brewer</th><th><span class="hidden-xs hidden-sm hidden-md">Entry </span>Name</th><th>Style</th><th>Club</th></tr></thead><tbody><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-gold'></span> 1st</td><td>Craig Samek</td><td width="25%">Gardedrag</td><td width="25%">24C: Bière de Garde <a href="#33" tabindex="0" role="button" data-toggle="popover" data-trigger="hover" data-placement="auto top" data-container="body" title="Info" data-content="Brown Color"><span class="hidden-xs hidden-sm hidden-md hidden-print fa fa-info-circle"></span></a></td><td width="25%">Lincoln Lagers</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-silver'></span> 2nd</td><td>Keith Blanchard <span data-toggle="tooltip" data-placement="top" title="Master Homebrewer Program Participant" style="color: #F2D06C; background-color: #000;" class="badge">MHP</span></td><td width="25%">D&apos;Artagnan</td><td width="25%">24C: Bière de Garde <a href="#104" tabindex="0" role="button" data-toggle="popover" data-trigger="hover" data-placement="auto top" data-container="body" title="Info" data-content="Amber Color"><span class="hidden-xs hidden-sm hidden-md hidden-print fa fa-info-circle"></span></a></td><td width="25%">Morris Area Society of Homebrewers</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-bronze'></span> 3rd</td><td>Stephen Schmitt <span data-toggle="tooltip" data-placement="top" title="Master Homebrewer Program Participant" style="color: #F2D06C; background-color: #000;" class="badge">MHP</span></td><td width="25%">Saisonstein&apos;s Monster</td><td width="25%">25B: Saison <a href="#68" tabindex="0" role="button" data-toggle="popover" data-trigger="hover" data-placement="auto top" data-container="body" title="Info" data-content="Standard Strength Pale Color"><span class="hidden-xs hidden-sm hidden-md hidden-print fa fa-info-circle"></span></a></td><td width="25%">Evanston Homebrew Club</td></tr></tbody></table></div>
+				<script type="text/javascript" language="javascript">
+				$(document).ready(function() {
+				    $('#sortablen721645D8C84E457U472').dataTable( {
+				    	"bPaginate" : false,
+				    	"sDom": 'rt',
+				        "aaSorting": [ [0,'asc'] ],
+				        "aoColumns": [
+				            { "asSorting": [  ] },
+				            { "asSorting": [  ] },
+				            { "asSorting": [  ] },
+				            { "asSorting": [  ] }, { "asSorting": [  ] },
+				        ]
+				    });
+				} );
+				</script>
+				<div class="bcoem-winner-table"><h3>Table 20: Trappist Ale (18 entries)</h3><table class="table table-responsive table-striped table-bordered" id="sortablen721645D8C84E457U472"><thead><tr><th nowrap>Place</th><th>Brewer</th><th><span class="hidden-xs hidden-sm hidden-md">Entry </span>Name</th><th>Style</th><th>Club</th></tr></thead><tbody><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-gold'></span> 1st</td><td>Logan Beets</td><td width="25%">BDS</td><td width="25%">26D: Belgian Dark Strong Ale</td><td width="25%">Kansas City Bier Meisters</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-silver'></span> 2nd</td><td>Ben Gaylord <span data-toggle="tooltip" data-placement="top" title="Master Homebrewer Program Participant" style="color: #F2D06C; background-color: #000;" class="badge">MHP</span></td><td width="25%">Winter&apos;s Ghost</td><td width="25%">26A: Belgian Single</td><td width="25%">Ultra Rare Brewers</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-bronze'></span> 3rd</td><td>Shaun Huggins <span data-toggle="tooltip" data-placement="top" title="Master Homebrewer Program Participant" style="color: #F2D06C; background-color: #000;" class="badge">MHP</span></td><td width="25%">Vader&apos;s Choke Hold</td><td width="25%">26D: Belgian Dark Strong Ale</td><td width="25%">San Antonio Cerveceros</td></tr></tbody></table></div>
+				<script type="text/javascript" language="javascript">
+				$(document).ready(function() {
+				    $('#sortable8247d10Z2Y86M199m2').dataTable( {
+				    	"bPaginate" : false,
+				    	"sDom": 'rt',
+				        "aaSorting": [ [0,'asc'] ],
+				        "aoColumns": [
+				            { "asSorting": [  ] },
+				            { "asSorting": [  ] },
+				            { "asSorting": [  ] },
+				            { "asSorting": [  ] }, { "asSorting": [  ] },
+				        ]
+				    });
+				} );
+				</script>
+				<div class="bcoem-winner-table"><h3>Table 21: Historical Beer (15 entries)</h3><table class="table table-responsive table-striped table-bordered" id="sortable8247d10Z2Y86M199m2"><thead><tr><th nowrap>Place</th><th>Brewer</th><th><span class="hidden-xs hidden-sm hidden-md">Entry </span>Name</th><th>Style</th><th>Club</th></tr></thead><tbody><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-gold'></span> 1st</td><td>Justin Holman <span data-toggle="tooltip" data-placement="top" title="Master Homebrewer Program Participant" style="color: #F2D06C; background-color: #000;" class="badge">MHP</span></td><td width="25%">Kellerbier</td><td width="25%">27A1: Kellerbier <a href="#38" tabindex="0" role="button" data-toggle="popover" data-trigger="hover" data-placement="auto top" data-container="body" title="Info" data-content="Märzen"><span class="hidden-xs hidden-sm hidden-md hidden-print fa fa-info-circle"></span></a></td><td width="25%">Cider, Homebrew, And Mead Production Specialists (CHAMPS)</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-silver'></span> 2nd</td><td>David Towles <span data-toggle="tooltip" data-placement="top" title="Master Homebrewer Program Participant" style="color: #F2D06C; background-color: #000;" class="badge">MHP</span></td><td width="25%">Piwo Grodziskie</td><td width="25%">27A5: Piwo Grodziskie</td><td width="25%">High Plains Drafters [TX]</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-bronze'></span> 3rd</td><td>Richard Mueggenberg <span data-toggle="tooltip" data-placement="top" title="Master Homebrewer Program Participant" style="color: #F2D06C; background-color: #000;" class="badge">MHP</span></td><td width="25%">Lich</td><td width="25%">27A3: Lichtenhainer</td><td width="25%">Iowa Brewers Union</td></tr></tbody></table></div>
+				<script type="text/javascript" language="javascript">
+				$(document).ready(function() {
+				    $('#sortable796927j6u4J5N4026Y9').dataTable( {
+				    	"bPaginate" : false,
+				    	"sDom": 'rt',
+				        "aaSorting": [ [0,'asc'] ],
+				        "aoColumns": [
+				            { "asSorting": [  ] },
+				            { "asSorting": [  ] },
+				            { "asSorting": [  ] },
+				            { "asSorting": [  ] }, { "asSorting": [  ] },
+				        ]
+				    });
+				} );
+				</script>
+				<div class="bcoem-winner-table"><h3>Table 22: Fruit &amp; Spiced Beer (18 entries)</h3><table class="table table-responsive table-striped table-bordered" id="sortable796927j6u4J5N4026Y9"><thead><tr><th nowrap>Place</th><th>Brewer</th><th><span class="hidden-xs hidden-sm hidden-md">Entry </span>Name</th><th>Style</th><th>Club</th></tr></thead><tbody><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-gold'></span> 1st</td><td>Jeremy Peppler</td><td width="25%">It&apos;s 5 O&apos;Key Somesour</td><td width="25%">29C: Specialty Fruit Beer <a href="#42" tabindex="0" role="button" data-toggle="popover" data-trigger="hover" data-placement="auto top" data-container="body" title="Info" data-content="Straight sour base with additions to flavor as key lime pie."><span class="hidden-xs hidden-sm hidden-md hidden-print fa fa-info-circle"></span></a></td><td width="25%">Brauer Unterstutzungs Verein</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-silver'></span> 2nd</td><td>Gerad Miller <span data-toggle="tooltip" data-placement="top" title="Master Homebrewer Program Participant" style="color: #F2D06C; background-color: #000;" class="badge">MHP</span></td><td width="25%">The Champaign Of Beers</td><td width="25%">29D: Grape Ale <a href="#69" tabindex="0" role="button" data-toggle="popover" data-trigger="hover" data-placement="auto top" data-container="body" title="Info" data-content="Grape Ale Brewed with Chardonnay Grape Must"><span class="hidden-xs hidden-sm hidden-md hidden-print fa fa-info-circle"></span></a></td><td width="25%">Dayton Regional Amateur Fermentation Technologists</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-bronze'></span> 3rd</td><td>Alex &amp; Patrick Williams <span data-toggle="tooltip" data-placement="top" title="Master Homebrewer Program Participant" style="color: #F2D06C; background-color: #000;" class="badge">MHP</span></td><td width="25%">Land Of Make Believe</td><td width="25%">30A: Spice, Herb, or Vegetable Beer <a href="#37" tabindex="0" role="button" data-toggle="popover" data-trigger="hover" data-placement="auto top" data-container="body" title="Info" data-content="Historical Belgian table beer with Cucumber. 2.8%"><span class="hidden-xs hidden-sm hidden-md hidden-print fa fa-info-circle"></span></a></td><td width="25%">Kansas City Bier Meisters</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-teal'></span> HM</td><td>Craig Samek</td><td width="25%">Mi Esspresso</td><td width="25%">30A: Spice, Herb, or Vegetable Beer <a href="#33" tabindex="0" role="button" data-toggle="popover" data-trigger="hover" data-placement="auto top" data-container="body" title="Info" data-content="8B Schwartzbier base infused with Esspresso roast coffee"><span class="hidden-xs hidden-sm hidden-md hidden-print fa fa-info-circle"></span></a></td><td width="25%">Lincoln Lagers</td></tr></tbody></table></div>
+				<script type="text/javascript" language="javascript">
+				$(document).ready(function() {
+				    $('#sortable68C548d4771m757B959').dataTable( {
+				    	"bPaginate" : false,
+				    	"sDom": 'rt',
+				        "aaSorting": [ [0,'asc'] ],
+				        "aoColumns": [
+				            { "asSorting": [  ] },
+				            { "asSorting": [  ] },
+				            { "asSorting": [  ] },
+				            { "asSorting": [  ] }, { "asSorting": [  ] },
+				        ]
+				    });
+				} );
+				</script>
+				<div class="bcoem-winner-table"><h3>Table 23: Smoked &amp; Wood Beer (11 entries)</h3><table class="table table-responsive table-striped table-bordered" id="sortable68C548d4771m757B959"><thead><tr><th nowrap>Place</th><th>Brewer</th><th><span class="hidden-xs hidden-sm hidden-md">Entry </span>Name</th><th>Style</th><th>Club</th></tr></thead><tbody><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-gold'></span> 1st</td><td>Mike Neice <span data-toggle="tooltip" data-placement="top" title="Master Homebrewer Program Participant" style="color: #F2D06C; background-color: #000;" class="badge">MHP</span></td><td width="25%">Beetlejuice</td><td width="25%">33B: Specialty Wood-Aged Beer <a href="#78" tabindex="0" role="button" data-toggle="popover" data-trigger="hover" data-placement="auto top" data-container="body" title="Info" data-content="Whiskey Barrel Aged American Barleywine"><span class="hidden-xs hidden-sm hidden-md hidden-print fa fa-info-circle"></span></a></td><td width="25%">Ace Brewing Society </td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-silver'></span> 2nd</td><td>Ross Stuart <span data-toggle="tooltip" data-placement="top" title="Master Homebrewer Program Participant" style="color: #F2D06C; background-color: #000;" class="badge">MHP</span></td><td width="25%">Palo Santo Porter</td><td width="25%">33A: Wood-Aged Beer <a href="#22" tabindex="0" role="button" data-toggle="popover" data-trigger="hover" data-placement="auto top" data-container="body" title="Info" data-content="American Porter brewed to imperial strength aged with Paraguayan Palo Santo wood"><span class="hidden-xs hidden-sm hidden-md hidden-print fa fa-info-circle"></span></a></td><td width="25%">Arizona Society of Homebrewers</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-bronze'></span> 3rd</td><td>Jeremy Rott <span data-toggle="tooltip" data-placement="top" title="Master Homebrewer Program Participant" style="color: #F2D06C; background-color: #000;" class="badge">MHP</span></td><td width="25%">Medusa BA Barley Wine</td><td width="25%">33B: Specialty Wood-Aged Beer <a href="#54" tabindex="0" role="button" data-toggle="popover" data-trigger="hover" data-placement="auto top" data-container="body" title="Info" data-content="Barley Wine, American Oak, Bourbon"><span class="hidden-xs hidden-sm hidden-md hidden-print fa fa-info-circle"></span></a></td><td width="25%">Johnson County Brewing Society</td></tr></tbody></table></div>
+				<script type="text/javascript" language="javascript">
+				$(document).ready(function() {
+				    $('#sortable5o1427S10j94797U1').dataTable( {
+				    	"bPaginate" : false,
+				    	"sDom": 'rt',
+				        "aaSorting": [ [0,'asc'] ],
+				        "aoColumns": [
+				            { "asSorting": [  ] },
+				            { "asSorting": [  ] },
+				            { "asSorting": [  ] },
+				            { "asSorting": [  ] }, { "asSorting": [  ] },
+				        ]
+				    });
+				} );
+				</script>
+				<div class="bcoem-winner-table"><h3>Table 24: Specialty &amp; Alternative Fermentables Beer (10 entries)</h3><table class="table table-responsive table-striped table-bordered" id="sortable5o1427S10j94797U1"><thead><tr><th nowrap>Place</th><th>Brewer</th><th><span class="hidden-xs hidden-sm hidden-md">Entry </span>Name</th><th>Style</th><th>Club</th></tr></thead><tbody><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-gold'></span> 1st</td><td>William Vigil <span data-toggle="tooltip" data-placement="top" title="Master Homebrewer Program Participant" style="color: #F2D06C; background-color: #000;" class="badge">MHP</span></td><td width="25%">Westies Are The Besties</td><td width="25%">34B: Mixed-Style Beer <a href="#86" tabindex="0" role="button" data-toggle="popover" data-trigger="hover" data-placement="auto top" data-container="body" title="Info" data-content="German pils, Pale and pils malt, magnum at boil, Amarillo,cita,mosaic whirlpool, dry hopped with same hops in keg. West coast pils."><span class="hidden-xs hidden-sm hidden-md hidden-print fa fa-info-circle"></span></a></td><td width="25%">Ace Brewing Society </td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-silver'></span> 2nd</td><td>Mike &amp; Stephanie Butler <span data-toggle="tooltip" data-placement="top" title="Master Homebrewer Program Participant" style="color: #F2D06C; background-color: #000;" class="badge">MHP</span></td><td width="25%">Soy Un Perderdor</td><td width="25%">34C: Experimental Beer <a href="#52" tabindex="0" role="button" data-toggle="popover" data-trigger="hover" data-placement="auto top" data-container="body" title="Info" data-content="West Coast Style Pilsner with 100% Pure Idaho Pils, Featuring Citra, Simcoe, Mosaic and Necteron Hops"><span class="hidden-xs hidden-sm hidden-md hidden-print fa fa-info-circle"></span></a></td><td width="25%">Kansas City Bier Meisters</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-bronze'></span> 3rd</td><td>Mike &amp; Stephanie Butler <span data-toggle="tooltip" data-placement="top" title="Master Homebrewer Program Participant" style="color: #F2D06C; background-color: #000;" class="badge">MHP</span></td><td width="25%">That&apos;s A Dead Horse&period;&period;&period;Don&apos;T Ride It Anymore</td><td width="25%">31A: Alternative Grain Beer <a href="#52" tabindex="0" role="button" data-toggle="popover" data-trigger="hover" data-placement="auto top" data-container="body" title="Info" data-content="Dark Amber Weizenbock style 10C brewed with 40% Malted Rye and 5% Flaked Rye"><span class="hidden-xs hidden-sm hidden-md hidden-print fa fa-info-circle"></span></a></td><td width="25%">Kansas City Bier Meisters</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-teal'></span> HM</td><td>Eric Martin</td><td width="25%">Single &plus; Brett Brux</td><td width="25%">28A: Brett Beer <a href="#23" tabindex="0" role="button" data-toggle="popover" data-trigger="hover" data-placement="auto top" data-container="body" title="Info" data-content="Belgian Single Bottle Conditioned with Brett Brux"><span class="hidden-xs hidden-sm hidden-md hidden-print fa fa-info-circle"></span></a></td><td width="25%">Kansas City Bier Meisters</td></tr></tbody></table></div>
+				<script type="text/javascript" language="javascript">
+				$(document).ready(function() {
+				    $('#sortableq446d88078l7L55d6q8').dataTable( {
+				    	"bPaginate" : false,
+				    	"sDom": 'rt',
+				        "aaSorting": [ [0,'asc'] ],
+				        "aoColumns": [
+				            { "asSorting": [  ] },
+				            { "asSorting": [  ] },
+				            { "asSorting": [  ] },
+				            { "asSorting": [  ] }, { "asSorting": [  ] },
+				        ]
+				    });
+				} );
+				</script>
+				<div class="bcoem-winner-table"><h3>Table 25: Cider and Perry (21 entries)</h3><table class="table table-responsive table-striped table-bordered" id="sortableq446d88078l7L55d6q8"><thead><tr><th nowrap>Place</th><th>Brewer</th><th><span class="hidden-xs hidden-sm hidden-md">Entry </span>Name</th><th>Style</th><th>Club</th></tr></thead><tbody><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-gold'></span> 1st</td><td>Adam Lund <span data-toggle="tooltip" data-placement="top" title="Master Homebrewer Program Participant" style="color: #F2D06C; background-color: #000;" class="badge">MHP</span></td><td width="25%">I&apos;ve Always Won&comma; And I&apos;m Going To Continue To Win&period; And That&apos;s The Way It Is&period;</td><td width="25%">C2B: Cider with Other Fruit</td><td width="25%">Oregon Brew Crew</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-silver'></span> 2nd</td><td>Adam Lund <span data-toggle="tooltip" data-placement="top" title="Master Homebrewer Program Participant" style="color: #F2D06C; background-color: #000;" class="badge">MHP</span></td><td width="25%">I&apos;m The Ernest Hemingway Of 140 Characters&period;</td><td width="25%">C2F: Specialty Cider/Perry</td><td width="25%">Oregon Brew Crew</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-bronze'></span> 3rd</td><td>Zach Fenton</td><td width="25%">Apple Bottom Genes</td><td width="25%">C1A: New World Cider</td><td width="25%">Lincoln Lagers</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-teal'></span> HM</td><td>Matt Young <span data-toggle="tooltip" data-placement="top" title="Master Homebrewer Program Participant" style="color: #F2D06C; background-color: #000;" class="badge">MHP</span></td><td width="25%">Apple-Ocalypse Now&excl;</td><td width="25%">C1A: New World Cider</td><td width="25%">Ace Brewing Society</td></tr></tbody></table></div>
+				<script type="text/javascript" language="javascript">
+				$(document).ready(function() {
+				    $('#sortable10X77102c6782C24H99').dataTable( {
+				    	"bPaginate" : false,
+				    	"sDom": 'rt',
+				        "aaSorting": [ [0,'asc'] ],
+				        "aoColumns": [
+				            { "asSorting": [  ] },
+				            { "asSorting": [  ] },
+				            { "asSorting": [  ] },
+				            { "asSorting": [  ] }, { "asSorting": [  ] },
+				        ]
+				    });
+				} );
+				</script>
+				<div class="bcoem-winner-table"><h3>Table 26: Braggot &amp; Traditional Mead (6 entries)</h3><table class="table table-responsive table-striped table-bordered" id="sortable10X77102c6782C24H99"><thead><tr><th nowrap>Place</th><th>Brewer</th><th><span class="hidden-xs hidden-sm hidden-md">Entry </span>Name</th><th>Style</th><th>Club</th></tr></thead><tbody><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-gold'></span> 1st</td><td>Zach Fenton</td><td width="25%">Dreamsoda</td><td width="25%">M1B: Semi-Sweet Mead</td><td width="25%">Lincoln Lagers</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-silver'></span> 2nd</td><td>Mark Beatty</td><td width="25%">Guatemalan Coffee Blossom Mead</td><td width="25%">M1B: Semi-Sweet Mead</td><td width="25%">Lincoln Lagers</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-bronze'></span> 3rd</td><td>Scott Estlund <span data-toggle="tooltip" data-placement="top" title="Master Homebrewer Program Participant" style="color: #F2D06C; background-color: #000;" class="badge">MHP</span></td><td width="25%">I Don&apos;t Know&comma; Margo&excl;</td><td width="25%">M1B: Semi-Sweet Mead</td><td width="25%">The Brü Club</td></tr></tbody></table></div>
+				<script type="text/javascript" language="javascript">
+				$(document).ready(function() {
+				    $('#sortable2363B8o10Q8d210b923').dataTable( {
+				    	"bPaginate" : false,
+				    	"sDom": 'rt',
+				        "aaSorting": [ [0,'asc'] ],
+				        "aoColumns": [
+				            { "asSorting": [  ] },
+				            { "asSorting": [  ] },
+				            { "asSorting": [  ] },
+				            { "asSorting": [  ] }, { "asSorting": [  ] },
+				        ]
+				    });
+				} );
+				</script>
+				<div class="bcoem-winner-table"><h3>Table 27: Fruit Mead (9 entries)</h3><table class="table table-responsive table-striped table-bordered" id="sortable2363B8o10Q8d210b923"><thead><tr><th nowrap>Place</th><th>Brewer</th><th><span class="hidden-xs hidden-sm hidden-md">Entry </span>Name</th><th>Style</th><th>Club</th></tr></thead><tbody><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-gold'></span> 1st</td><td>Zach Fenton</td><td width="25%">Berry Mead</td><td width="25%">M2C: Berry Mead <a href="#32" tabindex="0" role="button" data-toggle="popover" data-trigger="hover" data-placement="auto top" data-container="body" title="Info" data-content="mulberry and black raspberry"><span class="hidden-xs hidden-sm hidden-md hidden-print fa fa-info-circle"></span></a></td><td width="25%">Lincoln Lagers</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-silver'></span> 2nd</td><td>Zach Fenton</td><td width="25%">Apple Of My Honey&apos;s Eye</td><td width="25%">M2A: Cyser</td><td width="25%">Lincoln Lagers</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-bronze'></span> 3rd</td><td>Jason Krontz</td><td width="25%">Berry Buzz</td><td width="25%">M2C: Berry Mead <a href="#31" tabindex="0" role="button" data-toggle="popover" data-trigger="hover" data-placement="auto top" data-container="body" title="Info" data-content="petillant, standard strength, sweet, Raspberries and Blueberries"><span class="hidden-xs hidden-sm hidden-md hidden-print fa fa-info-circle"></span></a></td><td width="25%">Lincoln Lagers</td></tr></tbody></table></div>
+				<script type="text/javascript" language="javascript">
+				$(document).ready(function() {
+				    $('#sortable7875w58u109068G2d83').dataTable( {
+				    	"bPaginate" : false,
+				    	"sDom": 'rt',
+				        "aaSorting": [ [0,'asc'] ],
+				        "aoColumns": [
+				            { "asSorting": [  ] },
+				            { "asSorting": [  ] },
+				            { "asSorting": [  ] },
+				            { "asSorting": [  ] }, { "asSorting": [  ] },
+				        ]
+				    });
+				} );
+				</script>
+				<div class="bcoem-winner-table"><h3>Table 28: Spiced &amp; Experimental Mead (11 entries)</h3><table class="table table-responsive table-striped table-bordered" id="sortable7875w58u109068G2d83"><thead><tr><th nowrap>Place</th><th>Brewer</th><th><span class="hidden-xs hidden-sm hidden-md">Entry </span>Name</th><th>Style</th><th>Club</th></tr></thead><tbody><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-gold'></span> 1st</td><td>Shawn Montgomery <span data-toggle="tooltip" data-placement="top" title="Master Homebrewer Program Participant" style="color: #F2D06C; background-color: #000;" class="badge">MHP</span></td><td width="25%">Sangria Mead</td><td width="25%">M3A: Fruit and Spice Mead <a href="#62" tabindex="0" role="button" data-toggle="popover" data-trigger="hover" data-placement="auto top" data-container="body" title="Info" data-content="Wildflower honey with Cranberry, hibiscus, lime, clementine, and lime leaves"><span class="hidden-xs hidden-sm hidden-md hidden-print fa fa-info-circle"></span></a></td><td width="25%">Iowa Brewers Union</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-silver'></span> 2nd</td><td>Adam Thalken</td><td width="25%">Lavender Serenade</td><td width="25%">M3B: Spice, Herb, or Vegetable Mead <a href="#34" tabindex="0" role="button" data-toggle="popover" data-trigger="hover" data-placement="auto top" data-container="body" title="Info" data-content="Special Ingredients: Lavender Petals"><span class="hidden-xs hidden-sm hidden-md hidden-print fa fa-info-circle"></span></a></td><td width="25%">Lincoln Lagers</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-bronze'></span> 3rd</td><td>Garrett Freeman <span data-toggle="tooltip" data-placement="top" title="Master Homebrewer Program Participant" style="color: #F2D06C; background-color: #000;" class="badge">MHP</span></td><td width="25%">CRAM</td><td width="25%">M4C: Experimental Mead <a href="#70" tabindex="0" role="button" data-toggle="popover" data-trigger="hover" data-placement="auto top" data-container="body" title="Info" data-content="Coffee Blossom Bochet, Raspberry Honey, Raspberry, Blackberry, Blueberry, Cacao Nibs, Ancho Chili and some very light cinnamon"><span class="hidden-xs hidden-sm hidden-md hidden-print fa fa-info-circle"></span></a></td><td width="25%">Red Earth Brewers</td></tr><tr><td width="1%" nowrap><span class='fa fa-lg fa-trophy text-teal'></span> HM</td><td>Shawn Montgomery <span data-toggle="tooltip" data-placement="top" title="Master Homebrewer Program Participant" style="color: #F2D06C; background-color: #000;" class="badge">MHP</span></td><td width="25%">Pineapple Jalape&ntilde;o Mead</td><td width="25%">M3B: Spice, Herb, or Vegetable Mead <a href="#62" tabindex="0" role="button" data-toggle="popover" data-trigger="hover" data-placement="auto top" data-container="body" title="Info" data-content="Wildflower honey with pineapple and Jalapeño"><span class="hidden-xs hidden-sm hidden-md hidden-print fa fa-info-circle"></span></a></td><td width="25%">Iowa Brewers Union</td></tr></tbody></table></div>
+<!-- Public Page Rebuild completed 08.26.15 -->
+
+        </div><!-- ./left column -->
+        <div class="sidebar col col-lg-3 col-md-4 col-sm-12 col-xs-12">
+            <img src="https://www.lincolnlagers.com/cup/user_images/sowers_cup_logo_no-date.jpg" class="bcoem-comp-logo img-responsive hidden-print center-block" alt="Competition Logo" title="Competition Logo" /><div class="bcoem-admin-element hidden-print"><a class="btn btn-primary btn-block btn-sm" href="https://www.lincolnlagers.com/cup/awards.php" target="_blank">Launch Awards Presentation <span class="fa fa-award"></span></a></div><div class="hidden-print panel panel-info"><div class="panel-heading"><h4 class="panel-title">Judging Sessions</h4></div><div class="panel-body"><p><strong>Tuesday Judging @ Turbine Flats</strong> <a class="hide-loader" href="#" target="_self" data-toggle="tooltip" data-placement="top" title="Log in to view the Tuesday Judging @ Turbine Flats location."> <span class="fa fa-lg fa-map-marker"></span></a><br />08/19/2025 6:00 PM, CDT.</p><p><strong>Wednesday Judging @ Turbine Flats</strong> <a class="hide-loader" href="#" target="_self" data-toggle="tooltip" data-placement="top" title="Log in to view the Wednesday Judging @ Turbine Flats location."> <span class="fa fa-lg fa-map-marker"></span></a><br />08/20/2025 6:00 PM, CDT.</p><p><strong>Thursday Judging @ Turbine Flats</strong> <a class="hide-loader" href="#" target="_self" data-toggle="tooltip" data-placement="top" title="Log in to view the Thursday Judging @ Turbine Flats location."> <span class="fa fa-lg fa-map-marker"></span></a><br />08/21/2025 6:00 PM, CDT.</p><p><strong>Friday PM Judging @ IBEW Local 265 Event Hall</strong> <a class="hide-loader" href="#" target="_self" data-toggle="tooltip" data-placement="top" title="Log in to view the Friday PM Judging @ IBEW Local 265 Event Hall location."> <span class="fa fa-lg fa-map-marker"></span></a><br />08/22/2025 6:00 PM, CDT.</p><p><strong>Saturday Morning AM Judging @ IBEW Local 265 Event Hall</strong> <a class="hide-loader" href="#" target="_self" data-toggle="tooltip" data-placement="top" title="Log in to view the Saturday Morning AM Judging @ IBEW Local 265 Event Hall location."> <span class="fa fa-lg fa-map-marker"></span></a><br />08/23/2025 8:00 AM, CDT.</p><p><strong>Saturday Afternoon PM Judging @ IBEW Local 265 Event Hall</strong> <a class="hide-loader" href="#" target="_self" data-toggle="tooltip" data-placement="top" title="Log in to view the Saturday Afternoon PM Judging @ IBEW Local 265 Event Hall location."> <span class="fa fa-lg fa-map-marker"></span></a><br />08/23/2025 12:00 PM, CDT.</p></div></div><div class="panel panel-danger"><div class="panel-heading"><h4 class="panel-title">Account Registration Closed</h4></div><div class="panel-body"><p>Account registrations accepted 07/07/2025 12:00 AM, CDT through 08/19/2025 6:00 PM, CDT.</p><p>Registrations for judges or stewards accepted 07/02/2025 12:00 AM, CDT through 08/23/2025 12:00 PM, CDT.</p></div></div><div class="hidden-print panel panel-danger"><div class="panel-heading"><h4 class="panel-title">Entry Registration Closed</h4></div><div class="panel-body">Entry registrations accepted 07/14/2025 9:00 AM, CDT through 08/19/2025 6:00 PM, CDT.</div></div><div class="hidden-print panel panel-danger"><div class="panel-heading"><h4 class="panel-title">Entry Drop-Off Closed</h4></div><div class="panel-body">Entry bottles accepted at <a href="https://www.lincolnlagers.com/cup/index.php?section=entry#drop-off-locations">drop-off locations</a> 07/14/2025 12:01 AM, CDT &mdash; 08/08/2025 12:00 PM, CDT.</p><p><small>Please pay attention to the notes provided for each drop-off location. There could be earlier deadlines for some drop-off locations listed, particular hours when entries are accepted, certain individuals to leave your entries with, etc. <strong class="text-danger">All entrants are responsible for reading the information provided by the organizers for each drop-off location.</strong></small></p></div></div><div class="hidden-print panel panel-danger"><div class="panel-heading"><h4 class="panel-title">Entry Shipping Closed</h4></div><div class="panel-body">Entry bottles accepted at <a href="https://www.lincolnlagers.com/cup/index.php?section=entry#shipping-info">the shipping location</a> 07/14/2025 12:01 PM, CDT &mdash; 08/08/2025 12:00 PM, CDT.</p></div></div>        </div><!-- ./sidebar -->
+    </div><!-- ./row -->
+    <!-- ./Public Pages -->
+</div><!-- ./container -->
+<!-- ./Public Pages -->
+
+
+<!-- Footer -->
+<footer class="footer hidden-xs">
+    <div class="navbar navbar-default navbar-fixed-bottom">
+        <div class="container text-center">
+            <p class="navbar-text col-md-12 col-sm-12 col-xs-12 text-muted small bcoem-footer"><span class="hidden-sm hidden-md">The 2025 Sower's Cup &ndash; </span><a href="http://www.brewingcompetitions.com" target="_blank">BCOE&amp;M</a> 2.7.0 &ndash; Amateur Competition Edition <span class="far fa-copyright fa-xs"></span>2009-2025</p>
+        </div>
+    </div>
+</footer><!-- ./footer -->
+<!-- ./ Footer -->
+
+<script type="text/javascript">
+    var section = "default";
+    var action = "default";
+    var go = "default";
+    var edit_style = "default";
+    var user_level = "2";
+</script>
+
+
+
+
+
+<script src="https://www.lincolnlagers.com/cup/js_includes/app.min.js"></script>
+</body>
+</html>
