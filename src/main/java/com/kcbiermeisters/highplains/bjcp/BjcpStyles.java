@@ -6,6 +6,7 @@ package com.kcbiermeisters.highplains.bjcp;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -170,6 +171,70 @@ public class BjcpStyles
 	 */
 	public void adjustFor2025CiderGuidelines()
 	{
-		// TODO
+		// Remove Old Cider Styles
+
+		categories.removeIf(category -> category.getId().startsWith("C"));
+
+		subToCat.values().removeIf(category -> category.getId().startsWith("C"));
+
+		// C1. Traditional Cider
+		// C1A. Common Cider
+		// C1B. Heirloom Cider
+		// C1C. English Cider
+		// C1D. French Cider
+		// C1E. Spanish Cider
+
+		BjcpCategory c1 = new BjcpCategory("C1", "Traditional Cider");
+
+		categories.add(c1);
+
+		subToCat.put("Common Cider", c1);
+		subToCat.put("Heirloom Cider", c1);
+		subToCat.put("English Cider", c1);
+		subToCat.put("French Cider", c1);
+		subToCat.put("Spanish Cider", c1);
+
+		// C2. Strong Cider
+		// C2A. New England Cider
+		// C2B. Applewine
+		// C2C. Ice Cider
+		// C2D. Fire Cider
+
+		BjcpCategory c2 = new BjcpCategory("C2", "Strong Cider");
+
+		categories.add(c2);
+
+		subToCat.put("New England Cider", c2);
+		subToCat.put("Applewine", c2);
+		subToCat.put("Ice Cider", c2);
+		subToCat.put("Fire Cider", c2);
+
+		// C3. Specialty Cider
+		// C3A. Fruit Cider
+		// C3B. Spiced Cider
+		// C3C. Experimental Cider
+
+		BjcpCategory c3 = new BjcpCategory("C3", "Specialty Cider");
+
+		categories.add(c3);
+
+		subToCat.put("Fruit Cider", c3);
+		subToCat.put("Spiced Cider", c3);
+		subToCat.put("Experimental Cider", c3);
+
+		// C4. Perry
+		// C4A. Common Perry
+		// C4B. Heirloom Perry
+		// C4C. Ice Perry
+		// C4D. Experimental Perry
+
+		BjcpCategory c4 = new BjcpCategory("C4", "Perry");
+
+		categories.add(c4);
+
+		subToCat.put("Common Perry", c4);
+		subToCat.put("Heirloom Perry", c4);
+		subToCat.put("Ice Perry", c4);
+		subToCat.put("Experimental Perry", c4);
 	}
 }

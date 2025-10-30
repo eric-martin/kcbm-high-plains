@@ -54,7 +54,7 @@ public class KcbmHighPlainsResults
         
         BjcpStyles styleMap = new BjcpStyles(new File(inputDir, "bjcp/2015_styleguide.xml"));
         styleMap.adjustFor2021BeerGuidelines();
-		styleMap.adjustFor2025CiderGuidelines();
+		//styleMap.adjustFor2025CiderGuidelines();
         
         Map<String, String> styleAliases = AliasProperties.readFile(new File(inputDir, "circuit/style-alias.properties"));
         styleMap.addStyleAliases(styleAliases);
