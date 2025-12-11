@@ -54,7 +54,7 @@ public class KcbmHighPlainsResults
         
         BjcpStyles styleMap = new BjcpStyles(new File(inputDir, "bjcp/2015_styleguide.xml"));
         styleMap.adjustFor2021BeerGuidelines();
-		//styleMap.adjustFor2025CiderGuidelines();
+		styleMap.adjustFor2025CiderGuidelines();
         
         Map<String, String> styleAliases = AliasProperties.readFile(new File(inputDir, "circuit/style-alias.properties"));
         styleMap.addStyleAliases(styleAliases);
@@ -69,12 +69,12 @@ public class KcbmHighPlainsResults
 
         String[] competitions = {
 			"https://kcbm.brewingcompetitions.com",
-			"https://ibuopen.brewingcompetitions.com",
-			"https://competitions.redearthbrewers.com/springbrewoff",
-			"https://www.lincolnlagers.com/cup",
-			"https://doggdayzz.brewingcompetitions.com",
-            "https://hoppyhalloween.com/comp",
-            "https://foamcup.us"
+			//"https://ibuopen.brewingcompetitions.com",
+			//"https://competitions.redearthbrewers.com/springbrewoff",
+			//"https://www.lincolnlagers.com/cup",
+			//"https://doggdayzz.brewingcompetitions.com",
+            //"https://hoppyhalloween.com/comp",
+            //"https://foamcup.us"
         };
 
 		CompetitionFileDownloader compFileDownloader = new CompetitionFileDownloader(inputDir, outputDir);
