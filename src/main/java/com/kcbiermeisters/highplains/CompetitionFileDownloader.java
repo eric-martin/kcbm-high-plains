@@ -71,7 +71,7 @@ public class CompetitionFileDownloader
 		}
 
 		// can we get an 'old' export?
-
+		/*
 		try
 		{
 			URL exportUrl = new URL(compUrl, "/output/export.output.php?section=results&go=judging_scores&action=default&filter=default&view=html");
@@ -88,6 +88,7 @@ public class CompetitionFileDownloader
 		{
 			// do nothing
 		}
+		*/
 
 		// can we get the main display?
 

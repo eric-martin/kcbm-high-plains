@@ -50,7 +50,7 @@ public enum Place
         
         if ("4th".equals(place))
         {
-            return Optional.of(THIRD);
+            return Optional.of(FOURTH);
         }
         
         if ("HM".equals(place))
