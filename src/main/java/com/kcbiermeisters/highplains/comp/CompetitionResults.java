@@ -38,34 +38,7 @@ public class CompetitionResults
         List<WinningEntry> winningEntries = new ArrayList<>();
 
         Element body = htmlResults.select("body").first();
-        
-        Elements script = body.select("script");
-        
-        if (!script.isEmpty())
-        {
-        	// remove best of show tables
-        	        	
-            for (Element child : body.select("div"))
-        	{
-            	if ("bcoem-winner-table".equals(child.className()))
-        		{
-        			Element heading = child.select("h3").first();
-        			
-        			if (heading.text().contains("Best of Show") || 
-        				heading.text().contains("Okie Cup") ||
-        				heading.text().contains("The FOAM Cup") ||
-        				heading.text().contains("The Rager Cup") ||
-        				heading.text().contains("Best Brewer") ||
-        				heading.text().contains("Best Club") ||
-					    heading.text().contains("Master Brewer") ||
-					    heading.text().contains("Club of the Year"))
-        			{
-        				child.remove();
-        			}
-        		}
-        	}
-        }
-        
+
         Elements tables = body.select("table");
         
         for (Element table : tables) 

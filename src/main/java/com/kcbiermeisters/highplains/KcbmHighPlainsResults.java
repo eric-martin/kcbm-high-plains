@@ -68,8 +68,8 @@ public class KcbmHighPlainsResults
         CircuitResults circuitResults = new CircuitResults(styleMap, brewerAliases, clubAliases);
 
         String[] competitions = {
-			"https://kcbm.brewingcompetitions.com",
-			"https://ibuopen.brewingcompetitions.com",
+			"https://brewingcompetitions.com/kcbm",
+			"https://brewingcompetitions.com/ibuopen",
 			//"https://competitions.redearthbrewers.com/springbrewoff",
 			//"https://www.lincolnlagers.com/cup",
 			//"https://doggdayzz.brewingcompetitions.com",
@@ -95,7 +95,7 @@ public class KcbmHighPlainsResults
 				}
 			}
         }
-                
+
         // write the results
         
         Map<String, String> clubState = AliasProperties.readFile(new File(inputDir, "circuit/club-state.properties"));
@@ -116,7 +116,7 @@ public class KcbmHighPlainsResults
 		FileUtils.copyFile(logFile, new File(outputDir, "kcbm-high-plains.log"));
         
         // done
-        
+
         return;
     }
 }

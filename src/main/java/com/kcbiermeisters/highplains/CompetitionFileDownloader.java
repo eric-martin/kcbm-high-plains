@@ -28,17 +28,22 @@ public class CompetitionFileDownloader
 	 */
 	public Optional<File> download(final URL compUrl)
 	{
-		// do we have a local override?
+		String compFileName =
+				compUrl.getHost().replace('.', '-') +
+				compUrl.getPath().replace('/', '-') +
+				".html";
 
-		File compFile = new File(outputDir, compUrl.getHost() + ".html");
+		// do we have a local historical file to use?
+
+		File compFile = new File(outputDir, compFileName);
 
 		try
 		{
-			File localFile = new File(inputDir, compUrl.getHost() + ".html");
+			File localFile = new File(inputDir, compFileName);
 
 			if (localFile.exists())
 			{
-				log.info("{} => Using local override file", compUrl);
+				log.info("{} => Using local historical file", compUrl);
 
 				FileUtils.copyFile(localFile, compFile);
 
@@ -50,11 +55,11 @@ public class CompetitionFileDownloader
 			// do nothing
 		}
 
-		// can we get a 'new' export?
+		// download the v3 HTML export from the live site
 
 		try
 		{
-			URL exportUrl = new URL(compUrl, "/includes/output.inc.php?section=export-results&go=judging_scores&action=default&filter=default&view=html");
+			URL exportUrl = new URL(compUrl + "/includes/output.inc.php?section=export-results&go=judging_scores&action=default&filter=default&view=html");
 
 			FileUtils.copyURLToFile(exportUrl, compFile, 5000, 5000);
 
@@ -62,41 +67,6 @@ public class CompetitionFileDownloader
 			{
 				log.info("{} => Using live site export", compUrl);
 			}
-
-			return Optional.of(compFile);
-		}
-		catch (Exception e)
-		{
-			// do nothing
-		}
-
-		// can we get an 'old' export?
-		/*
-		try
-		{
-			URL exportUrl = new URL(compUrl, "/output/export.output.php?section=results&go=judging_scores&action=default&filter=default&view=html");
-			FileUtils.copyURLToFile(exportUrl, compFile, 5000, 5000);
-
-			if (1000 < compFile.length())
-			{
-				log.info("{} => Using live site export", compUrl);
-			}
-
-			return Optional.of(compFile);
-		}
-		catch (Exception e)
-		{
-			// do nothing
-		}
-		*/
-
-		// can we get the main display?
-
-		try
-		{
-			FileUtils.copyURLToFile(compUrl, compFile, 5000, 5000);
-
-			log.info("{} => Using live site", compUrl);
 
 			return Optional.of(compFile);
 		}
