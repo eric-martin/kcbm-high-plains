@@ -61,7 +61,7 @@ public class CompetitionFileDownloader
 		{
 			URL exportUrl = new URL(compUrl + "/includes/output.inc.php?section=export-results&go=judging_scores&action=default&filter=default&view=html");
 
-			FileUtils.copyURLToFile(exportUrl, compFile, 5000, 5000);
+			FileUtils.copyURLToFile(exportUrl, compFile, 5000, 60000);
 
 			if (1000 < compFile.length())
 			{

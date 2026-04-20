@@ -70,7 +70,7 @@ public class KcbmHighPlainsResults
         String[] competitions = {
 			"https://brewingcompetitions.com/kcbm",
 			"https://brewingcompetitions.com/ibuopen",
-			//"https://competitions.redearthbrewers.com/springbrewoff",
+			"https://competitions.redearthbrewers.com/springbrewoff",
 			//"https://www.lincolnlagers.com/cup",
 			//"https://doggdayzz.brewingcompetitions.com",
             //"https://hoppyhalloween.com/comp",
