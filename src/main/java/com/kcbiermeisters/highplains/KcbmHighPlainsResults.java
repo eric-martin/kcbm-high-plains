@@ -72,7 +72,7 @@ public class KcbmHighPlainsResults
 			"https://brewingcompetitions.com/ibuopen",
 			"https://competitions.redearthbrewers.com/springbrewoff",
 			"https://brewingcompetitions.com/doggdayzz",
-			//"https://www.lincolnlagers.com/cup",
+			"https://www.lincolnlagers.com/cup",
             //"https://hoppyhalloween.com/comp",
             //"https://foamcup.us"
         };
