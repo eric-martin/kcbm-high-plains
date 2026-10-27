@@ -6,7 +6,6 @@ package com.kcbiermeisters.highplains.bjcp;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -236,5 +235,58 @@ public class BjcpStyles
 		subToCat.put("Heirloom Perry", c4);
 		subToCat.put("Ice Perry", c4);
 		subToCat.put("Experimental Perry", c4);
+	}
+
+	/**
+	 * adjustFor2026MeadGuidelines
+	 */
+	public void adjustFor2026MeadGuidelines()
+	{
+		// Remove Old Mead Styles
+
+		categories.removeIf(category -> category.getId().startsWith("M"));
+
+		subToCat.values().removeIf(category -> category.getId().startsWith("M"));
+
+		// M1. Traditional Mead
+
+		BjcpCategory m1 = new BjcpCategory("M1", "Traditional Mead");
+		categories.add(m1);
+
+		subToCat.put("Dry Mead", m1);
+		subToCat.put("Semi-Sweet Mead", m1);
+		subToCat.put("Sweet Mead", m1);
+
+		// M2. Melomel
+
+		BjcpCategory m2 = new BjcpCategory("M2", "Melomel");
+		categories.add(m2);
+
+		subToCat.put("Cyser", m2);
+		subToCat.put("Pyment", m2);
+		subToCat.put("Berry Mead", m2);
+		subToCat.put("Stone Fruit Mead", m2);
+		subToCat.put("Other Fruit Mead", m2);
+
+		// M3. Spiced Mead
+
+		BjcpCategory m3 = new BjcpCategory("M3", "Spiced Mead");
+		categories.add(m3);
+
+		subToCat.put("Metheglin", m3);
+		subToCat.put("Vegetable Mead", m3);
+		subToCat.put("Fruit and Spice Mead", m3);
+
+		// M4. Specialty Mead
+
+		BjcpCategory m4 = new BjcpCategory("M4", "Specialty Mead");
+		categories.add(m4);
+
+		subToCat.put("Braggot", m4);
+		subToCat.put("Bochet", m4);
+		subToCat.put("Polish Mead", m4);
+		subToCat.put("Wood-Aged Mead", m4);
+		subToCat.put("Barrel-Aged Mead", m4);
+		subToCat.put("Experimental Mead", m4);
 	}
 }
